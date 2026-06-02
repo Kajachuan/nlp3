@@ -14,7 +14,7 @@ El orquestador combina ambas respuestas, ejecuta un modelo preexistente opcional
 - API funcional: interfaz Streamlit en `app/main.py`.
 - Dos agentes inteligentes: `CatalogAgent` y `WebResearchAgent`, coordinados por `ComponentAdvisorOrchestrator`.
 - Comunicacion dinamica: el orquestador pasa la consulta validada, recoge respuestas y autoevaluaciones, y compone una respuesta final.
-- RAG: `CatalogRetriever` recupera y rerankea documentos del catalogo `data/raw/electronic_components_catalog.json`.
+- RAG: `CatalogRetriever` consulta una coleccion persistente de Chroma en `data/processed/chroma`, construida desde `data/raw/electronic_components_catalog.json`.
 - Seguridad: `validate_user_query` filtra entradas vacias, largas, secretos, prompt injection basica y payloads peligrosos.
 - Modelo preexistente: `PretrainedIntentModel` intenta usar `facebook/bart-large-mnli` via `transformers`; si no esta disponible, usa fallback deterministicamente testeable.
 - Flujo modular: agentes, tool adapters, politicas, telemetry y pipeline factory estan desacoplados.
@@ -37,8 +37,11 @@ Si la libreria real expone otro nombre, solo hay que ajustar `src/tools/external
 ```powershell
 cd llm-agent-project
 pip install -r requirements.txt
+python scripts/ingest_catalog_to_chroma.py
 streamlit run app/main.py
 ```
+
+La app tambien indexa el catalogo automaticamente al arrancar si la coleccion no esta construida.
 
 ## Tests
 

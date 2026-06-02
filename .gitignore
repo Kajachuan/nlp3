@@ -220,3 +220,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 llm-agent-project/logs/*.jsonl
+llm-agent-project/data/processed/chroma/
+llm-agent-project/tmp/test-chroma-*/
