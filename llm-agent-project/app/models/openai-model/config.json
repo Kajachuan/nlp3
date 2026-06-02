@@ -1,0 +1,6 @@
+{
+  "name": "openai-model",
+  "type": "language-model",
+  "inputs": ["prompt"],
+  "outputs": ["completion"]
+}
