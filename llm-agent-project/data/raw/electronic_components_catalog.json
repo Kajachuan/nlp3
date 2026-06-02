@@ -1,0 +1,122 @@
+[
+  {
+    "sku": "R-10K-0603-1",
+    "name": "Resistencia SMD 10 kOhm 0603",
+    "category": "resistor",
+    "description": "Resistencia de montaje superficial para divisores de tension, pull-up y polarizacion general.",
+    "specs": {
+      "resistance_ohm": 10000,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603"
+    },
+    "stock": 2400,
+    "price_usd": 0.012,
+    "recommended_use": "Senales digitales de baja corriente y redes de polarizacion compactas."
+  },
+  {
+    "sku": "C-100N-X7R-0603",
+    "name": "Capacitor ceramico 100 nF X7R 0603",
+    "category": "capacitor",
+    "description": "Capacitor de desacople para alimentacion de microcontroladores, sensores y circuitos integrados.",
+    "specs": {
+      "capacitance_f": 1e-7,
+      "voltage_v": 50,
+      "dielectric": "X7R",
+      "package": "0603"
+    },
+    "stock": 5200,
+    "price_usd": 0.018,
+    "recommended_use": "Colocar cerca de pines VCC/GND para reducir ruido de alimentacion."
+  },
+  {
+    "sku": "U-ESP32-WROOM-32E",
+    "name": "Modulo ESP32-WROOM-32E",
+    "category": "microcontroller",
+    "description": "Modulo WiFi y Bluetooth basado en ESP32 con CPU dual-core, ideal para prototipos IoT.",
+    "specs": {
+      "voltage_v": "3.0-3.6",
+      "flash_mb": 4,
+      "wireless": "WiFi 2.4 GHz, Bluetooth BLE",
+      "gpio": 34
+    },
+    "stock": 85,
+    "price_usd": 3.95,
+    "recommended_use": "Controlador principal para dispositivos conectados con telemetria o control remoto."
+  },
+  {
+    "sku": "S-BME280-I2C",
+    "name": "Sensor ambiental BME280 I2C",
+    "category": "sensor",
+    "description": "Sensor digital de temperatura, humedad y presion atmosferica con interfaz I2C/SPI.",
+    "specs": {
+      "voltage_v": "1.8-3.6",
+      "interfaces": "I2C, SPI",
+      "temperature_range_c": "-40 a 85",
+      "pressure_range_hpa": "300 a 1100"
+    },
+    "stock": 130,
+    "price_usd": 4.25,
+    "recommended_use": "Estaciones meteorologicas, monitoreo ambiental y compensacion barometrica."
+  },
+  {
+    "sku": "Q-2N7002-SOT23",
+    "name": "MOSFET N 2N7002 SOT-23",
+    "category": "transistor",
+    "description": "MOSFET canal N de pequena senal para conmutacion de cargas livianas y adaptacion de niveles.",
+    "specs": {
+      "vds_v": 60,
+      "id_ma": 300,
+      "rds_on_ohm": 5,
+      "package": "SOT-23"
+    },
+    "stock": 780,
+    "price_usd": 0.045,
+    "recommended_use": "Conmutacion low-side de LEDs, reles pequenos y entradas logicas."
+  },
+  {
+    "sku": "D-SS14-SMA",
+    "name": "Diodo Schottky SS14 SMA",
+    "category": "diode",
+    "description": "Diodo Schottky de baja caida para proteccion de polaridad, OR-ing y fuentes switching.",
+    "specs": {
+      "vr_v": 40,
+      "if_a": 1,
+      "vf_v": 0.5,
+      "package": "SMA"
+    },
+    "stock": 460,
+    "price_usd": 0.08,
+    "recommended_use": "Proteccion de entrada y rectificacion eficiente en baja tension."
+  },
+  {
+    "sku": "REG-AMS1117-3V3",
+    "name": "Regulador lineal AMS1117 3.3 V",
+    "category": "power",
+    "description": "Regulador LDO fijo de 3.3 V para alimentar logica, sensores y modulos de baja potencia.",
+    "specs": {
+      "vin_max_v": 15,
+      "vout_v": 3.3,
+      "current_a": 1,
+      "dropout_v": 1.1
+    },
+    "stock": 210,
+    "price_usd": 0.19,
+    "recommended_use": "Prototipos de 5 V a 3.3 V con consumo moderado y disipacion controlada."
+  },
+  {
+    "sku": "OP-LM358-DIP8",
+    "name": "Amplificador operacional LM358 DIP-8",
+    "category": "analog",
+    "description": "Amplificador operacional doble de bajo consumo para acondicionamiento de senales analogicas.",
+    "specs": {
+      "channels": 2,
+      "supply_v": "3-32",
+      "gbw_mhz": 1,
+      "package": "DIP-8"
+    },
+    "stock": 95,
+    "price_usd": 0.24,
+    "recommended_use": "Filtros activos, buffers y amplificacion de sensores en protoboard."
+  }
+]
