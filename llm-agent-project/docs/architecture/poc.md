@@ -5,7 +5,7 @@
 El sistema recibe una consulta tecnica sobre componentes electronicos y coordina dos agentes:
 
 - `CatalogAgent`: consulta un RAG local sobre un catalogo JSON de componentes.
-- `WebResearchAgent`: consulta una tool compatible con `web_search_tool` y usa un fallback offline para demo.
+- `WebResearchAgent`: consulta la tool real `web-search-tool` via `WebSearchClient.search(...)` y usa un fallback offline solo cuando faltan credenciales o falla el proveedor.
 
 El orquestador combina ambas respuestas, ejecuta un modelo preexistente opcional para clasificar intencion y registra la accion final en un log de auditoria.
 
@@ -24,13 +24,19 @@ El orquestador combina ambas respuestas, ejecuta un modelo preexistente opcional
 
 ## Integracion de web_search_tool
 
-El adapter busca una funcion `search(query, limit)` en estos modulos:
+El adapter usa el paquete real:
 
-- `web_search_tool`
-- `web_search_tool.search`
-- `web_search_tool.web_search`
+- Repo: `https://github.com/lsaraco/web-search-tool`
+- Import: `from web_search_tool import WebSearchClient`
+- Metodo: `WebSearchClient.search(query=..., method=..., limit=...)`
 
-Si la libreria real expone otro nombre, solo hay que ajustar `src/tools/external/web_search_adapter.py`.
+Backends soportados desde la UI:
+
+- `tavily`: requiere `TAVILY_API_KEY`.
+- `google_shopping`: requiere `SERPAPI_API_KEY`.
+- `google_search`: requiere `SERPAPI_API_KEY` y `ZYTE_API_KEY`.
+
+Crear un `.env` en `llm-agent-project` a partir de `.env.example`. La app carga ese archivo al construir el pipeline. Si no hay credenciales, el agente web muestra `offline-demo: missing ...` para que el resto de la demo siga funcionando.
 
 ## Ejecucion
 

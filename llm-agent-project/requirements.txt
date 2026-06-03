@@ -1,3 +1,5 @@
 streamlit>=1.32
 pytest>=8.0
 chromadb>=0.5
+python-dotenv>=1.0
+web-search-tool @ git+https://github.com/lsaraco/web-search-tool.git@cc6a21d51d5c0b3de623dc2a91d5d8b8ed1c8629

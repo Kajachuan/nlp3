@@ -8,6 +8,7 @@ from src.agents.cores.web_research_agent import WebResearchAgent, WebResearchRes
 from src.common.telemetry.metrics import Metrics, append_audit_event
 from src.policies.security import clamp_int, validate_user_query
 from src.runtime.providers.pretrained_intent_model import IntentPrediction, PretrainedIntentModel
+from src.tools.external.web_search_adapter import WebSearchMethod
 
 
 @dataclass(frozen=True)
@@ -34,7 +35,16 @@ class ComponentAdvisorOrchestrator:
         self.intent_model = intent_model
         self.audit_log_path = audit_log_path
 
-    def answer(self, query: str, top_k: int = 3, web_limit: int = 3) -> AdvisorResponse:
+    def answer(
+        self,
+        query: str,
+        top_k: int = 3,
+        web_limit: int = 3,
+        web_method: WebSearchMethod | None = None,
+        preferred_sites: list[str] | None = None,
+        preferred_only: bool = False,
+        include_delivery_details: bool = False,
+    ) -> AdvisorResponse:
         metrics = Metrics()
         validation = validate_user_query(query)
         if not validation.is_valid:
@@ -61,7 +71,14 @@ class ComponentAdvisorOrchestrator:
         with metrics.timer("catalog_agent"):
             catalog = self.catalog_agent.run(validation.sanitized, top_k=top_k)
         with metrics.timer("web_agent"):
-            web = self.web_agent.run(validation.sanitized, limit=web_limit)
+            web = self.web_agent.run(
+                validation.sanitized,
+                limit=web_limit,
+                method=web_method,
+                preferred_sites=preferred_sites,
+                preferred_only=preferred_only,
+                include_delivery_details=include_delivery_details,
+            )
 
         metrics.increment("catalog_hits", len(catalog.hits))
         metrics.increment("web_results", len(web.results))
