@@ -35,6 +35,7 @@ class PlannerDecision:
     reason: str
     model: str
     provider: str
+    direct_answer: str = ""
 
 
 @dataclass(frozen=True)
@@ -122,7 +123,6 @@ class ComponentAdvisorOrchestrator:
         top_k = clamp_int(top_k, 1, 5)
         web_limit = clamp_int(web_limit, 1, 5)
         metrics.set_label("planner_model", models.planner_model)
-        metrics.set_label("direct_response_model", models.direct_response_model)
         metrics.set_label("verifier_model", models.verifier_model)
         metrics.set_label("estimated_cost_usd", 0.0)
         metrics.set_label("langfuse_enabled", self.tracer.enabled)
@@ -231,24 +231,12 @@ class ComponentAdvisorOrchestrator:
             messages = list(state.get("stream_messages", []))
             if planner.stream_message:
                 messages.append(planner.stream_message)
-            return {**state, "planner": planner, "stream_messages": messages}
-
-        def direct_response_node(state: dict[str, Any]) -> dict[str, Any]:
-            emit("Generando respuesta directa...")
-            planner = state["planner"]
-            with trace.span("direct_response", {"model": models.direct_response_model}):
-                with metrics.timer("direct_response"):
-                    final_answer = self._run_direct_response(
-                            state["query"],
-                            planner,
-                        models.direct_response_model,
-                        trace,
-                        metrics,
-                        state.get("chat_history", []),
-                    )
-            emit("Respuesta directa generada.")
-            metrics.set_label("web_fallback_used", False)
-            return {**state, "final_answer": final_answer}
+            next_state = {**state, "planner": planner, "stream_messages": messages}
+            if planner.route in {"out_of_domain", "agent_info"}:
+                metrics.set_label("web_fallback_used", False)
+                final_answer = planner.direct_answer or self._fallback_direct_answer(planner)
+                next_state["final_answer"] = final_answer
+            return next_state
 
         def local_hybrid_search_node(state: dict[str, Any]) -> dict[str, Any]:
             planner = state["planner"]
@@ -366,7 +354,6 @@ class ComponentAdvisorOrchestrator:
             return {**state, "telegram_result": telegram_result}
 
         graph.add_node("planner", planner_node)
-        graph.add_node("direct_response", direct_response_node)
         graph.add_node("local_hybrid_search", local_hybrid_search_node)
         graph.add_node("local_evidence_gate", evidence_gate_node)
         graph.add_node("web_fallback", web_fallback_node)
@@ -375,13 +362,12 @@ class ComponentAdvisorOrchestrator:
         graph.set_entry_point("planner")
         graph.add_conditional_edges(
             "planner",
-            lambda state: "direct_response" if state["planner"].route in {"out_of_domain", "agent_info"} else "local_hybrid_search",
+            lambda state: "end" if state["planner"].route in {"out_of_domain", "agent_info"} else "local_hybrid_search",
             {
-                "direct_response": "direct_response",
+                "end": END,
                 "local_hybrid_search": "local_hybrid_search",
             },
         )
-        graph.add_edge("direct_response", END)
         graph.add_edge("local_hybrid_search", "local_evidence_gate")
         graph.add_conditional_edges(
             "local_evidence_gate",
@@ -431,35 +417,19 @@ class ComponentAdvisorOrchestrator:
             reason=str(parsed.get("reason") or ""),
             model=model,
             provider=llm_result.provider,
+            direct_answer=self._clean_markdown_fences(str(parsed.get("direct_answer") or "")),
         )
 
-    def _run_direct_response(
-        self,
-        query: str,
-        planner: PlannerDecision,
-        model: str,
-        trace,
-        metrics: Metrics,
-        chat_history: list[dict[str, str]] | None = None,
-    ) -> str:
-        prompt = load_prompt("direct_response")
-        payload = (
-            f"{self._conversation_payload(query, chat_history)}\n"
-            f"Route: {planner.route}\nReason: {planner.reason}"
-        )
-        llm_result = self.llm_provider.invoke(model, prompt, payload)
-        self._record_llm_usage(metrics, "direct_response", llm_result)
-        trace.generation("direct_response", model, payload, llm_result.content, {"provider": llm_result.provider})
-        if llm_result.provider == "groq" and llm_result.content.strip():
-            return self._clean_markdown_fences(llm_result.content)
+    def _fallback_direct_answer(self, planner: PlannerDecision) -> str:
+        """Return a direct answer when planner output lacks direct_answer."""
         if planner.route == "agent_info":
             return (
                 "Este agente busca productos electronicos para comprar. Primero consulta nuestro catalogo local y, "
                 "si no alcanza, usa proveedores externos para encontrar precio y URL de compra."
             )
         return (
-            "No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos "
-            "para compra, precio y URL de compra."
+            "This agent is only for finding electronic components to buy, and I can help you reformulate "
+            "your request to search for a specific electronic product."
         )
 
     def _run_aggregator(
@@ -537,6 +507,17 @@ class ComponentAdvisorOrchestrator:
             "needs_price": any(term in lowered for term in ["precio", "price", "comprar", "buy"]),
             "stream_message": "I am checking whether this should use local catalog search or external suppliers.",
             "reason": f"fallback planner via {provider}",
+            "direct_answer": (
+                "Este agente busca productos electronicos para comprar. Primero consulta nuestro catalogo local y, "
+                "si no alcanza, usa proveedores externos para encontrar precio y URL de compra."
+            )
+            if route == "agent_info"
+            else (
+                "This agent is only for finding electronic components to buy, and I can help you reformulate "
+                "your request to search for a specific electronic product."
+            )
+            if route == "out_of_domain"
+            else "",
         }
 
     def _fallback_aggregator(

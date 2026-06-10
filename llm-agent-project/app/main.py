@@ -50,11 +50,6 @@ with st.sidebar:
         model_options,
         index=model_options.index(defaults.planner_model) if defaults.planner_model in model_options else 0,
     )
-    direct_response_model = st.selectbox(
-        "Respuesta directa",
-        model_options,
-        index=model_options.index(defaults.direct_response_model) if defaults.direct_response_model in model_options else 0,
-    )
     verifier_model = st.selectbox(
         "Agregador/verificador",
         model_options,
@@ -138,7 +133,6 @@ def render_timing_bar(timings: dict[str, float]) -> None:
         display_timings.pop("local_hybrid_search", None)
     order = [
         "planner",
-        "direct_response",
         "rag_search",
         "keyword_bm25_search",
         "hybrid_merge",
@@ -156,7 +150,6 @@ def render_timing_bar(timings: dict[str, float]) -> None:
         return
     colors = {
         "planner": "#4f46e5",
-        "direct_response": "#7c3aed",
         "rag_search": "#059669",
         "keyword_bm25_search": "#16a34a",
         "hybrid_merge": "#84cc16",
@@ -315,7 +308,7 @@ if prompt:
             enable_telegram_notification=enable_telegram_notification,
             model_selection=LLMModelSelection(
                 planner_model=planner_model,
-                direct_response_model=direct_response_model,
+                direct_response_model=planner_model,
                 verifier_model=verifier_model,
             ),
             progress_callback=update_status,
