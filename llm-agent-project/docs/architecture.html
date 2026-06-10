@@ -1362,7 +1362,7 @@
 
   <section>
     <h2>Cobertura del informe tecnico</h2>
-    <p>Esta documentacion funciona como fuente viva para el PDF en <code>docs/informe</code> y la presentacion en <code>docs/presentacion</code>. La tabla marca donde queda cubierta cada parte exigida por la consigna.</p>
+    <p>Esta documentacion funciona como fuente viva para el PDF en <code>docs/informe.pdf</code> y la presentacion en <code>docs/presentacion</code>. La tabla marca donde queda cubierta cada parte exigida por la consigna.</p>
     <table>
       <thead>
         <tr>
@@ -1399,7 +1399,7 @@
         </tr>
         <tr>
           <td>Conclusiones y mejoras futuras</td>
-          <td>Brechas contra consigna y plan restante: routing, ranking, politicas de output, cache y recalibracion del dataset.</td>
+          <td>Estado de implementacion, optimizaciones aplicadas, politicas de output, cache y recalibracion del dataset.</td>
           <td><span class="ok">Cubierto</span></td>
         </tr>
         <tr>
@@ -2291,34 +2291,6 @@
         </tr>
       </tbody>
     </table>
-  </section>
-
-  <section>
-    <h2>Brechas contra la consigna</h2>
-    <div class="grid">
-      <div class="box span-6">
-        <h3><span class="ok">Cubierto</span></h3>
-        <ul class="compact">
-          <li>Interfaz funcional con Streamlit como chat con historial.</li>
-          <li>Catalogo local con RAG semantico, Keyword/BM25 y merge hibrido.</li>
-          <li>Fallback web externo con SerpAPI/Google Shopping.</li>
-          <li>Seguridad de entrada basica.</li>
-          <li>LangGraph + LangChain + Groq para planner con respuesta directa integrada y verificador.</li>
-          <li>Langfuse SDK con trazas, spans, generations, tokens y costo.</li>
-          <li>Auditoria automatica en JSONL.</li>
-        </ul>
-      </div>
-      <div class="box span-6">
-        <h3><span class="todo">Pendiente</span></h3>
-        <ul class="compact">
-          <li>Recalibrar dataset/prompts despues de expandir el catalogo a 408 items.</li>
-          <li>Reporte final con resultados cuantitativos, ejemplos de fallos y acciones correctivas.</li>
-          <li>Conectar <code>PretrainedIntentModel</code> al grafo o reemplazarlo por un CNN/ViT preentrenado si se exige inferencia visual estricta.</li>
-          <li>Politicas mas completas de seguridad de output y PII antes de un despliegue productivo.</li>
-          <li>Optimizacion adicional: cache, limites de tokens por ruta y posible seleccion dinamica de modelo.</li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <section>

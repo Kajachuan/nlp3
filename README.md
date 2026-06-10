@@ -26,7 +26,7 @@ La arquitectura usa:
 | Recurso | Link |
 |---|---|
 | Arquitectura visual viva | [llm-agent-project/docs/architecture.html](llm-agent-project/docs/architecture.html) |
-| Informe tecnico PDF | [llm-agent-project/docs/informe/informe_final.pdf](llm-agent-project/docs/informe/informe_final.pdf) |
+| Informe tecnico PDF | [llm-agent-project/docs/informe.pdf](llm-agent-project/docs/informe.pdf) |
 | Reporte de metricas PDF | [llm-agent-project/reports/metricas.pdf](llm-agent-project/reports/metricas.pdf) |
 | Reporte de metricas HTML | [llm-agent-project/reports/eval_metrics_report.html](llm-agent-project/reports/eval_metrics_report.html) |
 
