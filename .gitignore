@@ -226,3 +226,6 @@ __marimo__/
 llm-agent-project/logs/*.jsonl
 llm-agent-project/data/processed/chroma/
 llm-agent-project/tmp/test-chroma-*/
+
+# Local Codex/agent instructions
+AGENTS.md
