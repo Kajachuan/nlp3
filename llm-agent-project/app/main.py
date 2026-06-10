@@ -139,6 +139,7 @@ def render_timing_bar(timings: dict[str, float]) -> None:
         "hybrid_merge",
         "web_fallback",
         "aggregator_verifier",
+        "telegram_notification",
     ]
     ordered_timings = {key: display_timings[key] for key in order if key in display_timings}
     for key, value in display_timings.items():
@@ -156,6 +157,7 @@ def render_timing_bar(timings: dict[str, float]) -> None:
         "hybrid_merge": "#84cc16",
         "web_fallback": "#0284c7",
         "aggregator_verifier": "#dc2626",
+        "telegram_notification": "#ea580c",
     }
     default_color = "#64748b"
     segments = []

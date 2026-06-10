@@ -21,6 +21,7 @@ from src.runtime.config import LLMModelSelection, default_model_selection
 from src.runtime.prompts import load_prompt
 from src.runtime.providers.groq_llm import GroqLLMProvider, parse_json_object
 from src.tools.external.web_search_adapter import WebSearchMethod
+from src.tools.external.telegram_tool import send_telegram_message
 
 
 @dataclass(frozen=True)
@@ -329,12 +330,40 @@ class ComponentAdvisorOrchestrator:
                 )
             return {**state, "aggregator": aggregator, "final_answer": final_answer}
 
+        def telegram_notification_node(state: dict[str, Any]) -> dict[str, Any]:
+            aggregator = state.get("aggregator")
+            if not self._should_send_telegram_message(aggregator):
+                metrics.set_label("telegram_message_sent", False)
+                metrics.set_label("telegram_message_skipped_reason", "missing purchase evidence")
+                return {**state, "telegram_result": None}
+
+            emit("Enviando mensaje de compra por Telegram...")
+            with trace.span("telegram_notification"):
+                with metrics.timer("telegram_notification"):
+                    telegram_result = send_telegram_message.invoke(
+                        {
+                            "product_name": aggregator.product_name,
+                            "price": aggregator.price,
+                            "link": aggregator.purchase_url,
+                        }
+                    )
+            sent = bool(telegram_result.get("ok"))
+            metrics.set_label("telegram_message_sent", sent)
+            metrics.set_label("telegram_chat_id", str(telegram_result.get("chat_id") or ""))
+            if not sent:
+                metrics.set_label("telegram_message_error", str(telegram_result.get("error") or "unknown error"))
+                emit("No se pudo enviar el mensaje por Telegram. La respuesta final se mantiene.")
+            else:
+                emit("Mensaje de compra enviado por Telegram.")
+            return {**state, "telegram_result": telegram_result}
+
         graph.add_node("planner", planner_node)
         graph.add_node("direct_response", direct_response_node)
         graph.add_node("local_hybrid_search", local_hybrid_search_node)
         graph.add_node("local_evidence_gate", evidence_gate_node)
         graph.add_node("web_fallback", web_fallback_node)
         graph.add_node("aggregator_verifier", aggregator_verifier_node)
+        graph.add_node("telegram_notification", telegram_notification_node)
         graph.set_entry_point("planner")
         graph.add_conditional_edges(
             "planner",
@@ -355,7 +384,17 @@ class ComponentAdvisorOrchestrator:
             },
         )
         graph.add_edge("web_fallback", "aggregator_verifier")
-        graph.add_edge("aggregator_verifier", END)
+        graph.add_conditional_edges(
+            "aggregator_verifier",
+            lambda state: "telegram_notification"
+            if self._should_send_telegram_message(state.get("aggregator"))
+            else "end",
+            {
+                "telegram_notification": "telegram_notification",
+                "end": END,
+            },
+        )
+        graph.add_edge("telegram_notification", END)
         return graph.compile()
 
     def _run_planner(
@@ -685,6 +724,12 @@ class ComponentAdvisorOrchestrator:
             return None
         text = str(value)
         return None if text.lower() == "null" or not text.strip() else text
+
+    def _should_send_telegram_message(self, aggregator: AggregatorDecision | None) -> bool:
+        """Return whether the final purchase answer has enough data for Telegram."""
+        if not aggregator or not aggregator.should_answer:
+            return False
+        return bool(aggregator.product_name and aggregator.price and aggregator.purchase_url)
 
     def _clean_markdown_fences(self, text: str) -> str:
         cleaned = text.strip()

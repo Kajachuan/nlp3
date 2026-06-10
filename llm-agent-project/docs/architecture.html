@@ -647,6 +647,7 @@
     .c-hybrid { background: #84cc16; }
     .c-web { background: #0284c7; }
     .c-verifier { background: #dc2626; }
+    .c-telegram { background: #ea580c; }
 
     .screenshot-grid {
       display: grid;
@@ -1479,7 +1480,8 @@
         <div class="timing-segment c-rag" style="width:1%;" title="rag search: 7.75 ms"></div>
         <div class="timing-segment c-keyword" style="width:1%;" title="keyword bm25 search: 1.87 ms"></div>
         <div class="timing-segment c-hybrid" style="width:1%;" title="hybrid merge: 0.05 ms"></div>
-        <div class="timing-segment c-verifier" style="width:25.16%;" title="aggregator verifier: 440.22 ms"></div>
+        <div class="timing-segment c-verifier" style="width:24.4%;" title="aggregator verifier: 440.22 ms"></div>
+        <div class="timing-segment c-telegram" style="width:1%;" title="telegram notification: 18.44 ms"></div>
       </div>
       <div class="timing-legend">
         <span><span class="swatch c-planner"></span>planner: 1300.11 ms</span>
@@ -1487,6 +1489,7 @@
         <span><span class="swatch c-keyword"></span>keyword bm25 search: 1.87 ms</span>
         <span><span class="swatch c-hybrid"></span>hybrid merge: 0.05 ms</span>
         <span><span class="swatch c-verifier"></span>aggregator verifier: 440.22 ms</span>
+        <span><span class="swatch c-telegram"></span>telegram notification: 18.44 ms</span>
       </div>
     </div>
     <table>
@@ -1532,6 +1535,11 @@
           <td><code>aggregator_verifier</code></td>
           <td>LLM que arma la respuesta final y valida evidencia.</td>
           <td><span class="ui-color"><span class="swatch c-verifier"></span>Rojo <code>#dc2626</code></span></td>
+        </tr>
+        <tr>
+          <td><code>telegram_notification</code></td>
+          <td>Tool de LangChain que envia el mensaje automatico por Telegram cuando hay producto, precio y URL.</td>
+          <td><span class="ui-color"><span class="swatch c-telegram"></span>Naranja <code>#ea580c</code></span></td>
         </tr>
       </tbody>
     </table>
@@ -1599,9 +1607,9 @@
         </tr>
         <tr>
           <td>Accion final automatica</td>
-          <td>Registrar cada consulta aceptada, consulta bloqueada y respuesta final en un log JSONL auditable.</td>
+          <td>Registrar cada respuesta en JSONL y, cuando hay producto con precio y URL, ejecutar el tool LangChain <code>send_telegram_message</code> desde un nodo deterministico de LangGraph.</td>
           <td><span class="ok">Implementado</span></td>
-          <td><code>src/common/telemetry/metrics.py</code> y <code>logs/advisor_audit.jsonl</code></td>
+          <td><code>src/tools/external/telegram_tool.py</code>, <code>src/common/telemetry/metrics.py</code> y <code>logs/advisor_audit.jsonl</code></td>
         </tr>
         <tr>
           <td>Modelo preexistente de inferencia</td>
@@ -1829,6 +1837,11 @@
         <h3>Clasificador auxiliar</h3>
         <p><code>PretrainedIntentModel</code> encapsula <code>facebook/bart-large-mnli</code> como modelo preexistente para intencion tecnica. Actualmente esta disponible como modulo, pero debe conectarse al grafo para quedar demostrado en el flujo ejecutable.</p>
       </div>
+      <div class="box span-6">
+        <span class="tag">Tool final</span>
+        <h3>Telegram controlado por LangGraph</h3>
+        <p><code>send_telegram_message</code> esta registrado con <code>@tool</code> de LangChain, pero no queda a decision libre del LLM. El nodo <code>telegram_notification</code> lo ejecuta solo despues del verificador, si hay producto, precio y URL de compra.</p>
+      </div>
     </div>
 
     <div class="code-block">ChatInput + ChatHistory
@@ -1843,8 +1856,9 @@
               -> AggregatorVerifierNode  # LLM: respuesta final si hay evidencia local
               -> WebFallbackNode         # SerpAPI / Google Shopping, sin LLM
                   -> AggregatorVerifierNode
+  -> TelegramNotificationNode            # LangChain tool: send_telegram_message, controlado por reglas
   -> FinalResponse + StreamlitDetails
-  -> LangfuseTrace + AuditLog + TimingBar</div>
+  -> LangfuseTrace + AuditLog + Telegram + TimingBar</div>
   </section>
 
   <section>
@@ -1953,6 +1967,11 @@
           <td>Gates</td>
           <td><code>LOCAL_SEARCH_MIN_SCORE</code>, <code>LOCAL_SEARCH_MIN_RESULTS</code>, <code>WEB_FALLBACK_ENABLED</code></td>
           <td>Condiciones deterministicas para decidir si alcanza con busqueda local o se activa web.</td>
+        </tr>
+        <tr>
+          <td>Telegram</td>
+          <td><code>TELEGRAM_BOT_API_KEY</code>, <code>TELEGRAM_CLIENT_ID</code></td>
+          <td>Bot y chat destino para enviar el mensaje automatico: <code>Puedes comprar NOMBRE_PRODUCTO por USD PRECIO en LINK</code>.</td>
         </tr>
       </tbody>
     </table>
