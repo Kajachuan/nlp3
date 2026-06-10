@@ -13,6 +13,7 @@ class Metrics:
     timings_ms: dict[str, float] = field(default_factory=dict)
     counters: dict[str, int] = field(default_factory=dict)
     scores: dict[str, float] = field(default_factory=dict)
+    labels: dict[str, str | bool | int | float] = field(default_factory=dict)
 
     @contextmanager
     def timer(self, name: str) -> Iterator[None]:
@@ -28,11 +29,15 @@ class Metrics:
     def set_score(self, name: str, value: float) -> None:
         self.scores[name] = round(float(value), 4)
 
+    def set_label(self, name: str, value: str | bool | int | float) -> None:
+        self.labels[name] = value
+
     def as_dict(self) -> dict[str, Any]:
         return {
             "timings_ms": self.timings_ms,
             "counters": self.counters,
             "scores": self.scores,
+            "labels": self.labels,
         }
 
 

@@ -64,6 +64,10 @@ class ChromaCatalogStore:
         return rows
 
     def item_to_document(self, item: dict[str, Any]) -> str:
+        return self.item_to_document_static(item)
+
+    @staticmethod
+    def item_to_document_static(item: dict[str, Any]) -> str:
         specs = " ".join(f"{key}: {value}" for key, value in item.get("specs", {}).items())
         return " ".join(
             [
