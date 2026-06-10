@@ -95,6 +95,7 @@ class ComponentAdvisorOrchestrator:
         web_method: WebSearchMethod | None = None,
         preferred_sites: list[str] | None = None,
         preferred_only: bool = False,
+        enable_telegram_notification: bool = False,
         model_selection: LLMModelSelection | None = None,
         progress_callback: Callable[[str], None] | None = None,
     ) -> AdvisorResponse:
@@ -136,6 +137,7 @@ class ComponentAdvisorOrchestrator:
                 web_method=web_method,
                 preferred_sites=preferred_sites,
                 preferred_only=preferred_only,
+                enable_telegram_notification=enable_telegram_notification,
                 progress_callback=progress_callback,
             )
             state = graph.invoke(
@@ -148,6 +150,7 @@ class ComponentAdvisorOrchestrator:
                     "gate": None,
                     "aggregator": None,
                     "final_answer": "",
+                    "enable_telegram_notification": enable_telegram_notification,
                 }
             )
 
@@ -201,6 +204,7 @@ class ComponentAdvisorOrchestrator:
         web_method: WebSearchMethod | None,
         preferred_sites: list[str] | None,
         preferred_only: bool,
+        enable_telegram_notification: bool,
         progress_callback: Callable[[str], None] | None = None,
     ):
         graph = StateGraph(dict)
@@ -332,6 +336,10 @@ class ComponentAdvisorOrchestrator:
 
         def telegram_notification_node(state: dict[str, Any]) -> dict[str, Any]:
             aggregator = state.get("aggregator")
+            if not state.get("enable_telegram_notification", False):
+                metrics.set_label("telegram_message_sent", False)
+                metrics.set_label("telegram_message_skipped_reason", "disabled by user")
+                return {**state, "telegram_result": None}
             if not self._should_send_telegram_message(aggregator):
                 metrics.set_label("telegram_message_sent", False)
                 metrics.set_label("telegram_message_skipped_reason", "missing purchase evidence")
@@ -387,7 +395,7 @@ class ComponentAdvisorOrchestrator:
         graph.add_conditional_edges(
             "aggregator_verifier",
             lambda state: "telegram_notification"
-            if self._should_send_telegram_message(state.get("aggregator"))
+            if enable_telegram_notification and self._should_send_telegram_message(state.get("aggregator"))
             else "end",
             {
                 "telegram_notification": "telegram_notification",

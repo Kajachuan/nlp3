@@ -36,6 +36,11 @@ with st.sidebar:
     web_method = st.selectbox("Metodo web", web_methods, index=web_methods.index(default_web_method))
     preferred_sites_text = st.text_input("Sitios preferidos", value="digikey.com,mouser.com")
     preferred_only = st.checkbox("Solo sitios preferidos", value=False)
+    enable_telegram_notification = st.checkbox(
+        "Enviar Telegram si se encontro precio",
+        value=bool(os.getenv("TELEGRAM_CLIENT_ID")),
+        help="Envia al cliente configurado el mensaje de compra cuando la respuesta final tiene producto, precio y URL.",
+    )
     st.divider()
     st.subheader("Modelos LLM")
     model_options = parse_model_options()
@@ -307,6 +312,7 @@ if prompt:
             web_method=web_method,
             preferred_sites=preferred_sites or None,
             preferred_only=preferred_only,
+            enable_telegram_notification=enable_telegram_notification,
             model_selection=LLMModelSelection(
                 planner_model=planner_model,
                 direct_response_model=direct_response_model,

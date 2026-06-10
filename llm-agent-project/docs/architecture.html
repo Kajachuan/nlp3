@@ -1472,6 +1472,11 @@
         <h3>Resultados auditables</h3>
         <p>Los botones de RAG, Keyword/BM25 y Web abren dialogos con los resultados reales recuperados: indice, texto, score, proveedor o URL segun corresponda.</p>
       </div>
+      <div class="box span-12 obs">
+        <span class="tag">Telegram</span>
+        <h3>Toggle de notificacion</h3>
+        <p>La sidebar incluye el checkbox <code>Enviar Telegram si se encontro precio</code>. Si esta activo y el verificador devuelve producto, precio y URL, Streamlit pasa <code>enable_telegram_notification=True</code> al backend.</p>
+      </div>
     </div>
     <div class="timing-example" aria-label="Ejemplo de barra de tiempos por etapa en Streamlit">
       <strong>Tiempo por etapa</strong>
@@ -1538,7 +1543,7 @@
         </tr>
         <tr>
           <td><code>telegram_notification</code></td>
-          <td>Tool de LangChain que envia el mensaje automatico por Telegram cuando hay producto, precio y URL.</td>
+          <td>Tool de LangChain que envia el mensaje automatico por Telegram cuando el checkbox esta activo y hay producto, precio y URL.</td>
           <td><span class="ui-color"><span class="swatch c-telegram"></span>Naranja <code>#ea580c</code></span></td>
         </tr>
       </tbody>
@@ -1607,7 +1612,7 @@
         </tr>
         <tr>
           <td>Accion final automatica</td>
-          <td>Registrar cada respuesta en JSONL y, cuando hay producto con precio y URL, ejecutar el tool LangChain <code>send_telegram_message</code> desde un nodo deterministico de LangGraph.</td>
+          <td>Registrar cada respuesta en JSONL y, si el checkbox de Streamlit esta activo y hay producto con precio y URL, ejecutar el tool LangChain <code>send_telegram_message</code> desde un nodo deterministico de LangGraph.</td>
           <td><span class="ok">Implementado</span></td>
           <td><code>src/tools/external/telegram_tool.py</code>, <code>src/common/telemetry/metrics.py</code> y <code>logs/advisor_audit.jsonl</code></td>
         </tr>
@@ -1840,7 +1845,7 @@
       <div class="box span-6">
         <span class="tag">Tool final</span>
         <h3>Telegram controlado por LangGraph</h3>
-        <p><code>send_telegram_message</code> esta registrado con <code>@tool</code> de LangChain, pero no queda a decision libre del LLM. El nodo <code>telegram_notification</code> lo ejecuta solo despues del verificador, si hay producto, precio y URL de compra.</p>
+        <p><code>send_telegram_message</code> esta registrado con <code>@tool</code> de LangChain, pero no queda a decision libre del LLM. El nodo <code>telegram_notification</code> lo ejecuta solo si la UI lo habilita y despues del verificador hay producto, precio y URL de compra.</p>
       </div>
     </div>
 
