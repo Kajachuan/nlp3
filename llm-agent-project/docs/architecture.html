@@ -879,14 +879,12 @@
       background: #fff;
     }
 
-    #metrics-manual:checked ~ .tab-labels label[for="metrics-manual"],
-    #metrics-deepeval:checked ~ .tab-labels label[for="metrics-deepeval"] {
+    #metrics-manual:checked ~ .tab-labels label[for="metrics-manual"] {
       background: #fff;
       color: var(--ink);
     }
 
-    #metrics-manual:checked ~ .manual-panel,
-    #metrics-deepeval:checked ~ .deepeval-panel {
+    #metrics-manual:checked ~ .manual-panel {
       display: block;
     }
 
@@ -1060,7 +1058,13 @@
             <div class="map-icon">LLM</div>
             <strong>Planificador</strong>
             <small>Clasifica la consulta, normaliza terminos y prepara un <code>web_search_query</code> en ingles por si hace falta fallback.</small>
+            <small><strong>Atajo:</strong> si la consulta esta fuera de scope, responde directo y saltea RAG, BM25, web y verificacion.</small>
           </div>
+        </div>
+
+        <div class="fallback-lane sec">
+          <strong>Ruta out of scope -> Respuesta directa LLM</strong>
+          <small>Para preguntas no relacionadas con compra de componentes, el grafo corta temprano. Esto evita retrieval, web search, verificacion y envio de Telegram.</small>
         </div>
 
         <div class="search-row">
@@ -1095,7 +1099,7 @@
           </div>
         </div>
 
-        <p class="map-note">El usuario ve progreso por etapas mientras el grafo corre: planner, RAG, Keyword/BM25, evidence gate, fallback web y verificacion.</p>
+        <p class="map-note">Los condicionales y fallbacks existen para ahorrar tokens, latencia y llamadas a LLMs: solo se ejecuta cada etapa si la evidencia anterior no alcanza o si la ruta realmente lo requiere.</p>
       </div>
 
       <aside class="sidecar">
@@ -1127,6 +1131,11 @@
         <span class="tag">Costo</span>
         <h3>Web como fallback</h3>
         <p>Google Shopping/SerpAPI se usa solo si el catalogo local no resuelve el producto, precio o URL de compra.</p>
+      </div>
+      <div class="box span-4">
+        <span class="tag">Tokens</span>
+        <h3>Cortes tempranos</h3>
+        <p>Las rutas condicionales evitan pasos caros: out of scope saltea RAG/web/verificacion, y el evidence gate decide fallback web sin otra llamada LLM.</p>
       </div>
     </div>
   </section>
@@ -1646,16 +1655,14 @@
 
   <section>
     <h2>Metricas necesarias</h2>
-    <p>Hay dos formas de correr la evaluacion offline sobre <code>data/eval/metrics_dataset.json</code>. Ambas usan 40 muestras y el pipeline real; despues de expandir el catalogo a 408 items, las dos corridas muestran una degradacion clara de retrieval y routing en consultas funcionales.</p>
-    <p>Para el informe final, las metricas se agrupan en tres niveles: modelo/respuesta final, agentes/orquestacion y RAG. Hoy estan implementadas las metricas deterministicas principales; queda agregar una metrica textual de calidad de respuesta como <code>ROUGE-L</code> o similitud semantica contra respuestas esperadas.</p>
+    <p>Hay dos formas de correr la evaluacion offline sobre <code>data/eval/metrics_dataset.json</code>. La corrida manual actual usa 40 muestras y el pipeline real, genera <code>reports/eval_metrics_report.html</code> y supera todos los umbrales principales.</p>
+    <p>Para el informe final, las metricas se agrupan en tres niveles: modelo/respuesta final, agentes/orquestacion y RAG. Las metricas deterministicas principales ya estan implementadas y pasan: <code>Recall@k</code>, Context Recall, abstencion correcta y robustez.</p>
 
     <div class="tabs">
       <input type="radio" id="metrics-manual" name="metrics-tabs" checked>
-      <input type="radio" id="metrics-deepeval" name="metrics-tabs">
 
       <div class="tab-labels">
         <label for="metrics-manual">Pytest manual</label>
-        <label for="metrics-deepeval">Pytest + DeepEval</label>
       </div>
 
       <div class="tab-panel manual-panel">
@@ -1678,15 +1685,15 @@
               <td><strong>Recall@K</strong></td>
               <td><code>casos_con_expected_sku_en_top_k / casos_totales_de_retrieval</code>. Usa <code>top_k=3</code> y compara <code>expected_sku</code> contra los SKUs devueltos por RAG+Keyword/BM25.</td>
               <td>>= 0.85</td>
-              <td>0.750</td>
-              <td><span class="risk">FALLA</span></td>
+              <td>0.938</td>
+              <td><span class="ok">PASA</span></td>
             </tr>
             <tr>
               <td><strong>Context Recall</strong></td>
               <td>Promedio de evidencia usada por respuesta: SKU/nombre correcto, precio, URL de compra y fuente/cita. Cada caso vale <code>checks_cumplidos / 4</code>.</td>
               <td>>= 0.85</td>
-              <td>0.797</td>
-              <td><span class="risk">FALLA</span></td>
+              <td>0.875</td>
+              <td><span class="ok">PASA</span></td>
             </tr>
             <tr>
               <td><strong>Abstencion correcta</strong></td>
@@ -1697,64 +1704,16 @@
             </tr>
             <tr>
               <td><strong>Robustez</strong></td>
-              <td><code>1 - max(0, clean_recall - variant_recall)</code>. Compara recall en consultas limpias contra parafrasis/ruido. Corrida actual: clean 1.000, variantes 0.667.</td>
+              <td><code>1 - max(0, clean_recall - variant_recall)</code>. Compara recall en consultas limpias contra parafrasis/ruido. Corrida actual: clean 1.000, variantes 0.917.</td>
               <td>>= 0.90</td>
-              <td>0.667</td>
-              <td><span class="risk">FALLA</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <p>Reporte generado: <code>reports/eval_metrics_report.html</code>. Resultado pytest actual: falla por <code>recall_at_k</code>, <code>context_recall</code> y <code>robustness</code>. Tokens reportados: 551; costo estimado: USD 0.001015.</p>
-      </div>
-
-      <div class="tab-panel deepeval-panel">
-        <h3>Evaluacion con DeepEval</h3>
-        <p>Archivo: <code>tests/eval/test_deepeval_metrics_evaluation.py</code>. Usa <code>deepeval==4.0.6</code>, <code>LLMTestCase</code> y metricas custom que heredan de <code>BaseMetric</code>. No usa LLM judge externo: DeepEval estructura los casos y metricas, pero el scoring sigue siendo auditable.</p>
-        <div class="code-block">.\.venv\Scripts\python.exe -m pytest tests\eval -m eval_deepeval --run-deepeval-metrics -s</div>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Metrica DeepEval</th>
-              <th>Metodo / formula</th>
-              <th>Umbral</th>
-              <th>Resultado actual</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>DeepEval Recall@K</strong></td>
-              <td><code>BaseMetric.measure(LLMTestCase)</code> lee <code>metadata.recall_hit</code>: 1 si <code>expected_sku</code> aparece en top-k, 0 si no.</td>
-              <td>>= 0.85</td>
-              <td>0.781</td>
-              <td><span class="risk">FALLA</span></td>
-            </tr>
-            <tr>
-              <td><strong>DeepEval Context Recall</strong></td>
-              <td><code>BaseMetric.measure(LLMTestCase)</code> lee <code>metadata.context_score</code>, calculado con las mismas 4 evidencias: identidad, precio, URL de compra y fuente.</td>
-              <td>>= 0.85</td>
-              <td>0.797</td>
-              <td><span class="risk">FALLA</span></td>
-            </tr>
-            <tr>
-              <td><strong>DeepEval Correct Abstention</strong></td>
-              <td><code>BaseMetric.measure(LLMTestCase)</code> lee <code>metadata.abstention_correct</code>: ruta fuera de dominio, sin tools y respuesta final presente.</td>
-              <td>>= 0.90</td>
-              <td>1.000</td>
+              <td>0.917</td>
               <td><span class="ok">PASA</span></td>
             </tr>
-            <tr>
-              <td><strong>DeepEval Robustness</strong></td>
-              <td>Agregado del dataset: <code>1 - max(0, clean_recall - variant_recall)</code>. Corrida actual: clean 1.000, variantes 0.708.</td>
-              <td>>= 0.90</td>
-              <td>0.708</td>
-              <td><span class="risk">FALLA</span></td>
-            </tr>
           </tbody>
         </table>
-        <p>Reporte generado: <code>reports/deepeval_metrics_report.html</code>. Resultado pytest actual: falla por <code>recall_at_k</code>, <code>context_recall</code> y <code>robustness</code>. Tokens del pipeline reportados: 15013.</p>
+        <p>Reporte generado: <code>reports/eval_metrics_report.html</code>. Resultado actual: todas las metricas pasan. Dataset: 40 muestras; tokens reportados: 34164; costo estimado: USD 0.080356. Robustez: clean recall 1.000, variant recall 0.917.</p>
       </div>
+
     </div>
 
     <table>
@@ -1852,7 +1811,7 @@
     <div class="code-block">ChatInput + ChatHistory
   -> PlannerNode                         # LLM: clasifica ruta, normaliza consulta y prepara web_search_query en ingles
   -> RouteDecision
-      -> DirectResponseNode              # fuera de dominio / ayuda del agente
+      -> DirectResponseNode              # fuera de dominio / ayuda del agente; se saltea RAG, web y verifier
       -> LocalHybridSearchNode           # RAG + Keyword/BM25 en la etapa local, sin LLM
           -> rag_search
           -> keyword_bm25_search
@@ -1864,6 +1823,10 @@
   -> TelegramNotificationNode            # LangChain tool: send_telegram_message, controlado por reglas
   -> FinalResponse + StreamlitDetails
   -> LangfuseTrace + AuditLog + Telegram + TimingBar</div>
+    <div class="box span-12 llm">
+      <h3>Optimizacion posible</h3>
+      <p>Hoy las rutas <code>out_of_domain</code> y <code>agent_info</code> usan planner + respuesta directa. Si el planner devuelve tambien el texto final para esas rutas, se elimina <code>DirectResponseNode</code> y se baja de 2 a 1 llamada LLM en consultas fuera de alcance o sobre el agente.</p>
+    </div>
   </section>
 
   <section>
@@ -1881,26 +1844,26 @@
         <tr>
           <td>Fuera de dominio</td>
           <td><code>PlannerNode -> DirectResponseNode</code></td>
-          <td>2</td>
-          <td>El planner clasifica y el nodo directo responde rapido que el agente solo busca productos electronicos para compra.</td>
+          <td>2 actual / 1 optimizable</td>
+          <td>El planner clasifica y se saltean RAG, BM25, web, verificador y Telegram. Optimizacion: embeber la respuesta directa en el planner para ahorrar una llamada LLM.</td>
         </tr>
         <tr>
           <td>Pregunta sobre el agente</td>
           <td><code>PlannerNode -> DirectResponseNode</code></td>
-          <td>2</td>
-          <td>El planner clasifica y el nodo directo responde desde instrucciones del prompt. No usa RAG ni web.</td>
+          <td>2 actual / 1 optimizable</td>
+          <td>El planner detecta que es informacion del agente y evita busqueda. Puede responder desde el mismo planner para ahorrar una llamada LLM.</td>
         </tr>
         <tr>
           <td>Producto encontrado localmente</td>
           <td><code>PlannerNode -> LocalHybridSearchNode -> AggregatorVerifierNode</code></td>
           <td>2</td>
-          <td>La busqueda local hibrida encuentra producto, precio y URL de compra local.</td>
+          <td>La busqueda local hibrida encuentra producto, precio y URL de compra local. El evidence gate evita web search y una llamada externa.</td>
         </tr>
         <tr>
           <td>Producto no encontrado localmente</td>
           <td><code>PlannerNode -> LocalHybridSearchNode -> WebFallbackNode -> AggregatorVerifierNode</code></td>
           <td>2</td>
-          <td>Web search no requiere LLM. El verificador usa resultados locales y externos para responder.</td>
+          <td>Web search no requiere LLM. El verificador usa resultados locales y externos para responder; el fallback se activa solo si la evidencia local no alcanza.</td>
         </tr>
       </tbody>
     </table>

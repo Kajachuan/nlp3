@@ -554,7 +554,7 @@ class ComponentAdvisorOrchestrator:
                 f"No encontre una coincidencia suficiente en el catalogo local. "
                 f"Resultado externo: {best_web.title}.\n\n"
                 f"Precio: {best_web.price or 'No informado'}\n"
-                f"Comprar: [Click aqui]({best_web.url})"
+                f"Comprar: [Click aqui]({self._markdown_url(best_web.url)})"
             )
             return AggregatorDecision(
                 should_answer=True,
@@ -578,7 +578,7 @@ class ComponentAdvisorOrchestrator:
             answer = (
                 f"En nuestro catalogo encontre {item['name']} ({item['sku']}).\n\n"
                 f"Precio: USD {item.get('price_usd')}\n"
-                f"Comprar: [Click aqui]({purchase_url})"
+                f"Comprar: [Click aqui]({self._markdown_url(purchase_url)})"
             )
             return AggregatorDecision(
                 should_answer=True,
@@ -600,7 +600,7 @@ class ComponentAdvisorOrchestrator:
                 f"No encontre una coincidencia suficiente en el catalogo local. "
                 f"Resultado externo: {best_web.title}.\n\n"
                 f"Precio: {best_web.price or 'No informado'}\n"
-                f"Comprar: [Click aqui]({best_web.url})"
+                f"Comprar: [Click aqui]({self._markdown_url(best_web.url)})"
             )
             return AggregatorDecision(
                 should_answer=True,
@@ -743,8 +743,22 @@ class ComponentAdvisorOrchestrator:
         cleaned = text.strip()
         fenced = re.fullmatch(r"```(?:markdown|md)?\s*(.*?)\s*```", cleaned, flags=re.DOTALL | re.IGNORECASE)
         if fenced:
-            return fenced.group(1).strip()
-        return cleaned
+            cleaned = fenced.group(1).strip()
+        return self._normalize_markdown_links(cleaned)
+
+    def _normalize_markdown_links(self, text: str) -> str:
+        """Percent-encode unsafe characters inside Markdown link URLs."""
+
+        def replace(match: re.Match[str]) -> str:
+            label = match.group("label")
+            url = match.group("url").strip()
+            return f"[{label}]({self._markdown_url(url)})"
+
+        return re.sub(r"\[(?P<label>[^\]]+)\]\((?P<url>[^\n]+)\)", replace, text)
+
+    def _markdown_url(self, url: str) -> str:
+        """Return a URL safe for Markdown link destinations."""
+        return quote(str(url).strip(), safe=":/?#[]@!$&'*+,;=%")
 
     def _local_purchase_url(self, item: dict[str, Any]) -> str:
         component_name = str(item.get("name") or item.get("sku") or "component")
