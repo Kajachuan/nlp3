@@ -384,6 +384,394 @@
       margin-top: 12px;
     }
 
+    .architecture-shell {
+      margin-top: 14px;
+    }
+
+    .arch-diagram {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fbfdfc 0%, #f4f8f6 100%);
+      padding: 22px;
+      overflow-x: auto;
+    }
+
+    .arch-row {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(70px, 1fr));
+      gap: 12px;
+      align-items: center;
+      min-width: 980px;
+    }
+
+    .arch-node,
+    .arch-decision,
+    .arch-note-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    .arch-node {
+      border: 2px solid #91d4a8;
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      min-height: 104px;
+      box-shadow: 0 8px 22px rgba(36, 112, 71, .08);
+    }
+
+    .arch-node strong,
+    .arch-note-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .arch-node small,
+    .arch-note-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .arch-node.llm {
+      border-color: #e6b95c;
+    }
+
+    .arch-node.web {
+      border-color: #73aee0;
+    }
+
+    .arch-node.ops {
+      border-color: #b8bec8;
+    }
+
+    .arch-node.telegram {
+      border-color: #ea580c;
+      background: #fff7ed;
+    }
+
+    .arch-decision {
+      width: 154px;
+      height: 154px;
+      justify-self: center;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      transform: rotate(45deg);
+      border: 2px solid #7b61d1;
+      background: #f5f1ff;
+      box-shadow: 0 8px 22px rgba(123, 97, 209, .10);
+    }
+
+    .arch-decision > span {
+      transform: rotate(-45deg);
+      color: #46348f;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+      width: 112px;
+    }
+
+    .arch-note-card {
+      border: 2px dashed #4b93c9;
+      border-radius: 8px;
+      background: var(--web);
+      padding: 12px;
+      min-height: 96px;
+    }
+
+    .arch-arrow {
+      position: relative;
+      min-height: 34px;
+      min-width: 34px;
+      align-self: stretch;
+    }
+
+    .arch-arrow.right::before,
+    .arch-arrow.left::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 10px;
+      height: 3px;
+      background: #42a56b;
+      border-radius: 999px;
+      transform: translateY(-50%);
+    }
+
+    .arch-arrow.right::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 11px solid #42a56b;
+      transform: translateY(-50%);
+    }
+
+    .arch-arrow.left::before {
+      left: 10px;
+      right: 0;
+    }
+
+    .arch-arrow.left::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 11px solid #42a56b;
+      transform: translateY(-50%);
+    }
+
+    .arch-arrow.down::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 10px;
+      width: 3px;
+      background: #42a56b;
+      border-radius: 999px;
+      transform: translateX(-50%);
+    }
+
+    .arch-arrow.down::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 11px solid #42a56b;
+      transform: translateX(-50%);
+    }
+
+    .arch-arrow.up::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      bottom: 0;
+      width: 3px;
+      background: #42a56b;
+      border-radius: 999px;
+      transform: translateX(-50%);
+    }
+
+    .arch-arrow.up::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 11px solid #42a56b;
+      transform: translateX(-50%);
+    }
+
+    .arch-arrow.bidir::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: #4b93c9;
+      border-radius: 999px;
+      transform: translateX(-50%);
+    }
+
+    .arch-arrow.bidir::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 16px;
+      height: 100%;
+      transform: translateX(-50%);
+      background:
+        linear-gradient(135deg, transparent 46%, #4b93c9 47% 53%, transparent 54%) top center / 16px 16px no-repeat,
+        linear-gradient(315deg, transparent 46%, #4b93c9 47% 53%, transparent 54%) bottom center / 16px 16px no-repeat;
+    }
+
+    .arch-label {
+      align-self: center;
+      justify-self: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .runtime-bridge {
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      align-items: center;
+      margin: 8px 0;
+    }
+
+    .runtime-bridge::before,
+    .runtime-bridge::after {
+      content: "";
+      height: 1px;
+      background: var(--line);
+    }
+
+    .runtime-band {
+      border: 2px solid #4b93c9;
+      border-radius: 8px;
+      background: var(--obs);
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .runtime-band strong {
+      display: block;
+      color: #1f5f8f;
+      margin-bottom: 4px;
+    }
+
+    .runtime-band small {
+      color: var(--muted);
+      display: block;
+    }
+
+    .arch-canvas {
+      position: relative;
+      width: 1120px;
+      height: 1460px;
+      margin: 0 auto;
+    }
+
+    .arch-svg {
+      position: absolute;
+      inset: 0;
+      width: 1120px;
+      height: 1460px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .arch-path {
+      fill: none;
+      stroke: #5fa26f;
+      stroke-width: 3.25;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      marker-end: url(#archArrowHead);
+    }
+
+    .arch-path.false-path {
+      stroke: #4b93c9;
+    }
+
+    .arch-path.stop-path {
+      stroke: #9b6b1b;
+    }
+
+    .arch-box,
+    .arch-diamond {
+      position: absolute;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    .arch-box {
+      width: 280px;
+      min-height: 96px;
+      border: 2px solid #91d4a8;
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      box-shadow: 0 8px 22px rgba(36, 112, 71, .08);
+    }
+
+    .arch-box.llm { border-color: #e6b95c; }
+    .arch-box.web { border-color: #73aee0; }
+    .arch-box.ops { border-color: #b8bec8; }
+    .arch-box.telegram {
+      border-color: #ea580c;
+      background: #fff7ed;
+    }
+    .arch-box.end {
+      border-color: #9b6b1b;
+      background: #fffbeb;
+      min-height: 58px;
+      text-align: center;
+    }
+    .arch-box.note {
+      border: 2px dashed #4b93c9;
+      background: var(--web);
+    }
+
+    .arch-box strong {
+      display: block;
+      color: var(--accent);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .arch-box small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .arch-diamond {
+      width: 140px;
+      height: 140px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #7b61d1;
+      background: #f5f1ff;
+      box-shadow: 0 8px 22px rgba(123, 97, 209, .10);
+      transform: rotate(45deg);
+    }
+
+    .arch-diamond span {
+      width: 102px;
+      transform: rotate(-45deg);
+      color: #46348f;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .arch-edge-label {
+      position: absolute;
+      z-index: 2;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .92);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      white-space: nowrap;
+    }
+
+    .arch-note-bottom {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
     .data-map {
       display: grid;
       grid-template-columns: 1fr 1.1fr 1fr;
@@ -641,7 +1029,6 @@
     }
 
     .c-planner { background: #4f46e5; }
-    .c-direct { background: #7c3aed; }
     .c-rag { background: #059669; }
     .c-keyword { background: #16a34a; }
     .c-hybrid { background: #84cc16; }
@@ -937,6 +1324,7 @@
       .flow-arrow::after { left: 50%; right: auto; top: 29px; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 12px solid var(--accent); border-bottom: 0; }
       .json-flow-grid { grid-template-columns: 1fr; }
       .screenshot-grid { grid-template-columns: 1fr; }
+      .runtime-band { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1044,68 +1432,230 @@
       </div>
       <div class="box span-12 llm">
         <h3><span class="ok">Implementado</span> - LLM real con LangGraph + LangChain + Groq</h3>
-        <p>El planner, la respuesta directa y el agregador/verificador usan Groq mediante LangChain. LangGraph es requerimiento del backend y orquesta nodos, rutas condicionales y estado compartido.</p>
+        <p>El planner y el agregador/verificador usan Groq mediante LangChain. Para rutas fuera de scope, el planner devuelve tambien la respuesta final en <code>direct_answer</code>, evitando una segunda llamada LLM.</p>
       </div>
     </div>
   </section>
 
   <section>
     <h2>Arquitectura implementada</h2>
-    <div class="sidecar-map">
-      <div class="architecture-map" aria-label="Arquitectura fan-out fan-in">
-        <div class="map-row">
-          <div class="map-card llm">
-            <div class="map-icon">LLM</div>
-            <strong>Planificador</strong>
-            <small>Clasifica la consulta, normaliza terminos y prepara un <code>web_search_query</code> en ingles por si hace falta fallback.</small>
-            <small><strong>Atajo:</strong> si la consulta esta fuera de scope, responde directo y saltea RAG, BM25, web y verificacion.</small>
+    <div class="architecture-shell">
+      <div class="arch-diagram" aria-label="Arquitectura con decisiones y rutas condicionales">
+        <div class="arch-canvas">
+          <svg class="arch-svg" viewBox="0 0 1120 1460" aria-hidden="true">
+            <defs>
+              <marker id="archArrowHead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"></path>
+              </marker>
+            </defs>
+            <path class="arch-path" d="M560 112 L560 145"></path>
+            <path class="arch-path stop-path" d="M490 215 L330 215"></path>
+            <path class="arch-path stop-path" d="M190 270 L190 330"></path>
+            <path class="arch-path" d="M630 215 L820 215"></path>
+            <path class="arch-path" d="M960 270 L960 320 L560 320 L560 350"></path>
+            <path class="arch-path" d="M560 350 L560 365 L410 365 L410 405"></path>
+            <path class="arch-path" d="M560 350 L560 365 L750 365 L750 405"></path>
+            <path class="arch-path" d="M410 501 L410 525 L515 525 L515 555"></path>
+            <path class="arch-path" d="M750 501 L750 525 L605 525 L605 555"></path>
+            <path class="arch-path" d="M560 651 L560 690"></path>
+            <path class="arch-path false-path" d="M490 760 L190 760 L190 900"></path>
+            <path class="arch-path" d="M630 760 L870 760 L870 948 L720 948"></path>
+            <path class="arch-path false-path" d="M330 948 L400 948"></path>
+            <path class="arch-path" d="M560 996 L560 1065"></path>
+            <path class="arch-path" d="M560 1161 L560 1215"></path>
+            <path class="arch-path stop-path" d="M490 1285 L360 1285 L360 1318 L330 1318"></path>
+            <path class="arch-path" d="M630 1285 L790 1285 L790 1318 L820 1318"></path>
+          </svg>
+
+          <div class="arch-box llm" style="left:400px;top:20px;width:320px;">
+            <strong>PlannerNode</strong>
+            <small>LLM. Clasifica ruta, normaliza consulta, prepara <code>web_search_query</code> y puede devolver <code>direct_answer</code>.</small>
           </div>
-        </div>
 
-        <div class="fallback-lane sec">
-          <strong>Ruta out of scope -> Respuesta directa LLM</strong>
-          <small>Para preguntas no relacionadas con compra de componentes, el grafo corta temprano. Esto evita retrieval, web search, verificacion y envio de Telegram.</small>
-        </div>
+          <div class="arch-box llm" style="left:50px;top:174px;">
+            <strong>Respuesta directa</strong>
+            <small>Si esta fuera de scope o pregunta por el agente, responde desde el planner y termina.</small>
+          </div>
+          <div class="arch-box end" style="left:100px;top:330px;width:180px;">
+            <strong>END</strong>
+            <small>Finaliza sin busqueda.</small>
+          </div>
+          <div class="arch-diamond" style="left:490px;top:145px;">
+            <span>Out of scope o agent info?</span>
+          </div>
+          <div class="arch-box note" style="left:820px;top:174px;">
+            <strong>No: buscar producto</strong>
+            <small>Continua al catalogo local. Se evita fallback externo hasta tener evidencia.</small>
+          </div>
+          <div class="arch-edge-label" style="left:350px;top:194px;">true -> END</div>
+          <div class="arch-edge-label" style="left:780px;top:300px;">false -> local search</div>
 
-        <div class="search-row">
-          <div class="agent-card rag">
-            <div class="agent-number">1</div>
-            <div class="map-icon">R</div>
+          <div class="arch-box rag" style="left:270px;top:405px;">
             <strong>RAG semantico</strong>
-            <small>Busca coincidencias por significado en el catalogo local con ChromaDB.</small>
-            <small><strong>Salida:</strong> candidatos con score y evidencia.</small>
+            <small>ChromaDB recupera candidatos por significado desde el catalogo interno.</small>
           </div>
-          <div class="agent-card rag">
-            <div class="agent-number">2</div>
-            <div class="map-icon">K</div>
+          <div class="arch-box rag" style="left:610px;top:405px;">
             <strong>Keyword / BM25</strong>
-            <small>Busca coincidencias exactas por nombre, SKU, marca, categoria y terminos tecnicos.</small>
-            <small><strong>Salida:</strong> candidatos lexicos.</small>
+            <small>Busca coincidencias por SKU, nombre, marca, categoria y terminos tecnicos.</small>
           </div>
-        </div>
-
-        <div class="fallback-lane">
-          <strong>Evidence gate -> Fallback: Google Shopping / SerpAPI</strong>
-          <small>Solo se ejecuta si faltan resultados, score, terminos especificos, precio o URL de compra.</small>
-        </div>
-
-        <div class="merge-line"></div>
-
-        <div class="map-row">
-          <div class="map-card llm">
-            <div class="map-icon">OK</div>
-            <strong>Agregacion + verificacion</strong>
-            <small>Combina evidencia local y externa, valida precio, URL de compra y proveedor/fuente.</small>
+          <div class="arch-box ops" style="left:420px;top:555px;">
+            <strong>Hybrid merge</strong>
+            <small>Fusiona candidatos, suma senales y conserva evidencia trazable.</small>
           </div>
-        </div>
 
-        <p class="map-note">Los condicionales y fallbacks existen para ahorrar tokens, latencia y llamadas a LLMs: solo se ejecuta cada etapa si la evidencia anterior no alcanza o si la ruta realmente lo requiere.</p>
+          <div class="arch-diamond" style="left:490px;top:690px;">
+            <span>Evidencia local suficiente?</span>
+          </div>
+          <div class="arch-edge-label" style="left:360px;top:738px;">false</div>
+          <div class="arch-edge-label" style="left:820px;top:805px;">true</div>
+
+          <div class="arch-box web" style="left:50px;top:900px;">
+            <strong>WebFallbackNode</strong>
+            <small>Google Shopping / SerpAPI. Solo se ejecuta si faltan resultados, score, terminos, precio o URL.</small>
+          </div>
+          <div class="arch-box llm" style="left:400px;top:900px;width:320px;">
+            <strong>AggregatorVerifierNode</strong>
+            <small>LLM. Combina evidencia local y externa, valida precio, URL de compra, fuente y confianza.</small>
+          </div>
+          <div class="arch-box ops" style="left:420px;top:1065px;">
+            <strong>Respuesta final</strong>
+            <small>Markdown para Streamlit con producto, precio, link, proveedor/fuente y limitaciones.</small>
+          </div>
+
+          <div class="arch-box note" style="left:50px;top:1270px;">
+            <strong>No enviar Telegram</strong>
+            <small>Si el checkbox esta apagado o falta precio/link, se termina sin accion externa.</small>
+          </div>
+          <div class="arch-diamond" style="left:490px;top:1215px;">
+            <span>Telegram activo + precio + URL?</span>
+          </div>
+          <div class="arch-box telegram" style="left:820px;top:1270px;">
+            <strong>send_telegram_message</strong>
+            <small>Tool LangChain. Envia: Puedes comprar NOMBRE_PRODUCTO por USD PRECIO en LINK.</small>
+          </div>
+          <div class="arch-edge-label" style="left:360px;top:1260px;">false</div>
+          <div class="arch-edge-label" style="left:720px;top:1260px;">true</div>
+
+          <p class="arch-note-bottom">Los rombos son cortes condicionales. Cada true/false evita trabajo innecesario: menos tokens, menos latencia, menos llamadas LLM y menos llamadas externas.</p>
+        </div>
       </div>
 
-      <aside class="sidecar">
-        <strong>Langfuse</strong>
-        <small>SDK Python contra Langfuse Cloud/Web. Las claves son de proyecto: no se configura organizacion ni proyecto aparte en el backend.</small>
-      </aside>
+      <div class="arch-diagram" aria-label="Arquitectura anterior" style="display: none;">
+        <div class="arch-row">
+          <div class="arch-node llm" style="grid-column: 5 / span 4;">
+            <strong>PlannerNode</strong>
+            <small>LLM. Clasifica ruta, normaliza consulta, prepara <code>web_search_query</code> y puede devolver <code>direct_answer</code>.</small>
+          </div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-arrow down" style="grid-column: 6 / span 2;"></div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-node llm" style="grid-column: 1 / span 3;">
+            <strong>Respuesta directa</strong>
+            <small>Si esta fuera de scope o pregunta por el agente, responde desde el planner y termina.</small>
+          </div>
+          <div class="arch-arrow left" style="grid-column: 4;"></div>
+          <div class="arch-decision" style="grid-column: 5 / span 4;">
+            <span>¿Out of scope o agent info?</span>
+          </div>
+          <div class="arch-arrow right" style="grid-column: 9;"></div>
+          <div class="arch-note-card" style="grid-column: 10 / span 3;">
+            <strong>No: buscar producto</strong>
+            <small>Continua al catalogo local. Se evita cualquier fallback externo hasta tener evidencia.</small>
+          </div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-label" style="grid-column: 2;">true -> END</div>
+          <div class="arch-label" style="grid-column: 10 / span 2;">false -> local search</div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-arrow down" style="grid-column: 10 / span 2;"></div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-node rag" style="grid-column: 3 / span 3;">
+            <strong>RAG semantico</strong>
+            <small>ChromaDB recupera candidatos por significado desde el catalogo interno.</small>
+          </div>
+          <div class="arch-node rag" style="grid-column: 6 / span 3;">
+            <strong>Keyword / BM25</strong>
+            <small>Busca coincidencias por SKU, nombre, marca, categoria y terminos tecnicos.</small>
+          </div>
+          <div class="arch-node ops" style="grid-column: 9 / span 3;">
+            <strong>Hybrid merge</strong>
+            <small>Fusiona candidatos, suma señales y conserva evidencia trazable.</small>
+          </div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-arrow right" style="grid-column: 5;"></div>
+          <div class="arch-arrow right" style="grid-column: 8;"></div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-decision" style="grid-column: 5 / span 4;">
+            <span>¿Evidencia local suficiente?</span>
+          </div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-label" style="grid-column: 3 / span 2;">false</div>
+          <div class="arch-label" style="grid-column: 9 / span 2;">true</div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-node web" style="grid-column: 1 / span 3;">
+            <strong>WebFallbackNode</strong>
+            <small>Google Shopping / SerpAPI. Solo se ejecuta si faltan resultados, score, terminos, precio o URL.</small>
+          </div>
+          <div class="arch-arrow right" style="grid-column: 4;"></div>
+          <div class="arch-node llm" style="grid-column: 5 / span 4;">
+            <strong>AggregatorVerifierNode</strong>
+            <small>LLM. Combina evidencia local y externa, valida precio, URL de compra, fuente y confianza.</small>
+          </div>
+          <div class="arch-arrow right" style="grid-column: 9;"></div>
+          <div class="arch-node ops" style="grid-column: 10 / span 3;">
+            <strong>Respuesta final</strong>
+            <small>Markdown para Streamlit con producto, precio, link, proveedor/fuente y limitaciones.</small>
+          </div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-arrow down" style="grid-column: 6 / span 2;"></div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-note-card" style="grid-column: 1 / span 3;">
+            <strong>No enviar Telegram</strong>
+            <small>Si el checkbox esta apagado o falta precio/link, se termina sin accion externa.</small>
+          </div>
+          <div class="arch-arrow left" style="grid-column: 4;"></div>
+          <div class="arch-decision" style="grid-column: 5 / span 4;">
+            <span>¿Telegram activo + precio + URL?</span>
+          </div>
+          <div class="arch-arrow right" style="grid-column: 9;"></div>
+          <div class="arch-node telegram" style="grid-column: 10 / span 3;">
+            <strong>send_telegram_message</strong>
+            <small>Tool LangChain. Envia: Puedes comprar NOMBRE_PRODUCTO por USD PRECIO en LINK.</small>
+          </div>
+        </div>
+        <p class="map-note">Los rombos son cortes condicionales. Cada true/false evita trabajo innecesario: menos tokens, menos latencia, menos llamadas LLM y menos llamadas externas.</p>
+      </div>
+
+      <div class="runtime-bridge">
+        <div></div>
+        <div class="arch-arrow bidir" aria-hidden="true"></div>
+        <div></div>
+      </div>
+
+      <div class="runtime-band" aria-label="Capa horizontal de runtime y observabilidad">
+        <div>
+          <strong>LangGraph</strong>
+          <small>Orquesta nodos, decisiones true/false, estado compartido y finalizacion temprana.</small>
+        </div>
+        <div>
+          <strong>LangChain</strong>
+          <small>Prompts, modelos Groq, structured output y tool <code>send_telegram_message</code>.</small>
+        </div>
+        <div>
+          <strong>Langfuse</strong>
+          <small>Trazas, spans, generations, tokens, costos, errores y auditoria operacional.</small>
+        </div>
+      </div>
     </div>
 
     <div class="box span-12">
@@ -1451,7 +2001,7 @@
         </tr>
         <tr>
           <td><code>generation</code></td>
-          <td>Prompts, modelo Groq, tokens, output, errores del LLM.</td>
+          <td>Prompts, modelo Groq, tokens, output, respuesta directa del planner y errores del LLM.</td>
           <td>Medir costo, latencia y consistencia de prompts.</td>
         </tr>
         <tr>
@@ -1519,11 +2069,6 @@
           <td><code>planner</code></td>
           <td>LLM que decide ruta y genera query normalizada/web.</td>
           <td><span class="ui-color"><span class="swatch c-planner"></span>Indigo <code>#4f46e5</code></span></td>
-        </tr>
-        <tr>
-          <td><code>direct_response</code></td>
-          <td>LLM para consultas fuera de dominio o sobre el agente.</td>
-          <td><span class="ui-color"><span class="swatch c-direct"></span>Violeta <code>#7c3aed</code></span></td>
         </tr>
         <tr>
           <td><code>rag_search</code></td>
@@ -1758,7 +2303,7 @@
           <li>Catalogo local con RAG semantico, Keyword/BM25 y merge hibrido.</li>
           <li>Fallback web externo con SerpAPI/Google Shopping.</li>
           <li>Seguridad de entrada basica.</li>
-          <li>LangGraph + LangChain + Groq para planner, respuesta directa y verificador.</li>
+          <li>LangGraph + LangChain + Groq para planner con respuesta directa integrada y verificador.</li>
           <li>Langfuse SDK con trazas, spans, generations, tokens y costo.</li>
           <li>Auditoria automatica en JSONL.</li>
         </ul>
@@ -1811,7 +2356,7 @@
     <div class="code-block">ChatInput + ChatHistory
   -> PlannerNode                         # LLM: clasifica ruta, normaliza consulta y prepara web_search_query en ingles
   -> RouteDecision
-      -> DirectResponseNode              # fuera de dominio / ayuda del agente; se saltea RAG, web y verifier
+      -> END                             # fuera de dominio / ayuda del agente: direct_answer sale del planner
       -> LocalHybridSearchNode           # RAG + Keyword/BM25 en la etapa local, sin LLM
           -> rag_search
           -> keyword_bm25_search
@@ -1824,8 +2369,8 @@
   -> FinalResponse + StreamlitDetails
   -> LangfuseTrace + AuditLog + Telegram + TimingBar</div>
     <div class="box span-12 llm">
-      <h3>Optimizacion posible</h3>
-      <p>Hoy las rutas <code>out_of_domain</code> y <code>agent_info</code> usan planner + respuesta directa. Si el planner devuelve tambien el texto final para esas rutas, se elimina <code>DirectResponseNode</code> y se baja de 2 a 1 llamada LLM en consultas fuera de alcance o sobre el agente.</p>
+      <h3>Optimizacion implementada</h3>
+      <p>Las rutas <code>out_of_domain</code> y <code>agent_info</code> terminan en el planner: el mismo JSON incluye <code>direct_answer</code>. Asi se elimina <code>DirectResponseNode</code> para esos casos y se baja de 2 a 1 llamada LLM.</p>
     </div>
   </section>
 
@@ -1843,15 +2388,15 @@
       <tbody>
         <tr>
           <td>Fuera de dominio</td>
-          <td><code>PlannerNode -> DirectResponseNode</code></td>
-          <td>2 actual / 1 optimizable</td>
-          <td>El planner clasifica y se saltean RAG, BM25, web, verificador y Telegram. Optimizacion: embeber la respuesta directa en el planner para ahorrar una llamada LLM.</td>
+          <td><code>PlannerNode -> END</code></td>
+          <td>1</td>
+          <td>El planner clasifica, devuelve <code>direct_answer</code> y se saltean RAG, BM25, web, verificador, Telegram y una segunda llamada LLM.</td>
         </tr>
         <tr>
           <td>Pregunta sobre el agente</td>
-          <td><code>PlannerNode -> DirectResponseNode</code></td>
-          <td>2 actual / 1 optimizable</td>
-          <td>El planner detecta que es informacion del agente y evita busqueda. Puede responder desde el mismo planner para ahorrar una llamada LLM.</td>
+          <td><code>PlannerNode -> END</code></td>
+          <td>1</td>
+          <td>El planner detecta que es informacion del agente, devuelve <code>direct_answer</code> y evita busqueda y segunda llamada LLM.</td>
         </tr>
         <tr>
           <td>Producto encontrado localmente</td>
@@ -1896,11 +2441,6 @@
           <td>Modelo por defecto de agregacion + verificacion.</td>
           <td><code>groq/compound</code></td>
         </tr>
-        <tr>
-          <td><code>DIRECT_RESPONSE_MODEL</code></td>
-          <td>Modelo para respuestas rapidas fuera de dominio o sobre el agente.</td>
-          <td><code>groq/compound-mini</code></td>
-        </tr>
       </tbody>
     </table>
   </section>
@@ -1918,8 +2458,8 @@
       <tbody>
         <tr>
           <td>LLM</td>
-          <td><code>GROQ_API_KEY</code>, <code>LLM_MODEL_OPTIONS</code>, <code>PLANNER_MODEL</code>, <code>VERIFIER_MODEL</code>, <code>DIRECT_RESPONSE_MODEL</code></td>
-          <td>Credencial Groq y modelos seleccionables por agente.</td>
+          <td><code>GROQ_API_KEY</code>, <code>LLM_MODEL_OPTIONS</code>, <code>PLANNER_MODEL</code>, <code>VERIFIER_MODEL</code></td>
+          <td>Credencial Groq y modelos seleccionables para planner y verificador.</td>
         </tr>
         <tr>
           <td>Langfuse</td>
