@@ -26,7 +26,6 @@ class WebResearchAgent:
         method: WebSearchMethod | None = None,
         preferred_sites: list[str] | None = None,
         preferred_only: bool = False,
-        include_delivery_details: bool = False,
     ) -> WebResearchResult:
         results = self.adapter.search_with_options(
             query=query,
@@ -34,7 +33,6 @@ class WebResearchAgent:
             method=method,
             preferred_sites=preferred_sites,
             preferred_only=preferred_only,
-            include_delivery_details=include_delivery_details,
         )
         if not results:
             return WebResearchResult(

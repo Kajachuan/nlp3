@@ -33,13 +33,11 @@ class WebSearchAdapter:
         method: WebSearchMethod | None = None,
         preferred_sites: list[str] | None = None,
         preferred_only: bool = False,
-        include_delivery_details: bool = False,
     ) -> None:
         self._disable_dead_local_proxy()
         self.method = method or os.getenv("WEB_SEARCH_DEFAULT_METHOD", "tavily")
         self.preferred_sites = preferred_sites or self._preferred_sites_from_env()
         self.preferred_only = preferred_only
-        self.include_delivery_details = include_delivery_details
         self.client = self._build_client()
         self.mode = self._resolve_mode()
         self.last_mode = self.mode
@@ -54,14 +52,10 @@ class WebSearchAdapter:
         method: WebSearchMethod | None = None,
         preferred_sites: list[str] | None = None,
         preferred_only: bool | None = None,
-        include_delivery_details: bool | None = None,
     ) -> list[WebResult]:
         method = method or self.method
         preferred_sites = preferred_sites if preferred_sites is not None else self.preferred_sites
         preferred_only = self.preferred_only if preferred_only is None else preferred_only
-        include_delivery_details = (
-            self.include_delivery_details if include_delivery_details is None else include_delivery_details
-        )
         mode = self._resolve_mode(method)
         self.last_mode = mode
 
@@ -73,7 +67,7 @@ class WebSearchAdapter:
                     limit=limit,
                     preferred_sites=preferred_sites,
                     preferred_only=preferred_only,
-                    include_delivery_details=include_delivery_details,
+                    include_delivery_details=False,
                 )
                 normalized = self._normalize(raw_results, method=method)
                 if self._is_credential_error(normalized):
@@ -117,7 +111,6 @@ class WebSearchAdapter:
                     result.get("snippet")
                     or result.get("description")
                     or result.get("content")
-                    or result.get("delivery_summary")
                     or result.get("error")
                     or ""
                 )

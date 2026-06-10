@@ -12,6 +12,7 @@ from src.agents.orchestration.component_advisor import ComponentAdvisorOrchestra
 from src.rag.retrievers.catalog_retriever import CatalogRetriever
 from src.rag.retrievers.hybrid_retriever import HybridCatalogRetriever
 from src.rag.retrievers.keyword_retriever import KeywordCatalogRetriever
+from src.runtime.catalog_data import load_catalog_items
 from src.tools.external.web_search_adapter import WebSearchAdapter
 from src.vectorstore.chroma.catalog_store import ChromaCatalogStore
 
@@ -22,13 +23,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[3]
 @lru_cache(maxsize=1)
 def build_component_advisor() -> ComponentAdvisorOrchestrator:
     load_dotenv(PROJECT_ROOT / ".env", override=True)
-    catalog_path = PROJECT_ROOT / "data" / "raw" / "electronic_components_catalog.json"
+    catalog_path = PROJECT_ROOT / "data" / "raw"
     chroma_path = PROJECT_ROOT / "data" / "processed" / "chroma"
     audit_log_path = PROJECT_ROOT / "logs" / "advisor_audit.jsonl"
+    catalog_items = load_catalog_items(catalog_path)
     catalog_store = ChromaCatalogStore(chroma_path)
-    catalog_store.ensure_catalog_indexed(catalog_path)
+    catalog_store.ensure_items_indexed(catalog_items)
     semantic_retriever = CatalogRetriever(catalog_store)
-    keyword_retriever = KeywordCatalogRetriever(catalog_path)
+    keyword_retriever = KeywordCatalogRetriever(catalog_items)
     hybrid_retriever = HybridCatalogRetriever(semantic_retriever, keyword_retriever)
     return ComponentAdvisorOrchestrator(
         local_hybrid_agent=LocalHybridSearchAgent(hybrid_retriever),

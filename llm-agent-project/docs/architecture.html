@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arquitectura POC - Asesor multiagente</title>
+  <title>Agente para busqueda de precios de componentes electronicos</title>
   <style>
     :root {
       --ink: #172033;
@@ -427,6 +427,303 @@
       margin-bottom: 4px;
     }
 
+    .workflow-linear {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 10px;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .flow-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      min-height: 126px;
+      flex: 1 1 150px;
+    }
+
+    .flow-card strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .flow-card small {
+      color: var(--muted);
+      display: block;
+      font-size: 13px;
+    }
+
+    .flow-arrow {
+      width: 54px;
+      height: 36px;
+      flex: 0 0 54px;
+      position: relative;
+      cursor: help;
+      outline: none;
+    }
+
+    .flow-arrow::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 11px;
+      top: 17px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    .flow-arrow::after {
+      content: "";
+      position: absolute;
+      right: 2px;
+      top: 10px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid var(--accent);
+    }
+
+    .flow-tooltip {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 12px);
+      z-index: 20;
+      width: min(420px, 82vw);
+      transform: translateX(-50%) translateY(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .12s ease, transform .12s ease;
+      background: #101828;
+      color: #edf2ff;
+      border: 1px solid #2d3954;
+      border-radius: 8px;
+      box-shadow: 0 18px 36px rgba(16, 24, 40, .24);
+      padding: 12px;
+      text-align: left;
+    }
+
+    .flow-tooltip::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #101828;
+    }
+
+    .flow-arrow:hover .flow-tooltip,
+    .flow-arrow:focus .flow-tooltip,
+    .flow-arrow:focus-within .flow-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .flow-note {
+      border-left: 4px solid var(--accent);
+      background: var(--rag);
+      border-radius: 6px;
+      color: #174f37;
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .json-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .json-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+
+    .json-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .json-code {
+      background: #101828;
+      color: #edf2ff;
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      font-family: Consolas, Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.45;
+      margin: 0;
+      white-space: pre;
+    }
+
+    .json-field { display: inline; font-weight: 700; }
+    .f-query { color: #7dd3fc; }
+    .f-history { color: #c4b5fd; }
+    .f-limit { color: #fbbf24; }
+    .f-model { color: #f9a8d4; }
+    .f-route { color: #86efac; }
+    .f-terms { color: #fdba74; }
+    .f-web-query { color: #93c5fd; }
+    .f-score { color: #bef264; }
+    .f-product { color: #fca5a5; }
+    .f-price { color: #5eead4; }
+    .f-url { color: #a5b4fc; }
+    .f-source { color: #d9f99d; }
+    .f-confidence { color: #fde68a; }
+    .f-answer { color: #e9d5ff; }
+    .f-metrics { color: #bae6fd; }
+    .f-audit { color: #fecaca; }
+
+    .example-intro {
+      margin-top: 20px;
+      color: var(--muted);
+    }
+
+    .timing-example {
+      background: #101217;
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+
+    .timing-example strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .timing-bar {
+      display: flex;
+      width: 100%;
+      min-height: 20px;
+      overflow: hidden;
+      border: 1px solid #d7dde8;
+      border-radius: 6px;
+      background: #1f2937;
+    }
+
+    .timing-segment {
+      height: 18px;
+      min-width: 1%;
+    }
+
+    .timing-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 8px;
+      color: #8b95a7;
+      font-size: 13px;
+    }
+
+    .timing-legend span,
+    .ui-color {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      display: inline-block;
+      flex: 0 0 10px;
+    }
+
+    .c-planner { background: #4f46e5; }
+    .c-direct { background: #7c3aed; }
+    .c-rag { background: #059669; }
+    .c-keyword { background: #16a34a; }
+    .c-hybrid { background: #84cc16; }
+    .c-web { background: #0284c7; }
+    .c-verifier { background: #dc2626; }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .screenshot-thumb {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+      cursor: zoom-in;
+      text-align: left;
+      width: 100%;
+      font: inherit;
+      color: inherit;
+    }
+
+    .screenshot-thumb img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top left;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .screenshot-thumb span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+      background: rgba(15, 23, 42, .82);
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: min(1200px, 94vw);
+      max-height: 88vh;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .42);
+    }
+
+    .modal-close {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, .55);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, .82);
+      color: #fff;
+      cursor: pointer;
+      font-size: 26px;
+      line-height: 1;
+    }
+
     .sidecar-map {
       display: grid;
       grid-template-columns: 1fr 260px;
@@ -543,6 +840,55 @@
       margin-top: 10px;
     }
 
+    .tabs {
+      margin-top: 16px;
+    }
+
+    .tabs input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .tab-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+
+    .tab-labels label {
+      border: 1px solid var(--line);
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      padding: 9px 12px;
+      background: var(--soft);
+      color: var(--muted);
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .tab-panel {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 0 8px 8px 8px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    #metrics-manual:checked ~ .tab-labels label[for="metrics-manual"],
+    #metrics-deepeval:checked ~ .tab-labels label[for="metrics-deepeval"] {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    #metrics-manual:checked ~ .manual-panel,
+    #metrics-deepeval:checked ~ .deepeval-panel {
+      display: block;
+    }
+
     th, td {
       text-align: left;
       border-bottom: 1px solid var(--line);
@@ -586,15 +932,21 @@
       .map-card { width: 100%; }
       .data-map { grid-template-columns: 1fr; }
       .sidecar-map { grid-template-columns: 1fr; }
+      .workflow-linear { display: grid; grid-template-columns: 1fr; }
+      .flow-arrow { width: 100%; height: 42px; }
+      .flow-arrow::before { left: 50%; right: auto; top: 3px; width: 3px; height: 28px; transform: translateX(-50%); }
+      .flow-arrow::after { left: 50%; right: auto; top: 29px; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 12px solid var(--accent); border-bottom: 0; }
+      .json-flow-grid { grid-template-columns: 1fr; }
+      .screenshot-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Arquitectura POC</h1>
+    <h1>Agente para busqueda de precios de componentes electronicos</h1>
     <p class="lead">
-      Agente de compra para componentes electronicos. Busca precio y tiempo de envio
+      Agente de compra para componentes electronicos. Busca precio y URL de compra
       del producto que el usuario quiere comprar, primero en nuestro catalogo y,
       si no alcanza, en proveedores externos mediante web search.
     </p>
@@ -616,46 +968,97 @@
       <div class="box span-4">
         <span class="tag">Salida</span>
         <h3>Recomendacion accionable</h3>
-        <p>Devuelve producto encontrado, precio, stock/disponibilidad, tiempo estimado de envio, proveedor y nivel de confianza.</p>
+        <p>Devuelve producto encontrado, precio, URL de compra, proveedor/fuente y nivel de confianza.</p>
       </div>
     </div>
+  </section>
+
+  <section>
+    <h2>Cobertura del informe tecnico</h2>
+    <p>Esta documentacion funciona como fuente viva para el PDF en <code>docs/informe</code> y la presentacion en <code>docs/presentacion</code>. La tabla marca donde queda cubierta cada parte exigida por la consigna.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Requisito del informe</th>
+          <th>Contenido documentado</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Objetivo del proyecto</td>
+          <td>Asistente de compra que busca componentes electronicos, prioriza catalogo interno y usa proveedores externos como fallback.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+        <tr>
+          <td>Arquitectura general</td>
+          <td>Streamlit, LangGraph, agentes, RAG hibrido, fallback web, verificador, observabilidad y auditoria.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+        <tr>
+          <td>Implementacion tecnica</td>
+          <td>Modulos principales, contratos JSON, prompts markdown, variables de entorno, ejecucion y tests.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+        <tr>
+          <td>Evaluacion y metricas</td>
+          <td>Recall@k, Context Recall, abstencion correcta, robustez, latencia, tokens, costo y reportes HTML de evaluacion.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+        <tr>
+          <td>Resultados y ejemplos</td>
+          <td>Resultados actuales de evaluacion, lectura de fallos, rutas LLM y ejemplos de casos locales, fallback y abstencion.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+        <tr>
+          <td>Conclusiones y mejoras futuras</td>
+          <td>Brechas contra consigna y plan restante: routing, ranking, politicas de output, cache y recalibracion del dataset.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+        <tr>
+          <td>Planificacion del equipo</td>
+          <td>Tabla de tareas por frente tecnico con responsable sugerido y estado.</td>
+          <td><span class="ok">Cubierto</span></td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section>
     <h2>Estado actual del codigo</h2>
     <div class="grid">
       <div class="box span-6 rag">
-        <h3><span class="ok">Implementado</span> - Catalogo local con RAG</h3>
-        <p><code>CatalogAgent</code> consulta <code>CatalogRetriever</code>, que usa ChromaDB persistente sobre el catalogo de componentes.</p>
+        <h3><span class="ok">Implementado</span> - Busqueda local hibrida</h3>
+        <p><code>LocalHybridSearchAgent</code> combina RAG semantico con ChromaDB y busqueda <code>Keyword/BM25</code>. El merge favorece resultados que aparecen por ambas senales.</p>
       </div>
       <div class="box span-6 web">
         <h3><span class="ok">Implementado</span> - Web search externo</h3>
-        <p><code>WebResearchAgent</code> usa <code>WebSearchAdapter</code>. En la arquitectura objetivo sera fallback para buscar proveedores externos con SerpAPI/Google Shopping.</p>
+        <p><code>WebResearchAgent</code> usa <code>WebSearchAdapter</code>. Se activa como fallback con SerpAPI/Google Shopping cuando la evidencia local no alcanza.</p>
       </div>
       <div class="box span-6 sec">
         <h3><span class="ok">Implementado</span> - Seguridad basica</h3>
         <p><code>validate_user_query</code> bloquea entradas vacias, largas, secretos, payloads peligrosos y prompt injection basica.</p>
       </div>
       <div class="box span-6 ops">
-        <h3><span class="ok">Implementado</span> - UI, metricas y auditoria</h3>
-        <p><code>app/main.py</code> expone Streamlit. <code>Metrics</code> mide latencias, contadores y scores. Cada respuesta se registra en <code>logs/advisor_audit.jsonl</code>.</p>
+        <h3><span class="ok">Implementado</span> - Chat, metricas y auditoria</h3>
+        <p><code>app/main.py</code> expone Streamlit como chat con historial. Cada respuesta muestra tokens, costo estimado, tiempos por etapa, resultados por tool y auditoria JSONL.</p>
       </div>
       <div class="box span-12 llm">
-        <h3><span class="todo">Falta</span> - LLM real para agentes</h3>
-        <p>Hoy la respuesta final se arma con reglas. La capa objetivo sera LangChain + Groq para clasificar intencion, decidir el camino de busqueda y verificar la respuesta.</p>
+        <h3><span class="ok">Implementado</span> - LLM real con LangGraph + LangChain + Groq</h3>
+        <p>El planner, la respuesta directa y el agregador/verificador usan Groq mediante LangChain. LangGraph es requerimiento del backend y orquesta nodos, rutas condicionales y estado compartido.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Arquitectura objetivo</h2>
+    <h2>Arquitectura implementada</h2>
     <div class="sidecar-map">
       <div class="architecture-map" aria-label="Arquitectura fan-out fan-in">
         <div class="map-row">
           <div class="map-card llm">
             <div class="map-icon">LLM</div>
             <strong>Planificador</strong>
-            <small>Clasifica la consulta: fuera de dominio, ayuda del agente, item especifico o busqueda de compra.</small>
+            <small>Clasifica la consulta, normaliza terminos y prepara un <code>web_search_query</code> en ingles por si hace falta fallback.</small>
           </div>
         </div>
 
@@ -677,8 +1080,8 @@
         </div>
 
         <div class="fallback-lane">
-          <strong>Fallback: Google Shopping / SerpAPI</strong>
-          <small>Solo se ejecuta si la busqueda local no encuentra el producto o no alcanza para precio/envio.</small>
+          <strong>Evidence gate -> Fallback: Google Shopping / SerpAPI</strong>
+          <small>Solo se ejecuta si faltan resultados, score, terminos especificos, precio o URL de compra.</small>
         </div>
 
         <div class="merge-line"></div>
@@ -687,22 +1090,22 @@
           <div class="map-card llm">
             <div class="map-icon">OK</div>
             <strong>Agregacion + verificacion</strong>
-            <small>Elige la mejor oferta, valida precio/envio/proveedor, cita fuente y decide si abstenerse.</small>
+            <small>Combina evidencia local y externa, valida precio, URL de compra y proveedor/fuente.</small>
           </div>
         </div>
 
-        <p class="map-note">Primero se intenta busqueda local hibrida. Web search es fallback externo, no una llamada obligatoria.</p>
+        <p class="map-note">El usuario ve progreso por etapas mientras el grafo corre: planner, RAG, Keyword/BM25, evidence gate, fallback web y verificacion.</p>
       </div>
 
       <aside class="sidecar">
         <strong>Langfuse</strong>
-        <small>Observabilidad open-source para trazas, costos, latencias, prompts, errores y evaluaciones de cada paso.</small>
+        <small>SDK Python contra Langfuse Cloud/Web. Las claves son de proyecto: no se configura organizacion ni proyecto aparte en el backend.</small>
       </aside>
     </div>
 
     <div class="box span-12">
       <h3>Contrato entre agentes</h3>
-      <p>Cada buscador debe devolver JSON simple: <code>product_name</code>, <code>sku</code>, <code>price</code>, <code>shipping_eta</code>, <code>vendor</code>, <code>evidence</code>, <code>source</code>, <code>confidence</code> y <code>failure_mode</code>.</p>
+      <p>Los nodos intercambian estado estructurado: decision del planner, resultados RAG, resultados Keyword/BM25, decision del evidence gate, resultados web, respuesta verificada y metricas.</p>
     </div>
   </section>
 
@@ -717,12 +1120,12 @@
       <div class="box span-4">
         <span class="tag">Experiencia</span>
         <h3>Usuario informado</h3>
-        <p>Mientras hay busquedas, el sistema muestra mensajes streaming para que el usuario entienda que esta pasando.</p>
+        <p>Mientras hay busquedas, el sistema muestra progreso por etapa para que el usuario entienda que esta pasando. El streaming actual es de estado, no de tokens del LLM.</p>
       </div>
       <div class="box span-4">
         <span class="tag">Costo</span>
         <h3>Web como fallback</h3>
-        <p>Google Shopping/SerpAPI se usa solo si el catalogo local no resuelve el producto, precio o envio.</p>
+        <p>Google Shopping/SerpAPI se usa solo si el catalogo local no resuelve el producto, precio o URL de compra.</p>
       </div>
     </div>
   </section>
@@ -733,13 +1136,13 @@
       <div class="timeline-step">
         <div>
           <strong>Consulta en chat</strong>
-          <span>El usuario envia una pregunta. La entrada se valida y se transforma en una tarea interna de compra o soporte.</span>
+          <span>El usuario envia una pregunta en Streamlit. La UI guarda historial en <code>st.session_state["messages"]</code> y manda los ultimos mensajes al backend para resolver referencias del turno actual.</span>
         </div>
       </div>
       <div class="timeline-step">
         <div>
           <strong>Clasificacion rapida</strong>
-          <span>El planner decide si la consulta esta fuera de dominio, es sobre el agente/compania, pide un item especifico o requiere busqueda de compra.</span>
+          <span>El planner decide si la consulta esta fuera de dominio, es sobre el agente/compania o requiere busqueda de compra. Tambien produce <code>normalized_query</code>, <code>product_terms</code> y <code>web_search_query</code> en ingles.</span>
         </div>
       </div>
       <div class="timeline-step">
@@ -751,27 +1154,27 @@
       <div class="timeline-step">
         <div>
           <strong>Busqueda local hibrida</strong>
-          <span>Para productos, corre en paralelo RAG semantico y keyword/BM25 sobre nuestro catalogo. Esta es la ruta preferida.</span>
+          <span>Para productos, corre RAG semantico y keyword/BM25 sobre nuestro catalogo, luego fusiona candidatos en <code>hybrid_merge</code>. Esta es la ruta preferida.</span>
           <div class="stream-list">
-            <div class="stream-line">Estoy buscando el producto en nuestro catalogo con busqueda semantica.</div>
-            <div class="stream-line">Tambien estoy revisando coincidencias exactas por nombre, SKU y terminos clave.</div>
+            <div class="stream-line">Llamando RAG semantico sobre el catalogo local...</div>
+            <div class="stream-line">Haciendo keyword/BM25 search sobre SKU, nombre y descripcion...</div>
           </div>
         </div>
       </div>
       <div class="timeline-step">
         <div>
-          <strong>Fallback web condicional</strong>
-          <span>Si el catalogo no encuentra el producto o no alcanza para precio/envio, se consulta Google Shopping con SerpAPI.</span>
+          <strong>Evidence gate y fallback web</strong>
+          <span>El evidence gate decide con reglas deterministicas. Si falla la evidencia local, se consulta Google Shopping con SerpAPI usando el query web en ingles.</span>
           <div class="stream-list">
-            <div class="stream-line">No encontre una coincidencia suficiente en el catalogo. Voy a buscar proveedores externos.</div>
-            <div class="stream-line">Estoy consultando Google Shopping para precio y tiempo de envio.</div>
+            <div class="stream-line">Evaluando si la evidencia local alcanza o si hace falta fallback web...</div>
+            <div class="stream-line">Local evidence is insufficient. Searching external suppliers with Google Shopping.</div>
           </div>
         </div>
       </div>
       <div class="timeline-step">
         <div>
           <strong>Agregacion + verificacion</strong>
-          <span>El verificador compara candidatos, valida fuente, precio, envio y confianza. Si no hay soporte suficiente, se abstiene.</span>
+          <span>El verificador compara candidatos, valida fuente, precio, URL de compra y confianza. La UI muestra un expander por respuesta con metricas y resultados por tool.</span>
         </div>
       </div>
     </div>
@@ -779,38 +1182,211 @@
 
   <section>
     <h2>Flujo de datos</h2>
-    <div class="data-map" aria-label="Flujo de datos por capas">
-      <div class="data-column">
-        <div class="data-step sec">
-          <strong>1. Consulta</strong>
-          <small>Texto del usuario: producto a comprar, SKU, categoria, precio, envio o pregunta sobre el agente.</small>
-        </div>
-        <div class="data-step sec">
-          <strong>2. Validacion</strong>
-          <small>Sanitizacion, longitud maxima, bloqueo de secretos y ataques obvios.</small>
+    <p class="flow-note">Tip: pasa el mouse sobre cada flecha del workflow para ver el JSON que viaja entre componentes. Los colores identifican campos y se mantienen en el ejemplo real de abajo para facilitar el tracing.</p>
+    <div class="workflow-linear" aria-label="Workflow principal con tipos de datos">
+      <div class="flow-card sec">
+        <strong>1. Chat UI</strong>
+        <small>Entrada humana en Streamlit: texto, historial y parametros de busqueda.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde Chat UI hacia Planner">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  <span class="json-field f-query">"query"</span>: "string",
+  <span class="json-field f-history">"chat_history"</span>: [{"role": "string", "content": "string"}],
+  <span class="json-field f-limit">"top_k"</span>: 1,
+  <span class="json-field f-limit">"web_limit"</span>: 1,
+  <span class="json-field f-model">"model_selection"</span>: {"planner_model": "string", "verifier_model": "string"}
+}</pre>
         </div>
       </div>
-
-      <div class="data-hub llm">
-        <div>
-          <strong>3. Orquestador</strong>
-          <small>Clasifica, emite streaming, ejecuta busqueda local hibrida y decide si usar fallback web.</small>
+      <div class="flow-card llm">
+        <strong>2. Planner</strong>
+        <small>Clasifica ruta, normaliza consulta, extrae terminos y prepara query web en ingles.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde Planner hacia RAG hibrido">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  <span class="json-field f-route">"route"</span>: "local_search | out_of_domain | agent_info",
+  <span class="json-field f-query">"normalized_query"</span>: "string",
+  <span class="json-field f-terms">"product_terms"</span>: ["string"],
+  <span class="json-field f-web-query">"web_search_query"</span>: "string",
+  <span class="json-field f-price">"needs_price"</span>: true,
+  <span class="json-field f-model">"model"</span>: "string"
+}</pre>
         </div>
       </div>
+      <div class="flow-card rag">
+        <strong>3. RAG hibrido</strong>
+        <small>RAG semantico ChromaDB + Keyword/BM25 + merge local con score trazable.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde RAG hibrido hacia Evidence gate">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  <span class="json-field f-product">"results"</span>: [{
+    "product_name": "string",
+    "sku": "string",
+    <span class="json-field f-price">"price"</span>: "string | null",
+    <span class="json-field f-url">"purchase_url"</span>: "string | null",
+    <span class="json-field f-source">"source"</span>: "catalog | keyword",
+    <span class="json-field f-score">"score"</span>: 0.0,
+    "evidence": "string"
+  }],
+  <span class="json-field f-metrics">"timings_ms"</span>: {"rag_search": 0, "keyword_bm25_search": 0, "hybrid_merge": 0}
+}</pre>
+        </div>
+      </div>
+      <div class="flow-card web">
+        <strong>4. Evidence gate</strong>
+        <small>Reglas deterministicas deciden si alcanza el catalogo o si se consulta Google Shopping/SerpAPI.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde Evidence gate hacia Fallback web">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  <span class="json-field f-route">"use_web_fallback"</span>: true,
+  "reason": "string",
+  <span class="json-field f-score">"best_local_score"</span>: 0.0,
+  <span class="json-field f-web-query">"web_request"</span>: {
+    "query": "string",
+    "method": "google_shopping",
+    "limit": 3
+  }
+}</pre>
+        </div>
+      </div>
+      <div class="flow-card web">
+        <strong>5. Fallback web</strong>
+        <small>Solo si falta evidencia local: candidatos externos con proveedor, precio y URL.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde Fallback web hacia Verificador">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  <span class="json-field f-product">"local_results"</span>: [{"sku": "string", "score": 0.0}],
+  <span class="json-field f-product">"web_results"</span>: [{
+    "title": "string",
+    <span class="json-field f-price">"price"</span>: "string | null",
+    <span class="json-field f-url">"url"</span>: "string | null",
+    "vendor": "string"
+  }],
+  <span class="json-field f-route">"gate_reason"</span>: "string"
+}</pre>
+        </div>
+      </div>
+      <div class="flow-card llm">
+        <strong>6. Verificador</strong>
+        <small>Compara evidencia, valida fuente, precio y URL, y redacta respuesta final.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde Verificador hacia Observabilidad">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  "should_answer": true,
+  <span class="json-field f-product">"product_name"</span>: "string",
+  <span class="json-field f-price">"price"</span>: "string | null",
+  <span class="json-field f-url">"purchase_url"</span>: "string | null",
+  <span class="json-field f-source">"source"</span>: "string",
+  <span class="json-field f-confidence">"confidence"</span>: 0.0,
+  <span class="json-field f-answer">"answer"</span>: "string",
+  "citations": ["string"]
+}</pre>
+        </div>
+      </div>
+      <div class="flow-card obs">
+        <strong>7. Observabilidad</strong>
+        <small>Langfuse y JSONL registran spans, tokens, costo, latencias, resultados y errores.</small>
+      </div>
+      <div class="flow-arrow" tabindex="0" aria-label="JSON desde Observabilidad hacia Usuario">
+        <div class="flow-tooltip">
+          <pre class="json-code">{
+  <span class="json-field f-answer">"final_answer"</span>: "markdown",
+  <span class="json-field f-metrics">"metrics"</span>: {"timings_ms": {}, "counters": {}, "labels": {}},
+  <span class="json-field f-product">"tool_results"</span>: {"catalog": [], "web": []},
+  <span class="json-field f-audit">"audit_log_path"</span>: "logs/advisor_audit.jsonl"
+}</pre>
+        </div>
+      </div>
+      <div class="flow-card ops">
+        <strong>8. Usuario</strong>
+        <small>Recibe producto recomendado, precio, URL de compra, proveedor/fuente y nivel de confianza.</small>
+      </div>
+    </div>
 
-      <div class="data-column">
-        <div class="data-step ops">
-          <strong>4. Evidencia</strong>
-          <small>Candidatos de RAG + keyword/BM25. Si fallan, candidatos externos de Google Shopping.</small>
-        </div>
-        <div class="data-step obs">
-          <strong>5. Observabilidad</strong>
-          <small>Langfuse recibe spans de planner, RAG, web, verifier, tokens, costo y errores.</small>
-        </div>
-        <div class="data-step ops">
-          <strong>6. Respuesta y auditoria</strong>
-          <small>Producto, precio, envio, proveedor, fuente, limitaciones y evento JSONL.</small>
-        </div>
+    <p class="example-intro">Ejemplo de tracing con datos reales para una consulta por regulador de 3.3V:</p>
+    <div class="json-flow-grid">
+      <div class="json-card">
+        <h3>Chat UI -> Planner</h3>
+        <pre class="json-code">{
+  <span class="json-field f-query">"query"</span>: "Necesito un regulador 5V a 3.3V",
+  <span class="json-field f-history">"chat_history"</span>: [{"role": "user", "content": "Busco alimentar un ESP32"}],
+  <span class="json-field f-limit">"top_k"</span>: 3,
+  <span class="json-field f-limit">"web_limit"</span>: 3,
+  <span class="json-field f-model">"model_selection"</span>: {
+    "planner_model": "groq/compound-mini",
+    "verifier_model": "groq/compound"
+  }
+}</pre>
+      </div>
+      <div class="json-card">
+        <h3>Planner -> RAG hibrido</h3>
+        <pre class="json-code">{
+  <span class="json-field f-route">"route"</span>: "local_search",
+  <span class="json-field f-query">"normalized_query"</span>: "regulador 5V a 3.3V",
+  <span class="json-field f-terms">"product_terms"</span>: ["regulador", "5V", "3.3V"],
+  <span class="json-field f-web-query">"web_search_query"</span>: "5V to 3.3V linear regulator buy",
+  <span class="json-field f-price">"needs_price"</span>: true,
+  <span class="json-field f-model">"model"</span>: "groq/compound-mini"
+}</pre>
+      </div>
+      <div class="json-card">
+        <h3>RAG hibrido -> Evidence gate</h3>
+        <pre class="json-code">{
+  <span class="json-field f-product">"results"</span>: [{
+    "product_name": "AMS1117 3.3V regulator",
+    "sku": "REG-AMS1117-3V3",
+    <span class="json-field f-price">"price"</span>: "USD 0.42",
+    <span class="json-field f-url">"purchase_url"</span>: "catalog://REG-AMS1117-3V3",
+    <span class="json-field f-source">"source"</span>: "catalog",
+    <span class="json-field f-score">"score"</span>: 0.91,
+    "evidence": "SKU, voltaje y precio coinciden con la consulta"
+  }],
+  <span class="json-field f-metrics">"timings_ms"</span>: {"rag_search": 34, "keyword_bm25_search": 12, "hybrid_merge": 3}
+}</pre>
+      </div>
+      <div class="json-card">
+        <h3>Evidence gate -> Fallback web</h3>
+        <pre class="json-code">{
+  <span class="json-field f-route">"use_web_fallback"</span>: false,
+  "reason": "local evidence has enough score, price and URL",
+  <span class="json-field f-score">"best_local_score"</span>: 0.91,
+  <span class="json-field f-web-query">"web_request"</span>: {
+    "query": "5V to 3.3V linear regulator buy",
+    "method": "google_shopping",
+    "limit": 3
+  }
+}</pre>
+      </div>
+      <div class="json-card">
+        <h3>Verificador -> Respuesta final</h3>
+        <pre class="json-code">{
+  "should_answer": true,
+  <span class="json-field f-product">"product_name"</span>: "AMS1117 3.3V regulator",
+  <span class="json-field f-price">"price"</span>: "USD 0.42",
+  <span class="json-field f-url">"purchase_url"</span>: "catalog://REG-AMS1117-3V3",
+  <span class="json-field f-source">"source"</span>: "catalog",
+  <span class="json-field f-confidence">"confidence"</span>: 0.91,
+  <span class="json-field f-answer">"answer"</span>: "Recomiendo REG-AMS1117-3V3 del catalogo interno...",
+  "citations": ["catalog:REG-AMS1117-3V3"]
+}</pre>
+      </div>
+      <div class="json-card">
+        <h3>Observabilidad -> UI</h3>
+        <pre class="json-code">{
+  <span class="json-field f-answer">"final_answer"</span>: "Recomiendo REG-AMS1117-3V3...",
+  <span class="json-field f-metrics">"metrics"</span>: {
+    "timings_ms": {"planner": 820, "rag_search": 34, "aggregator_verifier": 960},
+    "counters": {"rag_result_count": 3, "total_tokens": 551},
+    "labels": {"route": "local_search", "web_fallback_used": false}
+  },
+  <span class="json-field f-audit">"audit_log_path"</span>: "logs/advisor_audit.jsonl"
+}</pre>
       </div>
     </div>
   </section>
@@ -830,9 +1406,19 @@
       </div>
       <div class="box span-4 obs">
         <span class="tag">Calidad</span>
-        <h3>Scores evaluables</h3>
-        <p>Se envian scores como <code>Recall@k</code>, <code>Context Recall</code> y abstencion correcta.</p>
+        <h3>Metricas evaluables</h3>
+        <p>La app registra evidencia para evaluar <code>Recall@k</code>, <code>Context Recall</code> y abstencion correcta. El calculo offline queda como paso de informe.</p>
       </div>
+    </div>
+    <div class="screenshot-grid" aria-label="Screenshots de Langfuse">
+      <button class="screenshot-thumb" type="button" data-full="img/langfuse_tracing_dashboard.png" data-alt="Dashboard de trazas en Langfuse">
+        <img src="img/langfuse_tracing_dashboard.png" alt="Dashboard de trazas en Langfuse">
+        <span>Dashboard de trazas</span>
+      </button>
+      <button class="screenshot-thumb" type="button" data-full="img/langfuse_trace_details.png" data-alt="Detalle de traza en Langfuse">
+        <img src="img/langfuse_trace_details.png" alt="Detalle de traza en Langfuse">
+        <span>Detalle de traza</span>
+      </button>
     </div>
     <table>
       <thead>
@@ -859,73 +1445,187 @@
           <td>Medir costo, latencia y consistencia de prompts.</td>
         </tr>
         <tr>
-          <td><code>score</code></td>
-          <td>Metricas de retrieval, generacion, robustez y operacion.</td>
-          <td>Respaldar la evaluacion cuantitativa de la consigna.</td>
+          <td><code>metadata / labels</code></td>
+          <td>Ruta elegida, fallback web, motivo del evidence gate, conteos, tiempos, tokens, costo y errores.</td>
+          <td>Auditar cada consulta y preparar la evaluacion cuantitativa.</td>
         </tr>
       </tbody>
     </table>
   </section>
 
   <section>
-    <h2>Componentes a implementar</h2>
+    <h2>Observabilidad en Streamlit</h2>
+    <div class="grid">
+      <div class="box span-4 obs">
+        <span class="tag">Chat</span>
+        <h3>Una ficha por respuesta</h3>
+        <p>Cada mensaje del asistente conserva su respuesta y metricas. El usuario puede abrir detalles sin perder el historial del chat.</p>
+      </div>
+      <div class="box span-4 obs">
+        <span class="tag">Tokens</span>
+        <h3>Costo visible</h3>
+        <p>La UI muestra input tokens, output tokens, total tokens y costo estimado. Formula actual: USD 1 por 1M tokens de entrada y USD 5 por 1M tokens de salida.</p>
+      </div>
+      <div class="box span-4 obs">
+        <span class="tag">Tools</span>
+        <h3>Resultados auditables</h3>
+        <p>Los botones de RAG, Keyword/BM25 y Web abren dialogos con los resultados reales recuperados: indice, texto, score, proveedor o URL segun corresponda.</p>
+      </div>
+    </div>
+    <div class="timing-example" aria-label="Ejemplo de barra de tiempos por etapa en Streamlit">
+      <strong>Tiempo por etapa</strong>
+      <div class="timing-bar">
+        <div class="timing-segment c-planner" style="width:74.29%;" title="planner: 1300.11 ms"></div>
+        <div class="timing-segment c-rag" style="width:1%;" title="rag search: 7.75 ms"></div>
+        <div class="timing-segment c-keyword" style="width:1%;" title="keyword bm25 search: 1.87 ms"></div>
+        <div class="timing-segment c-hybrid" style="width:1%;" title="hybrid merge: 0.05 ms"></div>
+        <div class="timing-segment c-verifier" style="width:25.16%;" title="aggregator verifier: 440.22 ms"></div>
+      </div>
+      <div class="timing-legend">
+        <span><span class="swatch c-planner"></span>planner: 1300.11 ms</span>
+        <span><span class="swatch c-rag"></span>rag search: 7.75 ms</span>
+        <span><span class="swatch c-keyword"></span>keyword bm25 search: 1.87 ms</span>
+        <span><span class="swatch c-hybrid"></span>hybrid merge: 0.05 ms</span>
+        <span><span class="swatch c-verifier"></span>aggregator verifier: 440.22 ms</span>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Segmento de barra</th>
+          <th>Que mide</th>
+          <th>Color en UI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>planner</code></td>
+          <td>LLM que decide ruta y genera query normalizada/web.</td>
+          <td><span class="ui-color"><span class="swatch c-planner"></span>Indigo <code>#4f46e5</code></span></td>
+        </tr>
+        <tr>
+          <td><code>direct_response</code></td>
+          <td>LLM para consultas fuera de dominio o sobre el agente.</td>
+          <td><span class="ui-color"><span class="swatch c-direct"></span>Violeta <code>#7c3aed</code></span></td>
+        </tr>
+        <tr>
+          <td><code>rag_search</code></td>
+          <td>Busqueda semantica en ChromaDB.</td>
+          <td><span class="ui-color"><span class="swatch c-rag"></span>Verde <code>#059669</code></span></td>
+        </tr>
+        <tr>
+          <td><code>keyword_bm25_search</code></td>
+          <td>Busqueda lexical por SKU, nombre, descripcion y categoria.</td>
+          <td><span class="ui-color"><span class="swatch c-keyword"></span>Verde oscuro <code>#16a34a</code></span></td>
+        </tr>
+        <tr>
+          <td><code>hybrid_merge</code></td>
+          <td>Fusion de resultados locales y bonus por coincidencia doble.</td>
+          <td><span class="ui-color"><span class="swatch c-hybrid"></span>Lima <code>#84cc16</code></span></td>
+        </tr>
+        <tr>
+          <td><code>web_fallback</code></td>
+          <td>Busqueda externa con SerpAPI/Google Shopping.</td>
+          <td><span class="ui-color"><span class="swatch c-web"></span>Azul <code>#0284c7</code></span></td>
+        </tr>
+        <tr>
+          <td><code>aggregator_verifier</code></td>
+          <td>LLM que arma la respuesta final y valida evidencia.</td>
+          <td><span class="ui-color"><span class="swatch c-verifier"></span>Rojo <code>#dc2626</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Componentes implementados y pendientes</h2>
     <table>
       <thead>
         <tr>
           <th>Modulo</th>
           <th>Responsabilidad</th>
           <th>Estado</th>
-          <th>Archivo sugerido</th>
+          <th>Archivo principal</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Groq LLM provider</td>
-          <td>Crear cliente LangChain para Groq, con modelo configurable por <code>GROQ_API_KEY</code>.</td>
-          <td><span class="todo">Falta</span></td>
+          <td>Cliente LangChain/Groq, conteo de tokens y costo estimado con USD 1/M input y USD 5/M output.</td>
+          <td><span class="ok">Implementado</span></td>
           <td><code>src/runtime/providers/groq_llm.py</code></td>
         </tr>
         <tr>
-          <td>Planner agent</td>
-          <td>Clasificar consulta y elegir ruta: respuesta directa, busqueda local hibrida o fallback web.</td>
-          <td><span class="todo">Falta</span></td>
-          <td><code>src/agents/cores/planner_agent.py</code></td>
+          <td>LangGraph orchestrator</td>
+          <td>Nodos condicionales: planner, direct response, local hybrid search, evidence gate, web fallback y aggregator/verifier.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>src/agents/orchestration/component_advisor.py</code></td>
         </tr>
         <tr>
           <td>Streaming de estado</td>
-          <td>Emitir mensajes parciales: busqueda semantica, keyword, fallback web o respuesta directa.</td>
-          <td><span class="todo">Falta</span></td>
+          <td>Emitir mensajes parciales de etapa: planner, RAG, keyword/BM25, evidence gate, fallback web y verificacion.</td>
+          <td><span class="ok">Implementado</span></td>
           <td><code>src/agents/orchestration/component_advisor.py</code></td>
         </tr>
         <tr>
           <td>Keyword / BM25 search</td>
           <td>Complementar Chroma con busqueda lexical por SKU, nombre, categoria, marca y terminos exactos.</td>
-          <td><span class="todo">Falta</span></td>
-          <td><code>src/rag/retrievers/catalog_keyword_search.py</code></td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>src/rag/retrievers/keyword_retriever.py</code></td>
         </tr>
         <tr>
-          <td>Verifier / aggregator</td>
-          <td>Elegir mejor candidato, validar precio/envio/proveedor y abstenerse si no hay evidencia.</td>
-          <td><span class="todo">Falta</span></td>
-          <td><code>src/agents/cores/verification_agent.py</code></td>
+          <td>Hybrid retriever</td>
+          <td>Ejecutar RAG, Keyword/BM25 y merge con tiempos separados: <code>rag_search</code>, <code>keyword_bm25_search</code>, <code>hybrid_merge</code>.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>src/rag/retrievers/hybrid_retriever.py</code></td>
+        </tr>
+        <tr>
+          <td>Evidence gate</td>
+          <td>Decidir fallback web sin LLM segun cantidad, score, terminos especificos y precio.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>src/agents/orchestration/evidence_gate.py</code></td>
+        </tr>
+        <tr>
+          <td>Chat UI</td>
+          <td>Historial de mensajes, dropdown de modelos por agente, progreso por etapa, detalles por respuesta y modales de resultados.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>app/main.py</code></td>
+        </tr>
+        <tr>
+          <td>Langfuse tracing</td>
+          <td>Enviar trazas, spans, generations, tokens, costo, errores y labels sin reemplazar auditoria local.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>src/common/telemetry/langfuse_tracer.py</code></td>
+        </tr>
+        <tr>
+          <td>Accion final automatica</td>
+          <td>Registrar cada consulta aceptada, consulta bloqueada y respuesta final en un log JSONL auditable.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>src/common/telemetry/metrics.py</code> y <code>logs/advisor_audit.jsonl</code></td>
+        </tr>
+        <tr>
+          <td>Modelo preexistente de inferencia</td>
+          <td>Wrapper para <code>facebook/bart-large-mnli</code> via Hugging Face <code>transformers</code>, con fallback por reglas para clasificar intencion tecnica.</td>
+          <td><span class="todo">Pendiente de conectar al grafo</span></td>
+          <td><code>src/runtime/providers/pretrained_intent_model.py</code></td>
         </tr>
         <tr>
           <td>Evaluacion offline</td>
           <td>Dataset de productos, SKUs, consultas fuera de dominio y casos sin stock para medir Recall@k, Context Recall y abstencion correcta.</td>
-          <td><span class="todo">Falta</span></td>
-          <td><code>tests/eval/</code> o <code>data/eval/</code></td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>tests/eval/</code> y <code>data/eval/metrics_dataset.json</code></td>
         </tr>
         <tr>
-          <td>Metricas extendidas</td>
-          <td>Registrar metricas de retrieval, generacion, robustez y operacion.</td>
-          <td><span class="todo">Parcial</span></td>
-          <td><code>src/common/telemetry/metrics.py</code></td>
+          <td>Tests end-to-end reales</td>
+          <td>Validar planner, RAG, fallback web y UI/backend con llamadas reales a APIs cuando las claves existen.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>tests/e2e/test_real_api_flow.py</code></td>
         </tr>
         <tr>
-          <td>Langfuse tracing</td>
-          <td>Enviar trazas, generations y scores a Langfuse sin reemplazar la auditoria local.</td>
-          <td><span class="todo">Falta</span></td>
-          <td><code>src/common/telemetry/langfuse_tracer.py</code></td>
+          <td>Metricas de calidad offline</td>
+          <td>Calcular Recall@k, Context Recall y abstencion correcta sobre dataset curado para el informe final.</td>
+          <td><span class="ok">Implementado</span></td>
+          <td><code>tests/eval/test_metrics_evaluation.py</code></td>
         </tr>
       </tbody>
     </table>
@@ -933,52 +1633,144 @@
 
   <section>
     <h2>Metricas necesarias</h2>
-    <p>Se usa un set reducido de metricas para que la evaluacion sea simple, explicable y defendible en el informe.</p>
+    <p>Hay dos formas de correr la evaluacion offline sobre <code>data/eval/metrics_dataset.json</code>. Ambas usan 40 muestras y el pipeline real; despues de expandir el catalogo a 408 items, las dos corridas muestran una degradacion clara de retrieval y routing en consultas funcionales.</p>
+    <p>Para el informe final, las metricas se agrupan en tres niveles: modelo/respuesta final, agentes/orquestacion y RAG. Hoy estan implementadas las metricas deterministicas principales; queda agregar una metrica textual de calidad de respuesta como <code>ROUGE-L</code> o similitud semantica contra respuestas esperadas.</p>
+
+    <div class="tabs">
+      <input type="radio" id="metrics-manual" name="metrics-tabs" checked>
+      <input type="radio" id="metrics-deepeval" name="metrics-tabs">
+
+      <div class="tab-labels">
+        <label for="metrics-manual">Pytest manual</label>
+        <label for="metrics-deepeval">Pytest + DeepEval</label>
+      </div>
+
+      <div class="tab-panel manual-panel">
+        <h3>Evaluacion manual auditable</h3>
+        <p>Archivo: <code>tests/eval/test_metrics_evaluation.py</code>. No usa framework externo de evaluacion; las metricas son funciones deterministicas sobre la salida del pipeline.</p>
+        <div class="code-block">.\.venv\Scripts\python.exe -m pytest tests\eval -m eval_metrics --run-eval-metrics -s</div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metrica</th>
+              <th>Metodo / formula</th>
+              <th>Umbral</th>
+              <th>Resultado actual</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Recall@K</strong></td>
+              <td><code>casos_con_expected_sku_en_top_k / casos_totales_de_retrieval</code>. Usa <code>top_k=3</code> y compara <code>expected_sku</code> contra los SKUs devueltos por RAG+Keyword/BM25.</td>
+              <td>>= 0.85</td>
+              <td>0.750</td>
+              <td><span class="risk">FALLA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Context Recall</strong></td>
+              <td>Promedio de evidencia usada por respuesta: SKU/nombre correcto, precio, URL de compra y fuente/cita. Cada caso vale <code>checks_cumplidos / 4</code>.</td>
+              <td>>= 0.85</td>
+              <td>0.797</td>
+              <td><span class="risk">FALLA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Abstencion correcta</strong></td>
+              <td><code>abstenciones_correctas / casos_fuera_de_dominio</code>. Exige ruta <code>out_of_domain</code>, sin RAG, sin Keyword/BM25, sin Web y con respuesta final no vacia.</td>
+              <td>>= 0.90</td>
+              <td>1.000</td>
+              <td><span class="ok">PASA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Robustez</strong></td>
+              <td><code>1 - max(0, clean_recall - variant_recall)</code>. Compara recall en consultas limpias contra parafrasis/ruido. Corrida actual: clean 1.000, variantes 0.667.</td>
+              <td>>= 0.90</td>
+              <td>0.667</td>
+              <td><span class="risk">FALLA</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Reporte generado: <code>reports/eval_metrics_report.html</code>. Resultado pytest actual: falla por <code>recall_at_k</code>, <code>context_recall</code> y <code>robustness</code>. Tokens reportados: 551; costo estimado: USD 0.001015.</p>
+      </div>
+
+      <div class="tab-panel deepeval-panel">
+        <h3>Evaluacion con DeepEval</h3>
+        <p>Archivo: <code>tests/eval/test_deepeval_metrics_evaluation.py</code>. Usa <code>deepeval==4.0.6</code>, <code>LLMTestCase</code> y metricas custom que heredan de <code>BaseMetric</code>. No usa LLM judge externo: DeepEval estructura los casos y metricas, pero el scoring sigue siendo auditable.</p>
+        <div class="code-block">.\.venv\Scripts\python.exe -m pytest tests\eval -m eval_deepeval --run-deepeval-metrics -s</div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metrica DeepEval</th>
+              <th>Metodo / formula</th>
+              <th>Umbral</th>
+              <th>Resultado actual</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DeepEval Recall@K</strong></td>
+              <td><code>BaseMetric.measure(LLMTestCase)</code> lee <code>metadata.recall_hit</code>: 1 si <code>expected_sku</code> aparece en top-k, 0 si no.</td>
+              <td>>= 0.85</td>
+              <td>0.781</td>
+              <td><span class="risk">FALLA</span></td>
+            </tr>
+            <tr>
+              <td><strong>DeepEval Context Recall</strong></td>
+              <td><code>BaseMetric.measure(LLMTestCase)</code> lee <code>metadata.context_score</code>, calculado con las mismas 4 evidencias: identidad, precio, URL de compra y fuente.</td>
+              <td>>= 0.85</td>
+              <td>0.797</td>
+              <td><span class="risk">FALLA</span></td>
+            </tr>
+            <tr>
+              <td><strong>DeepEval Correct Abstention</strong></td>
+              <td><code>BaseMetric.measure(LLMTestCase)</code> lee <code>metadata.abstention_correct</code>: ruta fuera de dominio, sin tools y respuesta final presente.</td>
+              <td>>= 0.90</td>
+              <td>1.000</td>
+              <td><span class="ok">PASA</span></td>
+            </tr>
+            <tr>
+              <td><strong>DeepEval Robustness</strong></td>
+              <td>Agregado del dataset: <code>1 - max(0, clean_recall - variant_recall)</code>. Corrida actual: clean 1.000, variantes 0.708.</td>
+              <td>>= 0.90</td>
+              <td>0.708</td>
+              <td><span class="risk">FALLA</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Reporte generado: <code>reports/deepeval_metrics_report.html</code>. Resultado pytest actual: falla por <code>recall_at_k</code>, <code>context_recall</code> y <code>robustness</code>. Tokens del pipeline reportados: 15013.</p>
+      </div>
+    </div>
+
     <table>
       <thead>
         <tr>
-          <th>Grupo</th>
-          <th>Metrica</th>
-          <th>Como medirla en este proyecto</th>
-          <th>Meta inicial</th>
+          <th>Nivel</th>
+          <th>Metricas del informe</th>
+          <th>Fuente de datos</th>
+          <th>Estado</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Retrieval</td>
-          <td><strong>Recall@k</strong></td>
-          <td>Conjunto eval: para cada producto, verificar si el SKU/producto correcto aparece en top-k de la busqueda local hibrida.</td>
-          <td>>= 0.85 @ top-3</td>
+          <td>Modelo / respuesta</td>
+          <td>Latencia end-to-end, tokens, costo estimado, coherencia de respuesta y <code>ROUGE-L</code> o similitud semantica contra respuesta esperada.</td>
+          <td><code>response.metrics</code>, Langfuse, dataset de evaluacion.</td>
+          <td><span class="todo">Parcial</span></td>
         </tr>
         <tr>
-          <td>Generacion</td>
-          <td><strong>Context Recall</strong></td>
-          <td>Verificar si la respuesta usa la evidencia necesaria: producto, precio, envio, proveedor y fuente.</td>
-          <td>>= 0.85</td>
+          <td>Agentes</td>
+          <td>Ruta elegida, uso correcto de fallback, redundancia evitada, latencia por nodo y calidad de decision del planner/verificador.</td>
+          <td>Labels y timings de <code>Metrics</code>, spans Langfuse y tests e2e.</td>
+          <td><span class="ok">Cubierto</span></td>
         </tr>
         <tr>
-          <td>Generacion</td>
-          <td><strong>Abstencion correcta</strong></td>
-          <td>Preguntas fuera de dominio o sin evidencia suficiente: el sistema debe responder rapido o abstenerse.</td>
-          <td>>= 0.90</td>
-        </tr>
-        <tr>
-          <td>Robustez</td>
-          <td><strong>Caida ante parafrasis / ruido</strong></td>
-          <td>Comparar Recall@k, Context Recall y abstencion entre pregunta limpia, parafrasis, typos y consulta larga.</td>
-          <td>Delta <= 10%</td>
-        </tr>
-        <tr>
-          <td>Operacion</td>
-          <td><strong>Latencia end-to-end p50/p95</strong></td>
-          <td>Medir desde entrada hasta respuesta final. Separar latencia RAG, web y LLM.</td>
-          <td>p50 < 5s, p95 < 12s</td>
-        </tr>
-        <tr>
-          <td>Operacion</td>
-          <td><strong>Costo por respuesta</strong></td>
-          <td>Tokens de Groq + llamadas SerpAPI. Web search debe quedar visible como costo de fallback.</td>
-          <td>Visible por request</td>
+          <td>RAG</td>
+          <td><code>Recall@k</code>, Context Recall, robustez ante parafrasis/ruido, Precision@k proxy y tiempo de retrieval.</td>
+          <td><code>tests/eval</code>, reportes HTML y resultados por tool en Streamlit.</td>
+          <td><span class="ok">Cubierto</span></td>
         </tr>
       </tbody>
     </table>
@@ -990,23 +1782,23 @@
       <div class="box span-6">
         <h3><span class="ok">Cubierto</span></h3>
         <ul class="compact">
-          <li>Interfaz funcional con Streamlit.</li>
-          <li>Catalogo local con RAG y busqueda web externa.</li>
-          <li>RAG con ChromaDB persistente.</li>
+          <li>Interfaz funcional con Streamlit como chat con historial.</li>
+          <li>Catalogo local con RAG semantico, Keyword/BM25 y merge hibrido.</li>
+          <li>Fallback web externo con SerpAPI/Google Shopping.</li>
           <li>Seguridad de entrada basica.</li>
-          <li>Modelo preexistente para intencion con fallback.</li>
+          <li>LangGraph + LangChain + Groq para planner, respuesta directa y verificador.</li>
+          <li>Langfuse SDK con trazas, spans, generations, tokens y costo.</li>
           <li>Auditoria automatica en JSONL.</li>
         </ul>
       </div>
       <div class="box span-6">
         <h3><span class="todo">Pendiente</span></h3>
         <ul class="compact">
-          <li>LLM real para planificacion, agregacion y verificacion.</li>
-          <li>Clasificacion rapida de rutas: fuera de dominio, ayuda del agente, local hibrido o fallback web.</li>
-          <li>Keyword/BM25 para complementar RAG antes de usar web search.</li>
-          <li>Metricas de calidad RAG/generacion con dataset de evaluacion.</li>
-          <li>Politicas de output: precio, envio, proveedor, citas, abstencion y formato JSON validable.</li>
-          <li>Optimizacion de costo: web search solo como fallback, cache, limites de tokens y seleccion dinamica.</li>
+          <li>Recalibrar dataset/prompts despues de expandir el catalogo a 408 items.</li>
+          <li>Reporte final con resultados cuantitativos, ejemplos de fallos y acciones correctivas.</li>
+          <li>Conectar <code>PretrainedIntentModel</code> al grafo o reemplazarlo por un CNN/ViT preentrenado si se exige inferencia visual estricta.</li>
+          <li>Politicas mas completas de seguridad de output y PII antes de un despliegue productivo.</li>
+          <li>Optimizacion adicional: cache, limites de tokens por ruta y posible seleccion dinamica de modelo.</li>
         </ul>
       </div>
     </div>
@@ -1028,33 +1820,31 @@
         </div>
       </div>
       <div class="box span-6">
-        <span class="tag">No A2A</span>
-        <h3>Agentes como nodos</h3>
-        <p>No usamos A2A porque todos los agentes viven en el mismo backend, comparten estado y necesitan baja latencia. La separacion sera por nodos y contratos JSON.</p>
-      </div>
-      <div class="box span-6">
         <span class="tag">Runtime</span>
         <h3>Python local, sin Docker</h3>
         <p>La app corre con Python y Streamlit. Langfuse se usa mediante SDK Python contra la version web/cloud configurada en <code>.env</code>.</p>
       </div>
       <div class="box span-6">
-        <span class="tag">Prompts</span>
-        <h3>Markdown en ingles</h3>
-        <p>Todos los prompts LLM viven en <code>llm-agent-project/prompts</code>, estan escritos en ingles y se versionan junto al repo. No se hardcodean prompts en Python.</p>
+        <span class="tag">Inferencia preentrenada</span>
+        <h3>Clasificador auxiliar</h3>
+        <p><code>PretrainedIntentModel</code> encapsula <code>facebook/bart-large-mnli</code> como modelo preexistente para intencion tecnica. Actualmente esta disponible como modulo, pero debe conectarse al grafo para quedar demostrado en el flujo ejecutable.</p>
       </div>
     </div>
 
-    <div class="code-block">ChatInput
-  -> PlannerNode                         # LLM: clasifica ruta y normaliza consulta
+    <div class="code-block">ChatInput + ChatHistory
+  -> PlannerNode                         # LLM: clasifica ruta, normaliza consulta y prepara web_search_query en ingles
   -> RouteDecision
       -> DirectResponseNode              # fuera de dominio / ayuda del agente
-      -> LocalHybridSearchNode           # RAG + Keyword/BM25 en paralelo, sin LLM
+      -> LocalHybridSearchNode           # RAG + Keyword/BM25 en la etapa local, sin LLM
+          -> rag_search
+          -> keyword_bm25_search
+          -> hybrid_merge
           -> LocalEvidenceGate           # regla deterministica
               -> AggregatorVerifierNode  # LLM: respuesta final si hay evidencia local
               -> WebFallbackNode         # SerpAPI / Google Shopping, sin LLM
                   -> AggregatorVerifierNode
-  -> FinalResponse
-  -> LangfuseTrace + AuditLog</div>
+  -> FinalResponse + StreamlitDetails
+  -> LangfuseTrace + AuditLog + TimingBar</div>
   </section>
 
   <section>
@@ -1072,20 +1862,20 @@
         <tr>
           <td>Fuera de dominio</td>
           <td><code>PlannerNode -> DirectResponseNode</code></td>
-          <td>1</td>
-          <td>El planner responde rapido que el agente solo busca productos electronicos para compra.</td>
+          <td>2</td>
+          <td>El planner clasifica y el nodo directo responde rapido que el agente solo busca productos electronicos para compra.</td>
         </tr>
         <tr>
           <td>Pregunta sobre el agente</td>
           <td><code>PlannerNode -> DirectResponseNode</code></td>
-          <td>1</td>
-          <td>El planner responde desde instrucciones del system prompt. No usa RAG ni web.</td>
+          <td>2</td>
+          <td>El planner clasifica y el nodo directo responde desde instrucciones del prompt. No usa RAG ni web.</td>
         </tr>
         <tr>
           <td>Producto encontrado localmente</td>
           <td><code>PlannerNode -> LocalHybridSearchNode -> AggregatorVerifierNode</code></td>
           <td>2</td>
-          <td>La busqueda local hibrida encuentra producto, precio/envio o suficiente evidencia.</td>
+          <td>La busqueda local hibrida encuentra producto, precio y URL de compra local.</td>
         </tr>
         <tr>
           <td>Producto no encontrado localmente</td>
@@ -1099,7 +1889,7 @@
 
   <section>
     <h2>Modelos configurables</h2>
-    <p>Streamlit tendra un dropdown por agente. La lista sale de <code>LLM_MODEL_OPTIONS</code>, separada por comas, para poder cambiar modelos sin tocar codigo.</p>
+    <p>Streamlit tiene un dropdown por agente. La lista sale de <code>LLM_MODEL_OPTIONS</code>, separada por comas, para poder cambiar modelos sin tocar codigo.</p>
     <table>
       <thead>
         <tr>
@@ -1151,8 +1941,8 @@
         </tr>
         <tr>
           <td>Langfuse</td>
-          <td><code>LANGFUSE_PUBLIC_KEY</code>, <code>LANGFUSE_SECRET_KEY</code>, <code>LANGFUSE_HOST</code></td>
-          <td>Observabilidad de trazas, generations, scores, latencia, costo y errores.</td>
+          <td><code>LANGFUSE_PUBLIC_KEY</code>, <code>LANGFUSE_SECRET_KEY</code>, <code>LANGFUSE_HOST</code> o <code>LANGFUSE_BASE_URL</code></td>
+          <td>Observabilidad de trazas, generations, spans, tokens, latencia, costo y errores. Las claves determinan el proyecto de Langfuse.</td>
         </tr>
         <tr>
           <td>Web fallback</td>
@@ -1177,10 +1967,12 @@
   "route": "out_of_domain | agent_info | local_search",
   "normalized_query": "string",
   "product_terms": ["string"],
+  "web_search_query": "english query for external supplier search",
   "needs_price": true,
-  "needs_shipping": true,
   "stream_message": "string",
-  "reason": "string"
+  "reason": "string",
+  "model": "string",
+  "provider": "groq | rules-fallback"
 }</div>
       </div>
       <div class="box span-6">
@@ -1189,7 +1981,7 @@
   "product_name": "string",
   "sku": "string | null",
   "price": "string | null",
-  "shipping_eta": "string | null",
+  "purchase_url": "string | null",
   "vendor": "string",
   "source": "catalog | keyword | web",
   "url": "string | null",
@@ -1203,7 +1995,7 @@
   "should_answer": true,
   "product_name": "string",
   "price": "string | null",
-  "shipping_eta": "string | null",
+  "purchase_url": "string | null",
   "vendor": "string | null",
   "source": "string",
   "confidence": 0.0,
@@ -1223,25 +2015,51 @@
   and (
     local_results_count < LOCAL_SEARCH_MIN_RESULTS
     or best_local_score < LOCAL_SEARCH_MIN_SCORE
+    or specific_product_terms_missing_from_best_result
     or missing(price)
-    or missing(shipping_eta)
+    or missing(price)
   )</div>
+    <p>Terminos especificos son tokens como SKUs, codigos con numeros o identificadores con guiones. Ejemplo: si el usuario pide <code>A1468</code> y el mejor resultado local no contiene <code>A1468</code>, se fuerza fallback web aunque haya resultados parecidos.</p>
   </section>
 
   <section>
-    <h2>Plan de implementacion</h2>
-    <ol class="compact">
-      <li>Agregar dependencias: <code>langchain</code>, <code>langchain-groq</code> y variables <code>GROQ_API_KEY</code>, <code>GROQ_MODEL</code>.</li>
-      <li>Crear provider Groq reusable y prompts versionados para planner y verifier.</li>
-      <li>Implementar <code>PlannerAgent</code> con rutas: fuera de dominio, ayuda del agente, busqueda local hibrida y fallback web.</li>
-      <li>Agregar keyword/BM25 y combinarlo con RAG semantico antes de llamar a web search.</li>
-      <li>Agregar streaming de estado: el planner informa busqueda semantica, keyword, fallback externo o respuesta directa.</li>
-      <li>Definir schemas JSON para respuestas de agentes y validarlos antes de mostrar al usuario.</li>
-      <li>Crear dataset de evaluacion con productos, SKUs esperados, consultas fuera de dominio, casos sin stock y parafrasis.</li>
-      <li>Integrar Langfuse para tracing, generations, scores, latencia, costo y errores por agente.</li>
-      <li>Extender telemetry local para Recall@k, Context Recall, abstencion, latencia p50/p95 y costo.</li>
-      <li>Actualizar README e informe tecnico con arquitectura, resultados, metricas y ejemplos.</li>
-    </ol>
+    <h2>Planificacion del equipo</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Frente</th>
+          <th>Tareas</th>
+          <th>Asignado a</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Orquestacion y agentes</td>
+          <td>Planner, rutas LangGraph, verificador, contratos JSON y streaming de estado.</td>
+          <td>Backend / agentes</td>
+        </tr>
+        <tr>
+          <td>RAG y catalogo</td>
+          <td>Ingesta de catalogo, ChromaDB, Keyword/BM25, merge hibrido y recalibracion de ranking.</td>
+          <td>RAG / datos</td>
+        </tr>
+        <tr>
+          <td>Seguridad y auditoria</td>
+          <td>Validacion de input, control de limites, logging JSONL, output policy y PII.</td>
+          <td>Backend / QA</td>
+        </tr>
+        <tr>
+          <td>Evaluacion</td>
+          <td>Dataset, tests de metricas, DeepEval, reportes HTML, ejemplos de resultados y fallos.</td>
+          <td>Evaluacion / QA</td>
+        </tr>
+        <tr>
+          <td>Documentacion y presentacion</td>
+          <td>PDF tecnico, arquitectura visual, resultados, conclusiones y slides.</td>
+          <td>Documentacion</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
   <section>
@@ -1253,20 +2071,59 @@
           <li>Crear <code>llm-agent-project/.env</code> desde <code>.env.example</code>.</li>
           <li>Agregar <code>GROQ_API_KEY</code> para el LLM.</li>
           <li>Agregar <code>LANGFUSE_PUBLIC_KEY</code>, <code>LANGFUSE_SECRET_KEY</code> y <code>LANGFUSE_HOST</code> para observabilidad.</li>
-          <li>Agregar claves web si se usara busqueda real: <code>TAVILY_API_KEY</code>, <code>SERPAPI_API_KEY</code>, <code>ZYTE_API_KEY</code>.</li>
+          <li>Agregar <code>SERPAPI_API_KEY</code> para fallback web real con Google Shopping.</li>
         </ol>
       </div>
       <div class="box span-6">
         <h3>Ejecucion</h3>
         <ol class="compact">
           <li><code>cd llm-agent-project</code></li>
-          <li><code>pip install -r requirements.txt</code></li>
-          <li><code>python scripts/ingest_catalog_to_chroma.py</code></li>
-          <li><code>streamlit run app/main.py</code></li>
+          <li><code>.venv\Scripts\python.exe -m pip install -r requirements.txt</code></li>
+          <li><code>.venv\Scripts\python.exe scripts/ingest_catalog_to_chroma.py</code></li>
+          <li><code>.venv\Scripts\python.exe -m streamlit run app/main.py</code></li>
         </ol>
       </div>
     </div>
   </section>
 </main>
+<div class="image-modal" id="imageModal" aria-hidden="true" role="dialog" aria-label="Imagen ampliada">
+  <button class="modal-close" type="button" aria-label="Cerrar imagen">&times;</button>
+  <img src="" alt="">
+</div>
+<script>
+  (() => {
+    const modal = document.getElementById("imageModal");
+    const modalImage = modal.querySelector("img");
+    const closeButton = modal.querySelector(".modal-close");
+
+    const closeModal = () => {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImage.src = "";
+      modalImage.alt = "";
+    };
+
+    document.querySelectorAll(".screenshot-thumb").forEach((button) => {
+      button.addEventListener("click", () => {
+        modalImage.src = button.dataset.full;
+        modalImage.alt = button.dataset.alt || "";
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    closeButton.addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("open")) {
+        closeModal();
+      }
+    });
+  })();
+</script>
 </body>
 </html>

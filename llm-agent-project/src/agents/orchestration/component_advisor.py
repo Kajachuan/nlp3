@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import re
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable
+from urllib.parse import quote
 
 from langgraph.graph import END, StateGraph
 
@@ -28,7 +30,6 @@ class PlannerDecision:
     product_terms: list[str]
     web_search_query: str
     needs_price: bool
-    needs_shipping: bool
     stream_message: str
     reason: str
     model: str
@@ -40,7 +41,7 @@ class AggregatorDecision:
     should_answer: bool
     product_name: str | None
     price: str | None
-    shipping_eta: str | None
+    purchase_url: str | None
     vendor: str | None
     source: str
     confidence: float
@@ -93,7 +94,6 @@ class ComponentAdvisorOrchestrator:
         web_method: WebSearchMethod | None = None,
         preferred_sites: list[str] | None = None,
         preferred_only: bool = False,
-        include_delivery_details: bool = False,
         model_selection: LLMModelSelection | None = None,
         progress_callback: Callable[[str], None] | None = None,
     ) -> AdvisorResponse:
@@ -135,7 +135,6 @@ class ComponentAdvisorOrchestrator:
                 web_method=web_method,
                 preferred_sites=preferred_sites,
                 preferred_only=preferred_only,
-                include_delivery_details=include_delivery_details,
                 progress_callback=progress_callback,
             )
             state = graph.invoke(
@@ -156,7 +155,7 @@ class ComponentAdvisorOrchestrator:
         web = state.get("web")
         gate = state.get("gate")
         aggregator = state.get("aggregator")
-        final_answer = state.get("final_answer") or ""
+        final_answer = self._clean_markdown_fences(state.get("final_answer") or "")
         catalog = self._catalog_result_from_local(local) if local else None
         response = AdvisorResponse(
             ok=True,
@@ -201,7 +200,6 @@ class ComponentAdvisorOrchestrator:
         web_method: WebSearchMethod | None,
         preferred_sites: list[str] | None,
         preferred_only: bool,
-        include_delivery_details: bool,
         progress_callback: Callable[[str], None] | None = None,
     ):
         graph = StateGraph(dict)
@@ -278,7 +276,6 @@ class ComponentAdvisorOrchestrator:
                 gate = self.evidence_gate.decide(
                     local.response,
                     planner.needs_price,
-                    planner.needs_shipping,
                     required_terms=planner.product_terms,
                 )
             metrics.set_label("web_fallback_used", gate.use_web_fallback)
@@ -299,7 +296,6 @@ class ComponentAdvisorOrchestrator:
                         method=web_method,
                         preferred_sites=preferred_sites,
                         preferred_only=preferred_only,
-                        include_delivery_details=include_delivery_details,
                     )
             emit(f"Web search terminado: {len(web.results)} resultados.")
             metrics.increment("web_result_count", len(web.results))
@@ -318,6 +314,7 @@ class ComponentAdvisorOrchestrator:
                         state["planner"],
                         state["local"],
                         web,
+                        state.get("gate"),
                         models.verifier_model,
                         trace,
                         metrics,
@@ -328,7 +325,7 @@ class ComponentAdvisorOrchestrator:
             if not aggregator.should_answer:
                 final_answer = (
                     aggregator.answer
-                    or "No encontre evidencia suficiente para recomendar un producto con precio y envio confiables."
+                    or "No encontre evidencia suficiente para recomendar un componente con precio y URL de compra confiables."
                 )
             return {**state, "aggregator": aggregator, "final_answer": final_answer}
 
@@ -383,7 +380,6 @@ class ComponentAdvisorOrchestrator:
             product_terms=[str(term) for term in parsed.get("product_terms", []) if str(term).strip()],
             web_search_query=str(parsed.get("web_search_query") or self._english_web_query(query)),
             needs_price=bool(parsed.get("needs_price", True)),
-            needs_shipping=bool(parsed.get("needs_shipping", True)),
             stream_message=str(parsed.get("stream_message") or "I am planning the best way to answer your request."),
             reason=str(parsed.get("reason") or ""),
             model=model,
@@ -408,15 +404,15 @@ class ComponentAdvisorOrchestrator:
         self._record_llm_usage(metrics, "direct_response", llm_result)
         trace.generation("direct_response", model, payload, llm_result.content, {"provider": llm_result.provider})
         if llm_result.provider == "groq" and llm_result.content.strip():
-            return llm_result.content.strip()
+            return self._clean_markdown_fences(llm_result.content)
         if planner.route == "agent_info":
             return (
                 "Este agente busca productos electronicos para comprar. Primero consulta nuestro catalogo local y, "
-                "si no alcanza, usa proveedores externos para estimar precio y envio."
+                "si no alcanza, usa proveedores externos para encontrar precio y URL de compra."
             )
         return (
             "No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos "
-            "para compra, precio, disponibilidad y envio."
+            "para compra, precio y URL de compra."
         )
 
     def _run_aggregator(
@@ -425,17 +421,30 @@ class ComponentAdvisorOrchestrator:
         planner: PlannerDecision,
         local: LocalHybridAgentResult,
         web: WebResearchResult | None,
+        gate: EvidenceGateDecision | None,
         model: str,
         trace,
         metrics: Metrics,
         chat_history: list[dict[str, str]] | None = None,
     ) -> AggregatorDecision:
         prompt = load_prompt("aggregator_verifier")
+        local_results_for_aggregation = local.response.results
+        if web and web.results and not self._local_supports_specific_terms(local, planner):
+            local_results_for_aggregation = []
+            metrics.set_label("local_results_suppressed_for_aggregation", True)
+        else:
+            metrics.set_label("local_results_suppressed_for_aggregation", False)
+
         payload = {
             "query": query,
             "chat_history": chat_history or [],
             "planner": planner.__dict__,
-            "local_results": [self._hybrid_to_dict(result) for result in local.response.results],
+            "evidence_gate": gate.__dict__ if gate else None,
+            "aggregation_rule": (
+                "If local_results is empty and web_results is not empty, answer from web_results. "
+                "Do not use omitted local candidates."
+            ),
+            "local_results": [self._hybrid_to_dict(result) for result in local_results_for_aggregation],
             "web_results": [result.__dict__ for result in web.results] if web else [],
         }
         payload_text = str(payload)
@@ -444,26 +453,29 @@ class ComponentAdvisorOrchestrator:
         trace.generation("aggregator_verifier", model, payload_text, llm_result.content, {"provider": llm_result.provider})
         parsed = parse_json_object(llm_result.content)
         if parsed and "error" not in parsed and parsed.get("answer"):
+            parsed_purchase_url = self._optional_str(parsed.get("purchase_url") or parsed.get("source"))
+            if not parsed_purchase_url and local_results_for_aggregation:
+                parsed_purchase_url = self._local_purchase_url(local_results_for_aggregation[0].item)
             return AggregatorDecision(
                 should_answer=bool(parsed.get("should_answer", True)),
                 product_name=self._optional_str(parsed.get("product_name")),
                 price=self._optional_str(parsed.get("price")),
-                shipping_eta=self._optional_str(parsed.get("shipping_eta")),
+                purchase_url=parsed_purchase_url,
                 vendor=self._optional_str(parsed.get("vendor")),
-                source=str(parsed.get("source") or ""),
+                source=str(parsed.get("source") or parsed_purchase_url or ""),
                 confidence=float(parsed.get("confidence") or 0.0),
-                answer=str(parsed.get("answer") or ""),
+                answer=self._clean_markdown_fences(str(parsed.get("answer") or "")),
                 limitations=[str(item) for item in parsed.get("limitations", [])],
                 citations=[str(item) for item in parsed.get("citations", [])],
                 model=model,
                 provider=llm_result.provider,
             )
-        return self._fallback_aggregator(local, web, model, llm_result.provider)
+        return self._fallback_aggregator(local, web, planner, model, llm_result.provider)
 
     def _fallback_planner(self, query: str, model: str, provider: str) -> dict[str, Any]:
         lowered = query.lower()
         agent_terms = ["que haces", "qué haces", "como funciona", "cómo funciona", "help", "ayuda", "alcance"]
-        product_terms = ["precio", "price", "comprar", "buy", "stock", "envio", "envío", "sku", "sensor", "op amp", "amplificador", "regulador", "lm741", "esp32", "bme280"]
+        product_terms = ["precio", "price", "comprar", "buy", "stock", "url", "link", "sku", "sensor", "op amp", "amplificador", "regulador", "lm741", "esp32", "bme280"]
         if any(term in lowered for term in agent_terms):
             route = "agent_info"
         elif not any(term in lowered for term in product_terms):
@@ -476,7 +488,6 @@ class ComponentAdvisorOrchestrator:
             "product_terms": self._product_terms(query),
             "web_search_query": self._english_web_query(query),
             "needs_price": any(term in lowered for term in ["precio", "price", "comprar", "buy"]),
-            "needs_shipping": any(term in lowered for term in ["envio", "envío", "shipping", "delivery"]),
             "stream_message": "I am checking whether this should use local catalog search or external suppliers.",
             "reason": f"fallback planner via {provider}",
         }
@@ -485,28 +496,54 @@ class ComponentAdvisorOrchestrator:
         self,
         local: LocalHybridAgentResult,
         web: WebResearchResult | None,
+        planner: PlannerDecision,
         model: str,
         provider: str,
     ) -> AggregatorDecision:
-        if local.response.results:
+        local_is_supported = self._local_supports_specific_terms(local, planner)
+        if web and web.results and not local_is_supported:
+            best_web = web.results[0]
+            answer = (
+                f"No encontre una coincidencia suficiente en el catalogo local. "
+                f"Resultado externo: {best_web.title}.\n\n"
+                f"Precio: {best_web.price or 'No informado'}\n"
+                f"Comprar: [Click aqui]({best_web.url})"
+            )
+            return AggregatorDecision(
+                should_answer=True,
+                product_name=best_web.title,
+                price=best_web.price,
+                purchase_url=best_web.url,
+                vendor=best_web.vendor or best_web.source,
+                source=best_web.url,
+                confidence=best_web.score or 0.5,
+                answer=answer,
+                limitations=["External result should be verified before purchase."],
+                citations=[best_web.url],
+                model=model,
+                provider=provider,
+            )
+
+        if local.response.results and local_is_supported:
             best = local.response.results[0]
             item = best.item
+            purchase_url = self._local_purchase_url(item)
             answer = (
-                f"En nuestro catalogo encontre {item['name']} ({item['sku']}). "
-                f"Precio aproximado: USD {item.get('price_usd')}. Stock: {item.get('stock')}. "
-                f"No tengo tiempo de envio local exacto; usar stock como disponibilidad preliminar."
+                f"En nuestro catalogo encontre {item['name']} ({item['sku']}).\n\n"
+                f"Precio: USD {item.get('price_usd')}\n"
+                f"Comprar: [Click aqui]({purchase_url})"
             )
             return AggregatorDecision(
                 should_answer=True,
                 product_name=str(item.get("name")),
                 price=f"USD {item.get('price_usd')}",
-                shipping_eta=None,
+                purchase_url=purchase_url,
                 vendor="catalog",
-                source="local_catalog",
+                source=purchase_url,
                 confidence=min(1.0, max(0.0, best.score)),
                 answer=answer,
-                limitations=["Local catalog has stock but no exact shipping ETA."],
-                citations=[str(item.get("sku"))],
+                limitations=[],
+                citations=[purchase_url],
                 model=model,
                 provider=provider,
             )
@@ -514,14 +551,15 @@ class ComponentAdvisorOrchestrator:
             best_web = web.results[0]
             answer = (
                 f"No encontre una coincidencia suficiente en el catalogo local. "
-                f"Resultado externo: {best_web.title}. Precio: {best_web.price or 'no informado'}. "
-                f"Proveedor: {best_web.vendor or best_web.source}. Fuente: {best_web.url}."
+                f"Resultado externo: {best_web.title}.\n\n"
+                f"Precio: {best_web.price or 'No informado'}\n"
+                f"Comprar: [Click aqui]({best_web.url})"
             )
             return AggregatorDecision(
                 should_answer=True,
                 product_name=best_web.title,
                 price=best_web.price,
-                shipping_eta=None,
+                purchase_url=best_web.url,
                 vendor=best_web.vendor or best_web.source,
                 source=best_web.url,
                 confidence=best_web.score or 0.5,
@@ -535,11 +573,11 @@ class ComponentAdvisorOrchestrator:
             should_answer=False,
             product_name=None,
             price=None,
-            shipping_eta=None,
+            purchase_url=None,
             vendor=None,
             source="none",
             confidence=0.0,
-            answer="No encontre evidencia suficiente para recomendar un producto con precio y envio confiables.",
+            answer="No encontre evidencia suficiente para recomendar un componente con precio y URL de compra confiables.",
             limitations=["No local or external evidence available."],
             citations=[],
             model=model,
@@ -556,6 +594,7 @@ class ComponentAdvisorOrchestrator:
     def _hybrid_to_dict(self, result) -> dict[str, Any]:
         return {
             "item": result.item,
+            "purchase_url": self._local_purchase_url(result.item),
             "score": result.score,
             "semantic_score": result.semantic_score,
             "keyword_score": result.keyword_score,
@@ -567,6 +606,55 @@ class ComponentAdvisorOrchestrator:
     def _product_terms(self, query: str) -> list[str]:
         return [term for term in re.findall(r"[A-Za-z0-9.-]+", query) if len(term) > 2]
 
+    def _local_supports_specific_terms(self, local: LocalHybridAgentResult, planner: PlannerDecision) -> bool:
+        specific_terms = self._specific_product_terms(
+            [
+                *planner.product_terms,
+                *self._product_terms(planner.normalized_query),
+                *self._product_terms(planner.web_search_query),
+            ]
+        )
+        if not specific_terms:
+            return bool(local.response.results)
+        for result in local.response.results:
+            haystack = " ".join(
+                [
+                    str(result.item.get("sku", "")),
+                    str(result.item.get("name", "")),
+                    str(result.item.get("category", "")),
+                    str(result.item.get("description", "")),
+                    str(result.item.get("recommended_use", "")),
+                    str(result.document),
+                    " ".join(result.matched_terms),
+                ]
+            ).lower()
+            if any(term in haystack for term in specific_terms):
+                return True
+        return False
+
+    def _specific_product_terms(self, terms: list[str]) -> list[str]:
+        generic = {
+            "precio",
+            "price",
+            "buy",
+            "comprar",
+            "stock",
+            "url",
+            "link",
+            "component",
+            "componente",
+            "allegro",
+            "sensor",
+        }
+        specific = []
+        for term in terms:
+            normalized = term.strip().lower()
+            if not normalized or normalized in generic:
+                continue
+            if re.search(r"\d", normalized) or "-" in normalized:
+                specific.append(normalized)
+        return sorted(set(specific))
+
     def _english_web_query(self, query: str) -> str:
         lowered = query.lower()
         replacements = {
@@ -574,8 +662,6 @@ class ComponentAdvisorOrchestrator:
             "dame": "",
             "quiero": "",
             "necesito": "",
-            "envio": "shipping",
-            "envío": "shipping",
             "amplificador operacional": "op amp",
             "bajo ruido": "low noise",
             "canales": "channel",
@@ -599,6 +685,22 @@ class ComponentAdvisorOrchestrator:
             return None
         text = str(value)
         return None if text.lower() == "null" or not text.strip() else text
+
+    def _clean_markdown_fences(self, text: str) -> str:
+        cleaned = text.strip()
+        fenced = re.fullmatch(r"```(?:markdown|md)?\s*(.*?)\s*```", cleaned, flags=re.DOTALL | re.IGNORECASE)
+        if fenced:
+            return fenced.group(1).strip()
+        return cleaned
+
+    def _local_purchase_url(self, item: dict[str, Any]) -> str:
+        component_name = str(item.get("name") or item.get("sku") or "component")
+        base_url = os.getenv(
+            "LOCAL_COMPONENT_PAGE_BASE_URL",
+            "http://localhost:5500/llm-agent-project/web/componentes.html",
+        ).rstrip("?&")
+        separator = "&" if "?" in base_url else "?"
+        return f"{base_url}{separator}id={quote(component_name, safe='')}"
 
     def _record_llm_usage(self, metrics: Metrics, node_name: str, llm_result) -> None:
         input_tokens = int(llm_result.prompt_tokens or 0)

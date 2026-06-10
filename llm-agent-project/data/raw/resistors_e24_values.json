@@ -1,0 +1,852 @@
+[
+  {
+    "sku": "R-E24-10-0402-0D1P-01",
+    "name": "Resistencia SMD E24 10 ohm 0402 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 10,
+      "tolerance": "0.1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 900,
+    "price_usd": 0.006,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-11-0603-1P-02",
+    "name": "Resistencia SMD E24 11 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 11,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1037,
+    "price_usd": 0.007,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-12-0805-1P-03",
+    "name": "Resistencia SMD E24 12 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 12,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1174,
+    "price_usd": 0.008,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-13-1206-0D1P-04",
+    "name": "Resistencia SMD E24 13 ohm 1206 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 13,
+      "tolerance": "0.1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 1311,
+    "price_usd": 0.009,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-15-0402-1P-05",
+    "name": "Resistencia SMD E24 15 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 15,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1448,
+    "price_usd": 0.01,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-16-0603-1P-06",
+    "name": "Resistencia SMD E24 16 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 16,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1585,
+    "price_usd": 0.011,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-18-0805-0D1P-07",
+    "name": "Resistencia SMD E24 18 ohm 0805 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 18,
+      "tolerance": "0.1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 1722,
+    "price_usd": 0.012,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-20-1206-1P-08",
+    "name": "Resistencia SMD E24 20 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 20,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1859,
+    "price_usd": 0.013,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-22-0402-1P-09",
+    "name": "Resistencia SMD E24 22 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 22,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1996,
+    "price_usd": 0.014,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-24-0603-0D1P-10",
+    "name": "Resistencia SMD E24 24 ohm 0603 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 24,
+      "tolerance": "0.1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 2133,
+    "price_usd": 0.015,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-27-0805-1P-11",
+    "name": "Resistencia SMD E24 27 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 27,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2270,
+    "price_usd": 0.016,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-30-1206-1P-12",
+    "name": "Resistencia SMD E24 30 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 30,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2407,
+    "price_usd": 0.017,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-33-0402-0D1P-13",
+    "name": "Resistencia SMD E24 33 ohm 0402 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 33,
+      "tolerance": "0.1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 2544,
+    "price_usd": 0.018,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-36-0603-1P-14",
+    "name": "Resistencia SMD E24 36 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 36,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2681,
+    "price_usd": 0.019,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-39-0805-1P-15",
+    "name": "Resistencia SMD E24 39 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 39,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2818,
+    "price_usd": 0.02,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-43-1206-0D1P-16",
+    "name": "Resistencia SMD E24 43 ohm 1206 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 43,
+      "tolerance": "0.1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 2955,
+    "price_usd": 0.021,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-47-0402-1P-17",
+    "name": "Resistencia SMD E24 47 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 47,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 3092,
+    "price_usd": 0.022,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-51-0603-1P-18",
+    "name": "Resistencia SMD E24 51 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 51,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 3229,
+    "price_usd": 0.006,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-56-0805-0D1P-19",
+    "name": "Resistencia SMD E24 56 ohm 0805 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 56,
+      "tolerance": "0.1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 3366,
+    "price_usd": 0.007,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-62-1206-1P-20",
+    "name": "Resistencia SMD E24 62 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 62,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 3503,
+    "price_usd": 0.008,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-68-0402-1P-21",
+    "name": "Resistencia SMD E24 68 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 68,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 3640,
+    "price_usd": 0.009,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-75-0603-0D1P-22",
+    "name": "Resistencia SMD E24 75 ohm 0603 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 75,
+      "tolerance": "0.1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 3777,
+    "price_usd": 0.01,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-82-0805-1P-23",
+    "name": "Resistencia SMD E24 82 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 82,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 3914,
+    "price_usd": 0.011,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-91-1206-1P-24",
+    "name": "Resistencia SMD E24 91 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 91,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 4051,
+    "price_usd": 0.012,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-100-0402-0D1P-25",
+    "name": "Resistencia SMD E24 100 ohm 0402 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 100,
+      "tolerance": "0.1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 4188,
+    "price_usd": 0.013,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-110-0603-1P-26",
+    "name": "Resistencia SMD E24 110 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 110,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 4325,
+    "price_usd": 0.014,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-120-0805-1P-27",
+    "name": "Resistencia SMD E24 120 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 120,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 4462,
+    "price_usd": 0.015,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-130-1206-0D1P-28",
+    "name": "Resistencia SMD E24 130 ohm 1206 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 130,
+      "tolerance": "0.1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 4599,
+    "price_usd": 0.016,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-150-0402-1P-29",
+    "name": "Resistencia SMD E24 150 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 150,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 4736,
+    "price_usd": 0.017,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-160-0603-1P-30",
+    "name": "Resistencia SMD E24 160 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 160,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 4873,
+    "price_usd": 0.018,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-180-0805-0D1P-31",
+    "name": "Resistencia SMD E24 180 ohm 0805 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 180,
+      "tolerance": "0.1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 5010,
+    "price_usd": 0.019,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-200-1206-1P-32",
+    "name": "Resistencia SMD E24 200 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 200,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 5147,
+    "price_usd": 0.02,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-220-0402-1P-33",
+    "name": "Resistencia SMD E24 220 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 220,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 5284,
+    "price_usd": 0.021,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-240-0603-0D1P-34",
+    "name": "Resistencia SMD E24 240 ohm 0603 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 240,
+      "tolerance": "0.1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 5421,
+    "price_usd": 0.022,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-270-0805-1P-35",
+    "name": "Resistencia SMD E24 270 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 270,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 5558,
+    "price_usd": 0.006,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-300-1206-1P-36",
+    "name": "Resistencia SMD E24 300 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 300,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 5695,
+    "price_usd": 0.007,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-330-0402-0D1P-37",
+    "name": "Resistencia SMD E24 330 ohm 0402 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 330,
+      "tolerance": "0.1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 1032,
+    "price_usd": 0.008,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-360-0603-1P-38",
+    "name": "Resistencia SMD E24 360 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 360,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1169,
+    "price_usd": 0.009,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-390-0805-1P-39",
+    "name": "Resistencia SMD E24 390 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 390,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1306,
+    "price_usd": 0.01,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-430-1206-0D1P-40",
+    "name": "Resistencia SMD E24 430 ohm 1206 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 430,
+      "tolerance": "0.1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 1443,
+    "price_usd": 0.011,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-470-0402-1P-41",
+    "name": "Resistencia SMD E24 470 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 470,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1580,
+    "price_usd": 0.012,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-510-0603-1P-42",
+    "name": "Resistencia SMD E24 510 ohm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 510,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1717,
+    "price_usd": 0.013,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-560-0805-0D1P-43",
+    "name": "Resistencia SMD E24 560 ohm 0805 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 560,
+      "tolerance": "0.1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 1854,
+    "price_usd": 0.014,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-620-1206-1P-44",
+    "name": "Resistencia SMD E24 620 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 620,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 1991,
+    "price_usd": 0.015,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-680-0402-1P-45",
+    "name": "Resistencia SMD E24 680 ohm 0402 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 680,
+      "tolerance": "1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2128,
+    "price_usd": 0.016,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-750-0603-0D1P-46",
+    "name": "Resistencia SMD E24 750 ohm 0603 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 750,
+      "tolerance": "0.1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 2265,
+    "price_usd": 0.017,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-820-0805-1P-47",
+    "name": "Resistencia SMD E24 820 ohm 0805 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 820,
+      "tolerance": "1%",
+      "power_w": 0.125,
+      "package": "0805",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2402,
+    "price_usd": 0.018,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-910-1206-1P-48",
+    "name": "Resistencia SMD E24 910 ohm 1206 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 910,
+      "tolerance": "1%",
+      "power_w": 0.25,
+      "package": "1206",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2539,
+    "price_usd": 0.019,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-1000-0402-0D1P-49",
+    "name": "Resistencia SMD E24 1 kOhm 0402 0.1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 1000,
+      "tolerance": "0.1%",
+      "power_w": 0.0625,
+      "package": "0402",
+      "temperature_coefficient_ppm_c": 25
+    },
+    "stock": 2676,
+    "price_usd": 0.02,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  },
+  {
+    "sku": "R-E24-1100-0603-1P-50",
+    "name": "Resistencia SMD E24 1.1 kOhm 0603 1%",
+    "category": "resistor",
+    "description": "Resistencia SMD de la serie E24 para polarizacion, divisores, pull-up, pull-down y limitacion de corriente.",
+    "specs": {
+      "series": "E24",
+      "resistance_ohm": 1100,
+      "tolerance": "1%",
+      "power_w": 0.1,
+      "package": "0603",
+      "temperature_coefficient_ppm_c": 100
+    },
+    "stock": 2813,
+    "price_usd": 0.021,
+    "recommended_use": "Seleccion rapida de valores estandar para prototipos, redes analogicas y entradas digitales."
+  }
+]

@@ -5,6 +5,7 @@ class FakeWebSearchClient:
     def search(self, **kwargs):
         assert kwargs["method"] == "tavily"
         assert kwargs["preferred_sites"] == ["digikey.com"]
+        assert kwargs["include_delivery_details"] is False
         return [
             {
                 "title": "BME280 breakout",

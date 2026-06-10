@@ -1,0 +1,852 @@
+[
+  {
+    "sku": "TI-LM358-SOIC-8-01",
+    "name": "Texas Instruments LM358 op amp SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LM358",
+      "function": "op_amp",
+      "package": "SOIC-8",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 55,
+    "price_usd": 0.45,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TLV9002-VSSOP-10-02",
+    "name": "Texas Instruments TLV9002 current monitor VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TLV9002",
+      "function": "current_monitor",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 192,
+    "price_usd": 0.73,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-INA219-SOT-23-5-03",
+    "name": "Texas Instruments INA219 adc SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "INA219",
+      "function": "adc",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 329,
+    "price_usd": 1.01,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-ADS1115-QFN-16-04",
+    "name": "Texas Instruments ADS1115 dac QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "ADS1115",
+      "function": "dac",
+      "package": "QFN-16",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 466,
+    "price_usd": 1.29,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DAC8562-TSSOP-14-05",
+    "name": "Texas Instruments DAC8562 buck regulator TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DAC8562",
+      "function": "buck_regulator",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 603,
+    "price_usd": 1.57,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TPS62160-SOIC-8-06",
+    "name": "Texas Instruments TPS62160 motor driver SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TPS62160",
+      "function": "motor_driver",
+      "package": "SOIC-8",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 740,
+    "price_usd": 1.85,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DRV8833-VSSOP-10-07",
+    "name": "Texas Instruments DRV8833 level translator VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DRV8833",
+      "function": "level_translator",
+      "package": "VSSOP-10",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 877,
+    "price_usd": 2.13,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-SN74LVC1T45-SOT-23-5-08",
+    "name": "Texas Instruments SN74LVC1T45 battery charger SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "SN74LVC1T45",
+      "function": "battery_charger",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 1014,
+    "price_usd": 2.41,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LMV321-QFN-16-09",
+    "name": "Texas Instruments LMV321 op amp QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LMV321",
+      "function": "op_amp",
+      "package": "QFN-16",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 1151,
+    "price_usd": 2.69,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-BQ24075-TSSOP-14-10",
+    "name": "Texas Instruments BQ24075 current monitor TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "BQ24075",
+      "function": "current_monitor",
+      "package": "TSSOP-14",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 1288,
+    "price_usd": 2.97,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LM358-SOIC-8-11",
+    "name": "Texas Instruments LM358 adc SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LM358",
+      "function": "adc",
+      "package": "SOIC-8",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 1425,
+    "price_usd": 3.25,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TLV9002-VSSOP-10-12",
+    "name": "Texas Instruments TLV9002 dac VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TLV9002",
+      "function": "dac",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 1562,
+    "price_usd": 3.53,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-INA219-SOT-23-5-13",
+    "name": "Texas Instruments INA219 buck regulator SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "INA219",
+      "function": "buck_regulator",
+      "package": "SOT-23-5",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 1699,
+    "price_usd": 3.81,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-ADS1115-QFN-16-14",
+    "name": "Texas Instruments ADS1115 motor driver QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "ADS1115",
+      "function": "motor_driver",
+      "package": "QFN-16",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 1836,
+    "price_usd": 4.09,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DAC8562-TSSOP-14-15",
+    "name": "Texas Instruments DAC8562 level translator TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DAC8562",
+      "function": "level_translator",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 1973,
+    "price_usd": 4.37,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TPS62160-SOIC-8-16",
+    "name": "Texas Instruments TPS62160 battery charger SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TPS62160",
+      "function": "battery_charger",
+      "package": "SOIC-8",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 2110,
+    "price_usd": 4.65,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DRV8833-VSSOP-10-17",
+    "name": "Texas Instruments DRV8833 op amp VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DRV8833",
+      "function": "op_amp",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 2247,
+    "price_usd": 4.93,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-SN74LVC1T45-SOT-23-5-18",
+    "name": "Texas Instruments SN74LVC1T45 current monitor SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "SN74LVC1T45",
+      "function": "current_monitor",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 2384,
+    "price_usd": 0.45,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LMV321-QFN-16-19",
+    "name": "Texas Instruments LMV321 adc QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LMV321",
+      "function": "adc",
+      "package": "QFN-16",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 2521,
+    "price_usd": 0.73,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-BQ24075-TSSOP-14-20",
+    "name": "Texas Instruments BQ24075 dac TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "BQ24075",
+      "function": "dac",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 2658,
+    "price_usd": 1.01,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LM358-SOIC-8-21",
+    "name": "Texas Instruments LM358 buck regulator SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LM358",
+      "function": "buck_regulator",
+      "package": "SOIC-8",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 2795,
+    "price_usd": 1.29,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TLV9002-VSSOP-10-22",
+    "name": "Texas Instruments TLV9002 motor driver VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TLV9002",
+      "function": "motor_driver",
+      "package": "VSSOP-10",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 2932,
+    "price_usd": 1.57,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-INA219-SOT-23-5-23",
+    "name": "Texas Instruments INA219 level translator SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "INA219",
+      "function": "level_translator",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 3069,
+    "price_usd": 1.85,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-ADS1115-QFN-16-24",
+    "name": "Texas Instruments ADS1115 battery charger QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "ADS1115",
+      "function": "battery_charger",
+      "package": "QFN-16",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 3206,
+    "price_usd": 2.13,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DAC8562-TSSOP-14-25",
+    "name": "Texas Instruments DAC8562 op amp TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DAC8562",
+      "function": "op_amp",
+      "package": "TSSOP-14",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 3343,
+    "price_usd": 2.41,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TPS62160-SOIC-8-26",
+    "name": "Texas Instruments TPS62160 current monitor SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TPS62160",
+      "function": "current_monitor",
+      "package": "SOIC-8",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 3480,
+    "price_usd": 2.69,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DRV8833-VSSOP-10-27",
+    "name": "Texas Instruments DRV8833 adc VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DRV8833",
+      "function": "adc",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 3617,
+    "price_usd": 2.97,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-SN74LVC1T45-SOT-23-5-28",
+    "name": "Texas Instruments SN74LVC1T45 dac SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "SN74LVC1T45",
+      "function": "dac",
+      "package": "SOT-23-5",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 3754,
+    "price_usd": 3.25,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LMV321-QFN-16-29",
+    "name": "Texas Instruments LMV321 buck regulator QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LMV321",
+      "function": "buck_regulator",
+      "package": "QFN-16",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 3891,
+    "price_usd": 3.53,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-BQ24075-TSSOP-14-30",
+    "name": "Texas Instruments BQ24075 motor driver TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "BQ24075",
+      "function": "motor_driver",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 4028,
+    "price_usd": 3.81,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LM358-SOIC-8-31",
+    "name": "Texas Instruments LM358 level translator SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LM358",
+      "function": "level_translator",
+      "package": "SOIC-8",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 4165,
+    "price_usd": 4.09,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TLV9002-VSSOP-10-32",
+    "name": "Texas Instruments TLV9002 battery charger VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TLV9002",
+      "function": "battery_charger",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 4302,
+    "price_usd": 4.37,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-INA219-SOT-23-5-33",
+    "name": "Texas Instruments INA219 op amp SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "INA219",
+      "function": "op_amp",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 4439,
+    "price_usd": 4.65,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-ADS1115-QFN-16-34",
+    "name": "Texas Instruments ADS1115 current monitor QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "ADS1115",
+      "function": "current_monitor",
+      "package": "QFN-16",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 4576,
+    "price_usd": 4.93,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DAC8562-TSSOP-14-35",
+    "name": "Texas Instruments DAC8562 adc TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DAC8562",
+      "function": "adc",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 4713,
+    "price_usd": 0.45,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TPS62160-SOIC-8-36",
+    "name": "Texas Instruments TPS62160 dac SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TPS62160",
+      "function": "dac",
+      "package": "SOIC-8",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 4850,
+    "price_usd": 0.73,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DRV8833-VSSOP-10-37",
+    "name": "Texas Instruments DRV8833 buck regulator VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DRV8833",
+      "function": "buck_regulator",
+      "package": "VSSOP-10",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 187,
+    "price_usd": 1.01,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-SN74LVC1T45-SOT-23-5-38",
+    "name": "Texas Instruments SN74LVC1T45 motor driver SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "SN74LVC1T45",
+      "function": "motor_driver",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 324,
+    "price_usd": 1.29,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LMV321-QFN-16-39",
+    "name": "Texas Instruments LMV321 level translator QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LMV321",
+      "function": "level_translator",
+      "package": "QFN-16",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 461,
+    "price_usd": 1.57,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-BQ24075-TSSOP-14-40",
+    "name": "Texas Instruments BQ24075 battery charger TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "BQ24075",
+      "function": "battery_charger",
+      "package": "TSSOP-14",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 598,
+    "price_usd": 1.85,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LM358-SOIC-8-41",
+    "name": "Texas Instruments LM358 op amp SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LM358",
+      "function": "op_amp",
+      "package": "SOIC-8",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 735,
+    "price_usd": 2.13,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TLV9002-VSSOP-10-42",
+    "name": "Texas Instruments TLV9002 current monitor VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TLV9002",
+      "function": "current_monitor",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 872,
+    "price_usd": 2.41,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-INA219-SOT-23-5-43",
+    "name": "Texas Instruments INA219 adc SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "INA219",
+      "function": "adc",
+      "package": "SOT-23-5",
+      "supply_v": "4.5-17",
+      "interface": "I2C"
+    },
+    "stock": 1009,
+    "price_usd": 2.69,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-ADS1115-QFN-16-44",
+    "name": "Texas Instruments ADS1115 dac QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "ADS1115",
+      "function": "dac",
+      "package": "QFN-16",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 1146,
+    "price_usd": 2.97,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DAC8562-TSSOP-14-45",
+    "name": "Texas Instruments DAC8562 buck regulator TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DAC8562",
+      "function": "buck_regulator",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 1283,
+    "price_usd": 3.25,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-TPS62160-SOIC-8-46",
+    "name": "Texas Instruments TPS62160 motor driver SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "TPS62160",
+      "function": "motor_driver",
+      "package": "SOIC-8",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 1420,
+    "price_usd": 3.53,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-DRV8833-VSSOP-10-47",
+    "name": "Texas Instruments DRV8833 level translator VSSOP-10",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "DRV8833",
+      "function": "level_translator",
+      "package": "VSSOP-10",
+      "supply_v": "1.8-5.5",
+      "interface": "analog/gpio"
+    },
+    "stock": 1557,
+    "price_usd": 3.81,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-SN74LVC1T45-SOT-23-5-48",
+    "name": "Texas Instruments SN74LVC1T45 battery charger SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "SN74LVC1T45",
+      "function": "battery_charger",
+      "package": "SOT-23-5",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 1694,
+    "price_usd": 4.09,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-LMV321-QFN-16-49",
+    "name": "Texas Instruments LMV321 op amp QFN-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "LMV321",
+      "function": "op_amp",
+      "package": "QFN-16",
+      "supply_v": "4.5-17",
+      "interface": "analog/gpio"
+    },
+    "stock": 1831,
+    "price_usd": 4.37,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  },
+  {
+    "sku": "TI-BQ24075-TSSOP-14-50",
+    "name": "Texas Instruments BQ24075 current monitor TSSOP-14",
+    "category": "integrated_circuit",
+    "description": "Integrado Texas Instruments para procesamiento analogico, potencia, conversion de datos, drivers o logica.",
+    "specs": {
+      "manufacturer": "Texas Instruments",
+      "part_family": "BQ24075",
+      "function": "current_monitor",
+      "package": "TSSOP-14",
+      "supply_v": "1.8-5.5",
+      "interface": "I2C"
+    },
+    "stock": 1968,
+    "price_usd": 4.65,
+    "recommended_use": "Diseno de fuentes, adquisicion, control de motores, sensado de corriente y acondicionamiento analogico."
+  }
+]

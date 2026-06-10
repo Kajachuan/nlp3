@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Componente</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d7dde8;
+      --soft: #f6f8fb;
+      --accent: #117a55;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    main {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) minmax(320px, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .photo {
+      min-height: 420px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.85), transparent 28%),
+        linear-gradient(140deg, #eef2f7, #cfd7e3 48%, #f8fafc);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .chip {
+      width: min(320px, 78%);
+      aspect-ratio: 1.45;
+      background: linear-gradient(145deg, #1f2937, #09090b);
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 24px 50px rgba(15, 23, 42, .34);
+      display: grid;
+      place-items: center;
+      color: #d1d5db;
+      text-align: center;
+      padding: 28px;
+    }
+
+    .chip::before,
+    .chip::after {
+      content: "";
+      position: absolute;
+      top: 16%;
+      bottom: 16%;
+      width: 18px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #cbd5e1 0 10px,
+        transparent 10px 18px
+      );
+    }
+
+    .chip::before { left: -18px; }
+    .chip::after { right: -18px; }
+
+    .chip span {
+      max-width: 90%;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .details {
+      padding-top: 8px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      letter-spacing: 0;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .fact {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--soft);
+    }
+
+    .fact small {
+      display: block;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .fact strong {
+      font-size: 22px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 13px 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 760px) {
+      .product { grid-template-columns: 1fr; }
+      .photo { min-height: 300px; }
+      .facts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="product">
+      <div class="photo" aria-label="Foto mockup de circuito integrado">
+        <div class="chip"><span id="chip-label">IC</span></div>
+      </div>
+
+      <div class="details">
+        <h1 id="component-title">Componente</h1>
+        <p id="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae
+          justo sed lectus gravida consequat. Donec componentum mockup muestra
+          informacion comercial basica para validar el flujo de compra local.
+        </p>
+
+        <div class="facts">
+          <div class="fact">
+            <small>Precio</small>
+            <strong id="price">USD 0.00</strong>
+          </div>
+          <div class="fact">
+            <small>Stock</small>
+            <strong id="stock">0 partes</strong>
+          </div>
+        </div>
+
+        <button type="button">Comprar</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawId = params.get("id") || "Componente electronico";
+    const component = decodeURIComponent(rawId.replace(/\+/g, " "));
+
+    function hash(text) {
+      let value = 0;
+      for (let index = 0; index < text.length; index += 1) {
+        value = ((value << 5) - value) + text.charCodeAt(index);
+        value |= 0;
+      }
+      return Math.abs(value);
+    }
+
+    const seed = hash(component);
+    const stock = (seed % 100) + 1;
+    const price = ((seed % 9500) / 100 + 0.49).toFixed(2);
+
+    document.title = component;
+    document.getElementById("component-title").textContent = component;
+    document.getElementById("chip-label").textContent = component;
+    document.getElementById("price").textContent = `USD ${price}`;
+    document.getElementById("stock").textContent = `${stock} partes`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,802 @@
+[
+  {
+    "sku": "C-SMD-1pF-C0G-0402-6D3V-01",
+    "name": "Capacitor ceramico SMD 1 pF C0G 0402 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-12,
+      "voltage_v": 6.3,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 1200,
+    "price_usd": 0.01,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-2D2pF-X7R-0603-10V-02",
+    "name": "Capacitor ceramico SMD 2.2 pF X7R 0603 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-12,
+      "voltage_v": 10,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 1337,
+    "price_usd": 0.014,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-4D7pF-X5R-0805-16V-03",
+    "name": "Capacitor ceramico SMD 4.7 pF X5R 0805 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-12,
+      "voltage_v": 16,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 1474,
+    "price_usd": 0.018,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-10pF-Y5V-1206-25V-04",
+    "name": "Capacitor ceramico SMD 10 pF Y5V 1206 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-11,
+      "voltage_v": 25,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 1611,
+    "price_usd": 0.022,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-22pF-C0G-0402-50V-05",
+    "name": "Capacitor ceramico SMD 22 pF C0G 0402 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-11,
+      "voltage_v": 50,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 1748,
+    "price_usd": 0.026,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-47pF-X7R-0603-6D3V-06",
+    "name": "Capacitor ceramico SMD 47 pF X7R 0603 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-11,
+      "voltage_v": 6.3,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 1885,
+    "price_usd": 0.03,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-100pF-X5R-0805-10V-07",
+    "name": "Capacitor ceramico SMD 100 pF X5R 0805 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-10,
+      "voltage_v": 10,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 2022,
+    "price_usd": 0.034,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-220pF-Y5V-1206-16V-08",
+    "name": "Capacitor ceramico SMD 220 pF Y5V 1206 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-10,
+      "voltage_v": 16,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 2159,
+    "price_usd": 0.038,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-470pF-C0G-0402-25V-09",
+    "name": "Capacitor ceramico SMD 470 pF C0G 0402 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-10,
+      "voltage_v": 25,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 2296,
+    "price_usd": 0.042,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-1nF-X7R-0603-50V-10",
+    "name": "Capacitor ceramico SMD 1 nF X7R 0603 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-09,
+      "voltage_v": 50,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 2433,
+    "price_usd": 0.046,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-2D2nF-X5R-0805-6D3V-11",
+    "name": "Capacitor ceramico SMD 2.2 nF X5R 0805 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-09,
+      "voltage_v": 6.3,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 2570,
+    "price_usd": 0.05,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-4D7nF-Y5V-1206-10V-12",
+    "name": "Capacitor ceramico SMD 4.7 nF Y5V 1206 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-09,
+      "voltage_v": 10,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 2707,
+    "price_usd": 0.054,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-10nF-C0G-0402-16V-13",
+    "name": "Capacitor ceramico SMD 10 nF C0G 0402 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-08,
+      "voltage_v": 16,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 2844,
+    "price_usd": 0.058,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-22nF-X7R-0603-25V-14",
+    "name": "Capacitor ceramico SMD 22 nF X7R 0603 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-08,
+      "voltage_v": 25,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 2981,
+    "price_usd": 0.062,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-47nF-X5R-0805-50V-15",
+    "name": "Capacitor ceramico SMD 47 nF X5R 0805 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-08,
+      "voltage_v": 50,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 3118,
+    "price_usd": 0.066,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-100nF-Y5V-1206-6D3V-16",
+    "name": "Capacitor ceramico SMD 100 nF Y5V 1206 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-07,
+      "voltage_v": 6.3,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 3255,
+    "price_usd": 0.07,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-220nF-C0G-0402-10V-17",
+    "name": "Capacitor ceramico SMD 220 nF C0G 0402 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-07,
+      "voltage_v": 10,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 3392,
+    "price_usd": 0.074,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-470nF-X7R-0603-16V-18",
+    "name": "Capacitor ceramico SMD 470 nF X7R 0603 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-07,
+      "voltage_v": 16,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 3529,
+    "price_usd": 0.01,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-1uF-X5R-0805-25V-19",
+    "name": "Capacitor ceramico SMD 1 uF X5R 0805 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 25,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 3666,
+    "price_usd": 0.014,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-2D2uF-Y5V-1206-50V-20",
+    "name": "Capacitor ceramico SMD 2.2 uF Y5V 1206 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 50,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 3803,
+    "price_usd": 0.018,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-4D7uF-C0G-0402-6D3V-21",
+    "name": "Capacitor ceramico SMD 4.7 uF C0G 0402 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 6.3,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 3940,
+    "price_usd": 0.022,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-10uF-X7R-0603-10V-22",
+    "name": "Capacitor ceramico SMD 10 uF X7R 0603 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 10,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 4077,
+    "price_usd": 0.026,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-22uF-X5R-0805-16V-23",
+    "name": "Capacitor ceramico SMD 22 uF X5R 0805 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 16,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 4214,
+    "price_usd": 0.03,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-47uF-Y5V-1206-25V-24",
+    "name": "Capacitor ceramico SMD 47 uF Y5V 1206 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 25,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 4351,
+    "price_usd": 0.034,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-100uF-C0G-0402-50V-25",
+    "name": "Capacitor ceramico SMD 100 uF C0G 0402 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 50,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 4488,
+    "price_usd": 0.038,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-1pF-X7R-0603-6D3V-26",
+    "name": "Capacitor ceramico SMD 1 pF X7R 0603 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-12,
+      "voltage_v": 6.3,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 4625,
+    "price_usd": 0.042,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-2D2pF-X5R-0805-10V-27",
+    "name": "Capacitor ceramico SMD 2.2 pF X5R 0805 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-12,
+      "voltage_v": 10,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 4762,
+    "price_usd": 0.046,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-4D7pF-Y5V-1206-16V-28",
+    "name": "Capacitor ceramico SMD 4.7 pF Y5V 1206 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-12,
+      "voltage_v": 16,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 4899,
+    "price_usd": 0.05,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-10pF-C0G-0402-25V-29",
+    "name": "Capacitor ceramico SMD 10 pF C0G 0402 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-11,
+      "voltage_v": 25,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 5036,
+    "price_usd": 0.054,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-22pF-X7R-0603-50V-30",
+    "name": "Capacitor ceramico SMD 22 pF X7R 0603 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-11,
+      "voltage_v": 50,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 5173,
+    "price_usd": 0.058,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-47pF-X5R-0805-6D3V-31",
+    "name": "Capacitor ceramico SMD 47 pF X5R 0805 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-11,
+      "voltage_v": 6.3,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 5310,
+    "price_usd": 0.062,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-100pF-Y5V-1206-10V-32",
+    "name": "Capacitor ceramico SMD 100 pF Y5V 1206 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-10,
+      "voltage_v": 10,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 5447,
+    "price_usd": 0.066,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-220pF-C0G-0402-16V-33",
+    "name": "Capacitor ceramico SMD 220 pF C0G 0402 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-10,
+      "voltage_v": 16,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 5584,
+    "price_usd": 0.07,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-470pF-X7R-0603-25V-34",
+    "name": "Capacitor ceramico SMD 470 pF X7R 0603 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-10,
+      "voltage_v": 25,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 5721,
+    "price_usd": 0.074,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-1nF-X5R-0805-50V-35",
+    "name": "Capacitor ceramico SMD 1 nF X5R 0805 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-09,
+      "voltage_v": 50,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 5858,
+    "price_usd": 0.01,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-2D2nF-Y5V-1206-6D3V-36",
+    "name": "Capacitor ceramico SMD 2.2 nF Y5V 1206 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-09,
+      "voltage_v": 6.3,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 5995,
+    "price_usd": 0.014,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-4D7nF-C0G-0402-10V-37",
+    "name": "Capacitor ceramico SMD 4.7 nF C0G 0402 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-09,
+      "voltage_v": 10,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 1332,
+    "price_usd": 0.018,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-10nF-X7R-0603-16V-38",
+    "name": "Capacitor ceramico SMD 10 nF X7R 0603 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-08,
+      "voltage_v": 16,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 1469,
+    "price_usd": 0.022,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-22nF-X5R-0805-25V-39",
+    "name": "Capacitor ceramico SMD 22 nF X5R 0805 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-08,
+      "voltage_v": 25,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 1606,
+    "price_usd": 0.026,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-47nF-Y5V-1206-50V-40",
+    "name": "Capacitor ceramico SMD 47 nF Y5V 1206 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-08,
+      "voltage_v": 50,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 1743,
+    "price_usd": 0.03,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-100nF-C0G-0402-6D3V-41",
+    "name": "Capacitor ceramico SMD 100 nF C0G 0402 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-07,
+      "voltage_v": 6.3,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 1880,
+    "price_usd": 0.034,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-220nF-X7R-0603-10V-42",
+    "name": "Capacitor ceramico SMD 220 nF X7R 0603 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-07,
+      "voltage_v": 10,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 2017,
+    "price_usd": 0.038,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-470nF-X5R-0805-16V-43",
+    "name": "Capacitor ceramico SMD 470 nF X5R 0805 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-07,
+      "voltage_v": 16,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 2154,
+    "price_usd": 0.042,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-1uF-Y5V-1206-25V-44",
+    "name": "Capacitor ceramico SMD 1 uF Y5V 1206 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 25,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 2291,
+    "price_usd": 0.046,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-2D2uF-C0G-0402-50V-45",
+    "name": "Capacitor ceramico SMD 2.2 uF C0G 0402 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 50,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 2428,
+    "price_usd": 0.05,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-4D7uF-X7R-0603-6D3V-46",
+    "name": "Capacitor ceramico SMD 4.7 uF X7R 0603 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 6.3,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 2565,
+    "price_usd": 0.054,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-10uF-X5R-0805-10V-47",
+    "name": "Capacitor ceramico SMD 10 uF X5R 0805 10 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 10,
+      "dielectric": "X5R",
+      "package": "0805",
+      "mounting": "SMD"
+    },
+    "stock": 2702,
+    "price_usd": 0.058,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-22uF-Y5V-1206-16V-48",
+    "name": "Capacitor ceramico SMD 22 uF Y5V 1206 16 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 16,
+      "dielectric": "Y5V",
+      "package": "1206",
+      "mounting": "SMD"
+    },
+    "stock": 2839,
+    "price_usd": 0.062,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-47uF-C0G-0402-25V-49",
+    "name": "Capacitor ceramico SMD 47 uF C0G 0402 25 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 25,
+      "dielectric": "C0G",
+      "package": "0402",
+      "mounting": "SMD"
+    },
+    "stock": 2976,
+    "price_usd": 0.066,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  },
+  {
+    "sku": "C-SMD-100uF-X7R-0603-50V-50",
+    "name": "Capacitor ceramico SMD 100 uF X7R 0603 50 V",
+    "category": "capacitor",
+    "description": "Capacitor ceramico SMD para desacople, filtrado, temporizacion y redes de senal.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 50,
+      "dielectric": "X7R",
+      "package": "0603",
+      "mounting": "SMD"
+    },
+    "stock": 3113,
+    "price_usd": 0.07,
+    "recommended_use": "Desacople cerca de integrados, filtros pasivos y estabilizacion de alimentacion."
+  }
+]

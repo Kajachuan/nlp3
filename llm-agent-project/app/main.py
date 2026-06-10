@@ -36,7 +36,6 @@ with st.sidebar:
     web_method = st.selectbox("Metodo web", web_methods, index=web_methods.index(default_web_method))
     preferred_sites_text = st.text_input("Sitios preferidos", value="digikey.com,mouser.com")
     preferred_only = st.checkbox("Solo sitios preferidos", value=False)
-    include_delivery_details = st.checkbox("Incluir entrega/stock", value=False)
     st.divider()
     st.subheader("Modelos LLM")
     model_options = parse_model_options()
@@ -193,7 +192,7 @@ def render_response(response, key_prefix: str = "response", show_answer: bool = 
 
     if show_answer:
         st.subheader("Respuesta final")
-        st.write(response.final_answer)
+        st.markdown(response.final_answer)
     if response.stream_messages:
         with st.expander("Mensajes de estado"):
             for message in response.stream_messages:
@@ -273,7 +272,7 @@ if "messages" not in st.session_state:
 
 for index, message in enumerate(st.session_state["messages"]):
     with st.chat_message(message["role"]):
-        st.write(message["content"])
+        st.markdown(message["content"])
         response = message.get("response")
         if response:
             with st.expander("Detalles de la respuesta", expanded=False):
@@ -306,7 +305,6 @@ if prompt:
             web_method=web_method,
             preferred_sites=preferred_sites or None,
             preferred_only=preferred_only,
-            include_delivery_details=include_delivery_details,
             model_selection=LLMModelSelection(
                 planner_model=planner_model,
                 direct_response_model=direct_response_model,
@@ -315,7 +313,7 @@ if prompt:
             progress_callback=update_status,
         )
         status.empty()
-        st.write(response.final_answer)
+        st.markdown(response.final_answer)
     st.session_state["last_response"] = response
     st.session_state["messages"].append(
         {
@@ -327,4 +325,4 @@ if prompt:
     st.rerun()
 
 if not st.session_state["messages"]:
-    st.info("Empeza preguntando por precio, disponibilidad o envio de un componente electronico.")
+    st.info("Empeza preguntando por precio o URL de compra de un componente electronico.")

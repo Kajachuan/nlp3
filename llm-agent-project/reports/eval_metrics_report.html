@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Reporte de metricas - Component Purchase Advisor</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 28px; color: #172033; }
+    h1 { margin-bottom: 4px; }
+    .muted { color: #667085; }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+    .card { border: 1px solid #d7dde8; border-radius: 8px; padding: 14px; }
+    .pass { color: #067647; font-weight: 800; }
+    .fail { color: #b42318; font-weight: 800; }
+    .card.pass-bg { background: #ecfdf3; }
+    .card.fail-bg { background: #fef3f2; }
+    table { border-collapse: collapse; width: 100%; font-size: 13px; }
+    th, td { border-bottom: 1px solid #e4e7ec; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #f2f4f7; }
+    code { background: #f2f4f7; padding: 1px 4px; border-radius: 4px; }
+    .answer { max-width: 420px; white-space: normal; }
+  </style>
+</head>
+<body>
+  <h1>Reporte de metricas</h1>
+  <p class="muted">Dataset: <code>data\eval\metrics_dataset.json</code> · muestras: 40 · tokens: 34164 · costo estimado: USD 0.080356</p>
+  <div class="cards"><div class="card pass-bg"><h3>recall_at_k</h3><div class="pass">PASA</div><p>Score: 0.938<br>Umbral: 0.850</p></div>
+<div class="card pass-bg"><h3>context_recall</h3><div class="pass">PASA</div><p>Score: 0.875<br>Umbral: 0.850</p></div>
+<div class="card pass-bg"><h3>correct_abstention</h3><div class="pass">PASA</div><p>Score: 1.000<br>Umbral: 0.900</p></div>
+<div class="card pass-bg"><h3>robustness</h3><div class="pass">PASA</div><p>Score: 0.917<br>Umbral: 0.900</p></div></div>
+  <p class="muted">Robustez = 1 - caida entre recall clean y recall con parafrasis/ruido. Clean recall: 1.000; variant recall: 0.917.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Estado</th><th>ID</th><th>Query</th><th>Esperado</th><th>Ruta</th><th>Top SKUs</th>
+        <th>Recall</th><th>Context</th><th>Abstencion</th><th>Tokens</th><th>Respuesta</th>
+      </tr>
+    </thead>
+    <tbody><tr><td class="pass">PASA</td><td>local_r_10k_exact</td><td>Dame precio y stock de R-10K-0603-1</td><td>R-10K-0603-1</td><td>local_search</td><td>R-10K-0603-1, R-E24-1100-0603-1P-50, R-E24-160-0603-1P-30</td><td>1</td><td>1.000</td><td></td><td>815</td><td class="answer">En nuestro catalogo encontre Resistencia SMD 10 kOhm 0603 (R-10K-0603-1).
+
+Precio: USD 0.012
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Resistencia%20SMD%2010%20kOhm%200603)</td></tr>
+<tr><td class="pass">PASA</td><td>local_r_10k_name</td><td>Necesito una resistencia SMD 10 kOhm 0603 para comprar</td><td>R-10K-0603-1</td><td>local_search</td><td>R-10K-0603-1, R-E24-1100-0603-1P-50, R-E24-1000-0402-0D1P-49</td><td>1</td><td>1.000</td><td></td><td>871</td><td class="answer">En nuestro catalogo encontre Resistencia SMD 10 kOhm 0603 (R-10K-0603-1).
+
+Precio: USD 0.012
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Resistencia%20SMD%2010%20kOhm%200603)</td></tr>
+<tr><td class="pass">PASA</td><td>local_r_10k_use</td><td>Busco una resistencia de 10K con footprint 0603</td><td>R-10K-0603-1</td><td>local_search</td><td>R-10K-0603-1, R-E24-160-0603-1P-30, R-E24-110-0603-1P-26</td><td>1</td><td>1.000</td><td></td><td>838</td><td class="answer">En nuestro catalogo encontre Resistencia SMD 10 kOhm 0603 (R-10K-0603-1).
+
+Precio: USD 0.012
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Resistencia%20SMD%2010%20kOhm%200603)</td></tr>
+<tr><td class="pass">PASA</td><td>local_r_10k_noisy</td><td>precio envio resistensia 10k 0603 smd</td><td>R-10K-0603-1</td><td>local_search</td><td>R-10K-0603-1, C-SMD-10uF-X7R-0603-10V-22, C-SMD-100uF-X7R-0603-50V-50</td><td>1</td><td>1.000</td><td></td><td>844</td><td class="answer">En nuestro catalogo encontre Resistencia SMD 10 kOhm 0603 (R-10K-0603-1).
+
+Precio: USD 0.012
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Resistencia%20SMD%2010%20kOhm%200603)</td></tr>
+<tr><td class="pass">PASA</td><td>local_cap_exact</td><td>Dame precio y disponibilidad de C-100N-X7R-0603</td><td>C-100N-X7R-0603</td><td>local_search</td><td>C-100N-X7R-0603, C-SMD-10uF-X7R-0603-10V-22, C-SMD-100uF-X7R-0603-50V-50</td><td>1</td><td>1.000</td><td></td><td>813</td><td class="answer">En nuestro catalogo encontre Capacitor ceramico 100 nF X7R 0603 (C-100N-X7R-0603).
+
+Precio: USD 0.018
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Capacitor%20ceramico%20100%20nF%20X7R%200603)</td></tr>
+<tr><td class="pass">PASA</td><td>local_cap_name</td><td>Quiero comprar un capacitor ceramico 100 nF X7R 0603</td><td>C-100N-X7R-0603</td><td>local_search</td><td>C-100N-X7R-0603, C-SMD-1nF-X7R-0603-50V-10, C-SMD-10nF-X7R-0603-16V-38</td><td>1</td><td>1.000</td><td></td><td>870</td><td class="answer">En nuestro catalogo encontre Capacitor ceramico 100 nF X7R 0603 (C-100N-X7R-0603).
+
+Precio: USD 0.018
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Capacitor%20ceramico%20100%20nF%20X7R%200603)</td></tr>
+<tr><td class="pass">PASA</td><td>local_cap_use</td><td>Necesito un capacitor de desacople de 100nF</td><td>C-100N-X7R-0603</td><td>local_search</td><td>C-SMD-100nF-C0G-0402-6D3V-41, C-SMD-100nF-Y5V-1206-6D3V-16, C-100N-X7R-0603</td><td>1</td><td>0.500</td><td></td><td>805</td><td class="answer">En nuestro catalogo encontre Capacitor ceramico SMD 100 nF C0G 0402 6.3 V (C-SMD-100nF-C0G-0402-6D3V-41).
+
+Precio: USD 0.034
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Capacitor%20ceramico%20SMD%20100%20nF%20C0G%200402%206.3%20V)</td></tr>
+<tr><td class="pass">PASA</td><td>local_cap_noisy</td><td>capasitor desacople 100nf x7r 603 precio</td><td>C-100N-X7R-0603</td><td>local_search</td><td>C-SMD-100nF-Y5V-1206-6D3V-16, C-SMD-100nF-C0G-0402-6D3V-41, C-100N-X7R-0603</td><td>1</td><td>0.500</td><td></td><td>861</td><td class="answer">En nuestro catalogo encontre Capacitor ceramico SMD 100 nF Y5V 1206 6.3 V (C-SMD-100nF-Y5V-1206-6D3V-16).
+
+Precio: USD 0.07
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Capacitor%20ceramico%20SMD%20100%20nF%20Y5V%201206%206.3%20V)</td></tr>
+<tr><td class="pass">PASA</td><td>local_esp32_exact</td><td>Dame precio y stock de U-ESP32-WROOM-32E</td><td>U-ESP32-WROOM-32E</td><td>local_search</td><td>U-ESP32-WROOM-32E, MCU-ARDUINO-ESP32-DEVKITC-46, MCU-ARDUINO-ESP32-DEVKITC-26</td><td>1</td><td>1.000</td><td></td><td>839</td><td class="answer">En nuestro catalogo encontre Modulo ESP32-WROOM-32E (U-ESP32-WROOM-32E).
+
+Precio: USD 3.95
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Modulo%20ESP32-WROOM-32E)</td></tr>
+<tr><td class="pass">PASA</td><td>local_esp32_name</td><td>Busco modulo ESP32-WROOM-32E con WiFi y Bluetooth</td><td>U-ESP32-WROOM-32E</td><td>local_search</td><td>U-ESP32-WROOM-32E, MCU-ARDUINO-ESP32-DEVKITC-26, MCU-ARDUINO-ESP32-DEVKITC-46</td><td>1</td><td>1.000</td><td></td><td>843</td><td class="answer">En nuestro catalogo encontre Modulo ESP32-WROOM-32E (U-ESP32-WROOM-32E).
+
+Precio: USD 3.95
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Modulo%20ESP32-WROOM-32E)</td></tr>
+<tr><td class="pass">PASA</td><td>local_esp32_use</td><td>Necesito un controlador de ESP con wifi y bluetooth</td><td>U-ESP32-WROOM-32E</td><td>local_search</td><td>U-ESP32-WROOM-32E, MCU-RP2040-ARDUINO-MKR-WIFI-1010-20, MCU-RP2040-ARDUINO-MKR-WIFI-1010-10</td><td>1</td><td>1.000</td><td></td><td>819</td><td class="answer">En nuestro catalogo encontre Modulo ESP32-WROOM-32E (U-ESP32-WROOM-32E).
+
+Precio: USD 3.95
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Modulo%20ESP32-WROOM-32E)</td></tr>
+<tr><td class="pass">PASA</td><td>local_esp32_noisy</td><td>precio esp 32 wifi bluetooth modulo wroom</td><td>U-ESP32-WROOM-32E</td><td>local_search</td><td>U-ESP32-WROOM-32E, MCU-ARDUINO-ESP32-DEVKITC-26, MCU-ARDUINO-ESP32-DEVKITC-46</td><td>1</td><td>1.000</td><td></td><td>815</td><td class="answer">En nuestro catalogo encontre Modulo ESP32-WROOM-32E (U-ESP32-WROOM-32E).
+
+Precio: USD 3.95
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Modulo%20ESP32-WROOM-32E)</td></tr>
+<tr><td class="pass">PASA</td><td>local_bme_exact</td><td>Dame precio y disponibilidad del sensor S-BME280-I2C</td><td>S-BME280-I2C</td><td>local_search</td><td>S-BME280-I2C, BOSCH-BME280-I2C-LGA-14-43, BOSCH-BME280-I2C-LGA-10-13</td><td>1</td><td>1.000</td><td></td><td>837</td><td class="answer">En nuestro catalogo encontre Sensor ambiental BME280 I2C (S-BME280-I2C).
+
+Precio: USD 4.25
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Sensor%20ambiental%20BME280%20I2C)</td></tr>
+<tr><td class="pass">PASA</td><td>local_bme_name</td><td>Quiero comprar un sensor ambiental BME280 I2C</td><td>S-BME280-I2C</td><td>local_search</td><td>S-BME280-I2C, BOSCH-BME280-I2C-LGA-14-43, BOSCH-BME280-I2C-LGA-10-13</td><td>1</td><td>1.000</td><td></td><td>835</td><td class="answer">En nuestro catalogo encontre Sensor ambiental BME280 I2C (S-BME280-I2C).
+
+Precio: USD 4.25
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Sensor%20ambiental%20BME280%20I2C)</td></tr>
+<tr><td class="pass">PASA</td><td>local_bme_use</td><td>Necesito medir temperatura humedad y presion atmosferica por I2C con un IC de la linea BME</td><td>S-BME280-I2C</td><td>local_search</td><td>BOSCH-BME280-I2C-LGA-14-43, BOSCH-BME280-I2C-LGA-10-13, BOSCH-BMP280-I2C-LGA-16-28</td><td>1</td><td>0.500</td><td></td><td>871</td><td class="answer">En nuestro catalogo encontre Bosch Sensortec BME280 pressure sensor (BOSCH-BME280-I2C-LGA-14-43).
+
+Precio: USD 2.86
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Bosch%20Sensortec%20BME280%20pressure%20sensor)</td></tr>
+<tr><td class="pass">PASA</td><td>local_bme_noisy</td><td>bme 280 sensor clima i2c presion humedad precio</td><td>S-BME280-I2C</td><td>local_search</td><td>BOSCH-BME280-I2C-LGA-14-43, BOSCH-BME280-I2C-LGA-10-13, BOSCH-BME280-I2CSPI-LGA-10-33</td><td>1</td><td>0.500</td><td></td><td>851</td><td class="answer">En nuestro catalogo encontre Bosch Sensortec BME280 pressure sensor (BOSCH-BME280-I2C-LGA-14-43).
+
+Precio: USD 2.86
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Bosch%20Sensortec%20BME280%20pressure%20sensor)</td></tr>
+<tr><td class="pass">PASA</td><td>local_2n7002_exact</td><td>Dame precio y stock de 2N7002-SOT23</td><td>Q-2N7002-SOT23</td><td>local_search</td><td>Q-2N7002-SOT23, TI-INA219-SOT-23-5-23, TI-SN74LVC1T45-SOT-23-5-28</td><td>1</td><td>1.000</td><td></td><td>806</td><td class="answer">En nuestro catalogo encontre MOSFET N 2N7002 SOT-23 (Q-2N7002-SOT23).
+
+Precio: USD 0.045
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=MOSFET%20N%202N7002%20SOT-23)</td></tr>
+<tr><td class="pass">PASA</td><td>local_2n7002_name</td><td>Busco MOSFET canal N 2N7002 SOT-23</td><td>Q-2N7002-SOT23</td><td>local_search</td><td>Q-2N7002-SOT23, TI-INA219-SOT-23-5-23, TI-SN74LVC1T45-SOT-23-5-28</td><td>1</td><td>1.000</td><td></td><td>882</td><td class="answer">En nuestro catalogo encontre MOSFET N 2N7002 SOT-23 (Q-2N7002-SOT23).
+
+Precio: USD 0.045
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=MOSFET%20N%202N7002%20SOT-23)</td></tr>
+<tr><td class="fail">FALLA</td><td>local_2n7002_use</td><td>Necesito conmutar una carga liviana con un MOSFET 2N7002</td><td>Q-2N7002-SOT23</td><td>out_of_domain</td><td></td><td>0</td><td>0.000</td><td></td><td>1495</td><td class="answer">Este agente es solo para encontrar componentes electrónicos para comprar, si lo desea puedo ayudar a reformular su solicitud para encontrar un MOSFET 2N7002.</td></tr>
+<tr><td class="pass">PASA</td><td>local_2n7002_noisy</td><td>mosfet 2n7002 sot23 precio stok</td><td>Q-2N7002-SOT23</td><td>local_search</td><td>Q-2N7002-SOT23, C-SMD-100pF-X5R-0805-10V-07, C-100N-X7R-0603</td><td>1</td><td>1.000</td><td></td><td>847</td><td class="answer">En nuestro catalogo encontre MOSFET N 2N7002 SOT-23 (Q-2N7002-SOT23).
+
+Precio: USD 0.045
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=MOSFET%20N%202N7002%20SOT-23)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ss14_exact</td><td>Dame precio y disponibilidad de D-SS14-SMA</td><td>D-SS14-SMA</td><td>local_search</td><td>D-SS14-SMA, Q-2N7002-SOT23, CONN-USB-15P-1D25MM-F-ST-14</td><td>1</td><td>1.000</td><td></td><td>797</td><td class="answer">En nuestro catalogo encontre Diodo Schottky SS14 SMA (D-SS14-SMA).
+
+Precio: USD 0.08
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Diodo%20Schottky%20SS14%20SMA)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ss14_name</td><td>Quiero comprar un diodo Schottky SS14 SMA</td><td>D-SS14-SMA</td><td>local_search</td><td>D-SS14-SMA, R-E24-620-1206-1P-44, S-BME280-I2C</td><td>1</td><td>1.000</td><td></td><td>809</td><td class="answer">En nuestro catalogo encontre Diodo Schottky SS14 SMA (D-SS14-SMA).
+
+Precio: USD 0.08
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Diodo%20Schottky%20SS14%20SMA)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ss14_use</td><td>Necesito un diodo Schottky SS14 para proteccion de polaridad y baja caida</td><td>D-SS14-SMA</td><td>local_search</td><td>D-SS14-SMA, Q-2N7002-SOT23, ADI-ADG704-LFCSP-1CH-49</td><td>1</td><td>1.000</td><td></td><td>859</td><td class="answer">En nuestro catalogo encontre Diodo Schottky SS14 SMA (D-SS14-SMA).
+
+Precio: USD 0.08
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Diodo%20Schottky%20SS14%20SMA)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ss14_noisy</td><td>diod schotky ss14 sma precio envio</td><td>D-SS14-SMA</td><td>local_search</td><td>D-SS14-SMA, CONN-USB-15P-1D25MM-F-ST-14, CONN-USB-15P-1D25MM-F-ST-38</td><td>1</td><td>1.000</td><td></td><td>810</td><td class="answer">En nuestro catalogo encontre Diodo Schottky SS14 SMA (D-SS14-SMA).
+
+Precio: USD 0.08
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Diodo%20Schottky%20SS14%20SMA)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ams_exact</td><td>Dame precio y stock de REG-AMS1117-3V3</td><td>REG-AMS1117-3V3</td><td>local_search</td><td>REG-AMS1117-3V3, C-SMD-100pF-X5R-0805-10V-07, CONN-FPC-17P-2D54MM-F-ST-40</td><td>1</td><td>1.000</td><td></td><td>844</td><td class="answer">En nuestro catalogo encontre Regulador lineal AMS1117 3.3 V (REG-AMS1117-3V3).
+
+Precio: USD 0.19
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Regulador%20lineal%20AMS1117%203.3%20V)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ams_name</td><td>Busco regulador lineal AMS1117 de 3.3 V</td><td>REG-AMS1117-3V3</td><td>local_search</td><td>REG-AMS1117-3V3, TI-DRV8833-VSSOP-10-37, TI-LMV321-QFN-16-29</td><td>1</td><td>1.000</td><td></td><td>832</td><td class="answer">En nuestro catalogo encontre Regulador lineal AMS1117 3.3 V (REG-AMS1117-3V3).
+
+Precio: USD 0.19
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Regulador%20lineal%20AMS1117%203.3%20V)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ams_use</td><td>Necesito bajar 5V a 3.3V con un regulador lineal</td><td>REG-AMS1117-3V3</td><td>local_search</td><td>REG-AMS1117-3V3, CE-TH-4.7uF-6D3V-P3D5-33, U-ESP32-WROOM-32E</td><td>1</td><td>0.500</td><td></td><td>935</td><td class="answer">No encontre una coincidencia suficiente en el catalogo local. Resultado externo: 7semi 5V to 3.3V 1A LDO Low Dropout Regulator Breakout.
+
+Precio: 1.52
+Comprar: [Click aqui](https://www.google.com/search?ibp=oshop&amp;q=5V to 3.3V linear regulator&amp;prds=catalogid:9197438002334154760,productid:12967233308732433088,headlineOfferDocid:15323563850355467920,imageDocid:16308766174820769295,gpcid:9987864919175369220,pvt:hg&amp;hl=en&amp;gl=us&amp;udm=28)</td></tr>
+<tr><td class="pass">PASA</td><td>local_ams_noisy</td><td>ams 1117 3v3 regulador precio disponibilidad</td><td>REG-AMS1117-3V3</td><td>local_search</td><td>REG-AMS1117-3V3, TI-DRV8833-VSSOP-10-37, TI-LMV321-QFN-16-29</td><td>1</td><td>1.000</td><td></td><td>826</td><td class="answer">En nuestro catalogo encontre Regulador lineal AMS1117 3.3 V (REG-AMS1117-3V3).
+
+Precio: USD 0.19
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Regulador%20lineal%20AMS1117%203.3%20V)</td></tr>
+<tr><td class="pass">PASA</td><td>local_lm358_exact</td><td>Dame precio y disponibilidad de OP-LM358-DIP8</td><td>OP-LM358-DIP8</td><td>local_search</td><td>OP-LM358-DIP8, TI-LM358-SOIC-8-01, TI-LM358-SOIC-8-41</td><td>1</td><td>1.000</td><td></td><td>813</td><td class="answer">En nuestro catalogo encontre Amplificador operacional LM358 DIP-8 (OP-LM358-DIP8).
+
+Precio: USD 0.24
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Amplificador%20operacional%20LM358%20DIP-8)</td></tr>
+<tr><td class="pass">PASA</td><td>local_lm358_name</td><td>Quiero comprar un amplificador operacional LM358 DIP-8</td><td>OP-LM358-DIP8</td><td>local_search</td><td>OP-LM358-DIP8, TI-LM358-SOIC-8-11, TI-LM358-SOIC-8-21</td><td>1</td><td>1.000</td><td></td><td>883</td><td class="answer">En nuestro catalogo encontre Amplificador operacional LM358 DIP-8 (OP-LM358-DIP8).
+
+Precio: USD 0.24
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Amplificador%20operacional%20LM358%20DIP-8)</td></tr>
+<tr><td class="fail">FALLA</td><td>local_lm358_use</td><td>Necesito un operacional doble para acondicionamiento analogico</td><td>OP-LM358-DIP8</td><td>local_search</td><td>U-ESP32-WROOM-32E, ADI-ADG704-LFCSP-1CH-29, ADI-AD8421-TSSOP-16-3CH-43</td><td>0</td><td>0.500</td><td></td><td>831</td><td class="answer">En nuestro catalogo encontre Modulo ESP32-WROOM-32E (U-ESP32-WROOM-32E).
+
+Precio: USD 3.95
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Modulo%20ESP32-WROOM-32E)</td></tr>
+<tr><td class="pass">PASA</td><td>local_lm358_noisy</td><td>lm 358 dip8 opamp precio stock</td><td>OP-LM358-DIP8</td><td>local_search</td><td>OP-LM358-DIP8, TI-LM358-SOIC-8-01, TI-LM358-SOIC-8-41</td><td>1</td><td>1.000</td><td></td><td>793</td><td class="answer">En nuestro catalogo encontre Amplificador operacional LM358 DIP-8 (OP-LM358-DIP8).
+
+Precio: USD 0.24
+Comprar: [Click aqui](http://localhost:5500/llm-agent-project/web/componentes.html?id=Amplificador%20operacional%20LM358%20DIP-8)</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_world_cup</td><td>Quien gano el mundial de futbol 2014?</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>1087</td><td class="answer">This agent is only for finding electronic components to buy, consider reformulating your request to search for electronic products.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_recipe</td><td>Dame una receta para hacer pan de masa madre</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>789</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_weather</td><td>Cual es el clima de manana en Madrid?</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>767</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_history</td><td>Explicame la revolucion francesa en detalle</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>798</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_math_homework</td><td>Resuelve una integral de x al cuadrado paso a paso</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>816</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_music</td><td>Recomendame una playlist para estudiar</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>784</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_travel</td><td>Organizame un viaje de 5 dias a Roma</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>813</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr>
+<tr><td class="pass">PASA</td><td>abstain_sports</td><td>Cuantos puntos hizo Manu Ginobili en su ultimo partido?</td><td>out_of_domain</td><td>out_of_domain</td><td></td><td></td><td></td><td>1</td><td>821</td><td class="answer">No puedo responder esa consulta porque este agente esta enfocado en buscar productos electronicos para compra, precio y URL de compra.</td></tr></tbody>
+  </table>
+</body>
+</html>

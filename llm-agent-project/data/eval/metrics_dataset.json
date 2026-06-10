@@ -1,0 +1,50 @@
+[
+  {"id": "local_r_10k_exact", "query": "Dame precio y stock de R-10K-0603-1", "expected_route": "local_search", "expected_sku": "R-10K-0603-1", "group": "R-10K-0603-1", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_r_10k_name", "query": "Necesito una resistencia SMD 10 kOhm 0603 para comprar", "expected_route": "local_search", "expected_sku": "R-10K-0603-1", "group": "R-10K-0603-1", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_r_10k_use", "query": "Busco una resistencia de 10K con footprint 0603", "expected_route": "local_search", "expected_sku": "R-10K-0603-1", "group": "R-10K-0603-1", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_r_10k_noisy", "query": "precio envio resistensia 10k 0603 smd", "expected_route": "local_search", "expected_sku": "R-10K-0603-1", "group": "R-10K-0603-1", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_cap_exact", "query": "Dame precio y disponibilidad de C-100N-X7R-0603", "expected_route": "local_search", "expected_sku": "C-100N-X7R-0603", "group": "C-100N-X7R-0603", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_cap_name", "query": "Quiero comprar un capacitor ceramico 100 nF X7R 0603", "expected_route": "local_search", "expected_sku": "C-100N-X7R-0603", "group": "C-100N-X7R-0603", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_cap_use", "query": "Necesito un capacitor de desacople de 100nF", "expected_route": "local_search", "expected_sku": "C-100N-X7R-0603", "group": "C-100N-X7R-0603", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_cap_noisy", "query": "capasitor desacople 100nf x7r 603 precio", "expected_route": "local_search", "expected_sku": "C-100N-X7R-0603", "group": "C-100N-X7R-0603", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_esp32_exact", "query": "Dame precio y stock de U-ESP32-WROOM-32E", "expected_route": "local_search", "expected_sku": "U-ESP32-WROOM-32E", "group": "U-ESP32-WROOM-32E", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_esp32_name", "query": "Busco modulo ESP32-WROOM-32E con WiFi y Bluetooth", "expected_route": "local_search", "expected_sku": "U-ESP32-WROOM-32E", "group": "U-ESP32-WROOM-32E", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_esp32_use", "query": "Necesito un controlador de ESP con wifi y bluetooth", "expected_route": "local_search", "expected_sku": "U-ESP32-WROOM-32E", "group": "U-ESP32-WROOM-32E", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_esp32_noisy", "query": "precio esp 32 wifi bluetooth modulo wroom", "expected_route": "local_search", "expected_sku": "U-ESP32-WROOM-32E", "group": "U-ESP32-WROOM-32E", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_bme_exact", "query": "Dame precio y disponibilidad del sensor S-BME280-I2C", "expected_route": "local_search", "expected_sku": "S-BME280-I2C", "acceptable_sku_prefixes": ["BOSCH-BME280-"], "group": "S-BME280-I2C", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_bme_name", "query": "Quiero comprar un sensor ambiental BME280 I2C", "expected_route": "local_search", "expected_sku": "S-BME280-I2C", "acceptable_sku_prefixes": ["BOSCH-BME280-"], "group": "S-BME280-I2C", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_bme_use", "query": "Necesito medir temperatura humedad y presion atmosferica por I2C con un IC de la linea BME", "expected_route": "local_search", "expected_sku": "S-BME280-I2C", "acceptable_sku_prefixes": ["BOSCH-BME280-"], "group": "S-BME280-I2C", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_bme_noisy", "query": "bme 280 sensor clima i2c presion humedad precio", "expected_route": "local_search", "expected_sku": "S-BME280-I2C", "acceptable_sku_prefixes": ["BOSCH-BME280-"], "group": "S-BME280-I2C", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_2n7002_exact", "query": "Dame precio y stock de 2N7002-SOT23", "expected_route": "local_search", "expected_sku": "Q-2N7002-SOT23", "group": "Q-2N7002-SOT23", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_2n7002_name", "query": "Busco MOSFET canal N 2N7002 SOT-23", "expected_route": "local_search", "expected_sku": "Q-2N7002-SOT23", "group": "Q-2N7002-SOT23", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_2n7002_use", "query": "Necesito conmutar una carga liviana con un MOSFET 2N7002", "expected_route": "local_search", "expected_sku": "Q-2N7002-SOT23", "group": "Q-2N7002-SOT23", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_2n7002_noisy", "query": "mosfet 2n7002 sot23 precio stok", "expected_route": "local_search", "expected_sku": "Q-2N7002-SOT23", "group": "Q-2N7002-SOT23", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_ss14_exact", "query": "Dame precio y disponibilidad de D-SS14-SMA", "expected_route": "local_search", "expected_sku": "D-SS14-SMA", "group": "D-SS14-SMA", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_ss14_name", "query": "Quiero comprar un diodo Schottky SS14 SMA", "expected_route": "local_search", "expected_sku": "D-SS14-SMA", "group": "D-SS14-SMA", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_ss14_use", "query": "Necesito un diodo Schottky SS14 para proteccion de polaridad y baja caida", "expected_route": "local_search", "expected_sku": "D-SS14-SMA", "group": "D-SS14-SMA", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_ss14_noisy", "query": "diod schotky ss14 sma precio envio", "expected_route": "local_search", "expected_sku": "D-SS14-SMA", "group": "D-SS14-SMA", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_ams_exact", "query": "Dame precio y stock de REG-AMS1117-3V3", "expected_route": "local_search", "expected_sku": "REG-AMS1117-3V3", "group": "REG-AMS1117-3V3", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_ams_name", "query": "Busco regulador lineal AMS1117 de 3.3 V", "expected_route": "local_search", "expected_sku": "REG-AMS1117-3V3", "group": "REG-AMS1117-3V3", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_ams_use", "query": "Necesito bajar 5V a 3.3V con un regulador lineal", "expected_route": "local_search", "expected_sku": "REG-AMS1117-3V3", "group": "REG-AMS1117-3V3", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_ams_noisy", "query": "ams 1117 3v3 regulador precio disponibilidad", "expected_route": "local_search", "expected_sku": "REG-AMS1117-3V3", "group": "REG-AMS1117-3V3", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "local_lm358_exact", "query": "Dame precio y disponibilidad de OP-LM358-DIP8", "expected_route": "local_search", "expected_sku": "OP-LM358-DIP8", "group": "OP-LM358-DIP8", "variant": "clean", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_lm358_name", "query": "Quiero comprar un amplificador operacional LM358 DIP-8", "expected_route": "local_search", "expected_sku": "OP-LM358-DIP8", "group": "OP-LM358-DIP8", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_lm358_use", "query": "Necesito un operacional doble para acondicionamiento analogico", "expected_route": "local_search", "expected_sku": "OP-LM358-DIP8", "group": "OP-LM358-DIP8", "variant": "paraphrase", "metrics": ["recall", "context", "robustness"]},
+  {"id": "local_lm358_noisy", "query": "lm 358 dip8 opamp precio stock", "expected_route": "local_search", "expected_sku": "OP-LM358-DIP8", "group": "OP-LM358-DIP8", "variant": "noisy", "metrics": ["recall", "context", "robustness"]},
+
+  {"id": "abstain_world_cup", "query": "Quien gano el mundial de futbol 2014?", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_recipe", "query": "Dame una receta para hacer pan de masa madre", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_weather", "query": "Cual es el clima de manana en Madrid?", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_history", "query": "Explicame la revolucion francesa en detalle", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_math_homework", "query": "Resuelve una integral de x al cuadrado paso a paso", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_music", "query": "Recomendame una playlist para estudiar", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_travel", "query": "Organizame un viaje de 5 dias a Roma", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]},
+  {"id": "abstain_sports", "query": "Cuantos puntos hizo Manu Ginobili en su ultimo partido?", "expected_route": "out_of_domain", "group": "abstention", "variant": "clean", "metrics": ["abstention"]}
+]

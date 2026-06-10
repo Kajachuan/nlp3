@@ -1,0 +1,852 @@
+[
+  {
+    "sku": "CONN-PIN_HEADER-2P-1D0MM-M-RI-01",
+    "name": "Conector pin header 2 pines 1.0 mm male right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 2,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 250,
+    "price_usd": 0.05,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-3P-1D25MM-F-ST-02",
+    "name": "Conector socket header 3 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 3,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 387,
+    "price_usd": 0.075,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_PH-4P-2D0MM-M-ST-03",
+    "name": "Conector jst ph 4 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_ph",
+      "pins": 4,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 524,
+    "price_usd": 0.1,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_XH-5P-2D54MM-F-ST-04",
+    "name": "Conector jst xh 5 pines 2.54 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_xh",
+      "pins": 5,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 661,
+    "price_usd": 0.125,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-DUPONT-6P-3D5MM-M-ST-05",
+    "name": "Conector dupont 6 pines 3.5 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "dupont",
+      "pins": 6,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 798,
+    "price_usd": 0.15,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-USB-7P-5D08MM-F-RI-06",
+    "name": "Conector usb 7 pines 5.08 mm female right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "usb",
+      "pins": 7,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "right_angle",
+      "mounting": "smd"
+    },
+    "stock": 935,
+    "price_usd": 0.175,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-TERMINAL_BLOCK-8P-1D0MM-M-ST-07",
+    "name": "Conector terminal block 8 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "terminal_block",
+      "pins": 8,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1072,
+    "price_usd": 0.2,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-FPC-9P-1D25MM-F-ST-08",
+    "name": "Conector fpc 9 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "fpc",
+      "pins": 9,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 1209,
+    "price_usd": 0.225,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-PIN_HEADER-10P-2D0MM-M-ST-09",
+    "name": "Conector pin header 10 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 10,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1346,
+    "price_usd": 0.25,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-11P-2D54MM-F-ST-10",
+    "name": "Conector socket header 11 pines 2.54 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 11,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1483,
+    "price_usd": 0.275,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_PH-12P-3D5MM-M-RI-11",
+    "name": "Conector jst ph 12 pines 3.5 mm male right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_ph",
+      "pins": 12,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 1620,
+    "price_usd": 0.3,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_XH-13P-5D08MM-F-ST-12",
+    "name": "Conector jst xh 13 pines 5.08 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_xh",
+      "pins": 13,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1757,
+    "price_usd": 0.325,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-DUPONT-14P-1D0MM-M-ST-13",
+    "name": "Conector dupont 14 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "dupont",
+      "pins": 14,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1894,
+    "price_usd": 0.35,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-USB-15P-1D25MM-F-ST-14",
+    "name": "Conector usb 15 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "usb",
+      "pins": 15,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 2031,
+    "price_usd": 0.375,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-TERMINAL_BLOCK-16P-2D0MM-M-ST-15",
+    "name": "Conector terminal block 16 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "terminal_block",
+      "pins": 16,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2168,
+    "price_usd": 0.4,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-FPC-17P-2D54MM-F-RI-16",
+    "name": "Conector fpc 17 pines 2.54 mm female right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "fpc",
+      "pins": 17,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "right_angle",
+      "mounting": "smd"
+    },
+    "stock": 2305,
+    "price_usd": 0.425,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-PIN_HEADER-18P-3D5MM-M-ST-17",
+    "name": "Conector pin header 18 pines 3.5 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 18,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2442,
+    "price_usd": 0.45,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-19P-5D08MM-F-ST-18",
+    "name": "Conector socket header 19 pines 5.08 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 19,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2579,
+    "price_usd": 0.05,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_PH-20P-1D0MM-M-ST-19",
+    "name": "Conector jst ph 20 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_ph",
+      "pins": 20,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2716,
+    "price_usd": 0.075,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_XH-21P-1D25MM-F-ST-20",
+    "name": "Conector jst xh 21 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_xh",
+      "pins": 21,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2853,
+    "price_usd": 0.1,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-DUPONT-22P-2D0MM-M-RI-21",
+    "name": "Conector dupont 22 pines 2.0 mm male right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "dupont",
+      "pins": 22,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 2990,
+    "price_usd": 0.125,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-USB-23P-2D54MM-F-ST-22",
+    "name": "Conector usb 23 pines 2.54 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "usb",
+      "pins": 23,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 3127,
+    "price_usd": 0.15,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-TERMINAL_BLOCK-24P-3D5MM-M-ST-23",
+    "name": "Conector terminal block 24 pines 3.5 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "terminal_block",
+      "pins": 24,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 3264,
+    "price_usd": 0.175,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-FPC-25P-5D08MM-F-ST-24",
+    "name": "Conector fpc 25 pines 5.08 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "fpc",
+      "pins": 25,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 3401,
+    "price_usd": 0.2,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-PIN_HEADER-2P-1D0MM-M-ST-25",
+    "name": "Conector pin header 2 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 2,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 3538,
+    "price_usd": 0.225,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-3P-1D25MM-F-RI-26",
+    "name": "Conector socket header 3 pines 1.25 mm female right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 3,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 3675,
+    "price_usd": 0.25,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_PH-4P-2D0MM-M-ST-27",
+    "name": "Conector jst ph 4 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_ph",
+      "pins": 4,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 3812,
+    "price_usd": 0.275,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_XH-5P-2D54MM-F-ST-28",
+    "name": "Conector jst xh 5 pines 2.54 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_xh",
+      "pins": 5,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 3949,
+    "price_usd": 0.3,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-DUPONT-6P-3D5MM-M-ST-29",
+    "name": "Conector dupont 6 pines 3.5 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "dupont",
+      "pins": 6,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 4086,
+    "price_usd": 0.325,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-USB-7P-5D08MM-F-ST-30",
+    "name": "Conector usb 7 pines 5.08 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "usb",
+      "pins": 7,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 4223,
+    "price_usd": 0.35,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-TERMINAL_BLOCK-8P-1D0MM-M-RI-31",
+    "name": "Conector terminal block 8 pines 1.0 mm male right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "terminal_block",
+      "pins": 8,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 4360,
+    "price_usd": 0.375,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-FPC-9P-1D25MM-F-ST-32",
+    "name": "Conector fpc 9 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "fpc",
+      "pins": 9,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 4497,
+    "price_usd": 0.4,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-PIN_HEADER-10P-2D0MM-M-ST-33",
+    "name": "Conector pin header 10 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 10,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 4634,
+    "price_usd": 0.425,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-11P-2D54MM-F-ST-34",
+    "name": "Conector socket header 11 pines 2.54 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 11,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 4771,
+    "price_usd": 0.45,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_PH-12P-3D5MM-M-ST-35",
+    "name": "Conector jst ph 12 pines 3.5 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_ph",
+      "pins": 12,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 4908,
+    "price_usd": 0.05,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_XH-13P-5D08MM-F-RI-36",
+    "name": "Conector jst xh 13 pines 5.08 mm female right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_xh",
+      "pins": 13,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 5045,
+    "price_usd": 0.075,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-DUPONT-14P-1D0MM-M-ST-37",
+    "name": "Conector dupont 14 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "dupont",
+      "pins": 14,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 382,
+    "price_usd": 0.1,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-USB-15P-1D25MM-F-ST-38",
+    "name": "Conector usb 15 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "usb",
+      "pins": 15,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 519,
+    "price_usd": 0.125,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-TERMINAL_BLOCK-16P-2D0MM-M-ST-39",
+    "name": "Conector terminal block 16 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "terminal_block",
+      "pins": 16,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 656,
+    "price_usd": 0.15,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-FPC-17P-2D54MM-F-ST-40",
+    "name": "Conector fpc 17 pines 2.54 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "fpc",
+      "pins": 17,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 793,
+    "price_usd": 0.175,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-PIN_HEADER-18P-3D5MM-M-RI-41",
+    "name": "Conector pin header 18 pines 3.5 mm male right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 18,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "right_angle",
+      "mounting": "through_hole"
+    },
+    "stock": 930,
+    "price_usd": 0.2,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-19P-5D08MM-F-ST-42",
+    "name": "Conector socket header 19 pines 5.08 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 19,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1067,
+    "price_usd": 0.225,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_PH-20P-1D0MM-M-ST-43",
+    "name": "Conector jst ph 20 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_ph",
+      "pins": 20,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1204,
+    "price_usd": 0.25,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-JST_XH-21P-1D25MM-F-ST-44",
+    "name": "Conector jst xh 21 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "jst_xh",
+      "pins": 21,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1341,
+    "price_usd": 0.275,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-DUPONT-22P-2D0MM-M-ST-45",
+    "name": "Conector dupont 22 pines 2.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "dupont",
+      "pins": 22,
+      "pitch_mm": 2.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1478,
+    "price_usd": 0.3,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-USB-23P-2D54MM-F-RI-46",
+    "name": "Conector usb 23 pines 2.54 mm female right_angle",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "usb",
+      "pins": 23,
+      "pitch_mm": 2.54,
+      "gender": "female",
+      "orientation": "right_angle",
+      "mounting": "smd"
+    },
+    "stock": 1615,
+    "price_usd": 0.325,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-TERMINAL_BLOCK-24P-3D5MM-M-ST-47",
+    "name": "Conector terminal block 24 pines 3.5 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "terminal_block",
+      "pins": 24,
+      "pitch_mm": 3.5,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 1752,
+    "price_usd": 0.35,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-FPC-25P-5D08MM-F-ST-48",
+    "name": "Conector fpc 25 pines 5.08 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "fpc",
+      "pins": 25,
+      "pitch_mm": 5.08,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "smd"
+    },
+    "stock": 1889,
+    "price_usd": 0.375,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-PIN_HEADER-2P-1D0MM-M-ST-49",
+    "name": "Conector pin header 2 pines 1.0 mm male straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "pin_header",
+      "pins": 2,
+      "pitch_mm": 1.0,
+      "gender": "male",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2026,
+    "price_usd": 0.4,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  },
+  {
+    "sku": "CONN-SOCKET_HEADER-3P-1D25MM-F-ST-50",
+    "name": "Conector socket header 3 pines 1.25 mm female straight",
+    "category": "connector",
+    "description": "Conector o header para interconexion de placas, sensores, cables y modulos de prototipado.",
+    "specs": {
+      "family": "socket_header",
+      "pins": 3,
+      "pitch_mm": 1.25,
+      "gender": "female",
+      "orientation": "straight",
+      "mounting": "through_hole"
+    },
+    "stock": 2163,
+    "price_usd": 0.425,
+    "recommended_use": "Conexion desmontable para prototipos, buses de senal, alimentacion auxiliar y placas de expansion."
+  }
+]

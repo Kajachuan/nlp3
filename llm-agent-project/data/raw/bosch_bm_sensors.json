@@ -1,0 +1,852 @@
+[
+  {
+    "sku": "BOSCH-BMA400-I2C-LGA-10-01",
+    "name": "Bosch Sensortec BMA400 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA400",
+      "function": "accelerometer",
+      "interface": "I2C",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 70,
+    "price_usd": 1.1,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA456-SPI-LGA-12-02",
+    "name": "Bosch Sensortec BMA456 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA456",
+      "function": "environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 207,
+    "price_usd": 1.32,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME280-I2CSPI-LGA-14-03",
+    "name": "Bosch Sensortec BME280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME280",
+      "function": "pressure_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 344,
+    "price_usd": 1.54,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME680-I2C-LGA-16-04",
+    "name": "Bosch Sensortec BME680 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME680",
+      "function": "imu",
+      "interface": "I2C",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 481,
+    "price_usd": 1.76,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME688-SPI-LGA-10-05",
+    "name": "Bosch Sensortec BME688 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME688",
+      "function": "gas_environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 618,
+    "price_usd": 1.98,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI160-I2CSPI-LGA-12-06",
+    "name": "Bosch Sensortec BMI160 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI160",
+      "function": "accelerometer",
+      "interface": "I2C/SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 755,
+    "price_usd": 2.2,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI270-I2C-LGA-14-07",
+    "name": "Bosch Sensortec BMI270 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI270",
+      "function": "environmental_sensor",
+      "interface": "I2C",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 892,
+    "price_usd": 2.42,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP280-SPI-LGA-16-08",
+    "name": "Bosch Sensortec BMP280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP280",
+      "function": "pressure_sensor",
+      "interface": "SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1029,
+    "price_usd": 2.64,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP388-I2CSPI-LGA-10-09",
+    "name": "Bosch Sensortec BMP388 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP388",
+      "function": "imu",
+      "interface": "I2C/SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1166,
+    "price_usd": 2.86,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP390-I2C-LGA-12-10",
+    "name": "Bosch Sensortec BMP390 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP390",
+      "function": "gas_environmental_sensor",
+      "interface": "I2C",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1303,
+    "price_usd": 3.08,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA400-SPI-LGA-14-11",
+    "name": "Bosch Sensortec BMA400 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA400",
+      "function": "accelerometer",
+      "interface": "SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1440,
+    "price_usd": 3.3,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA456-I2CSPI-LGA-16-12",
+    "name": "Bosch Sensortec BMA456 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA456",
+      "function": "environmental_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1577,
+    "price_usd": 3.52,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME280-I2C-LGA-10-13",
+    "name": "Bosch Sensortec BME280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME280",
+      "function": "pressure_sensor",
+      "interface": "I2C",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1714,
+    "price_usd": 3.74,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME680-SPI-LGA-12-14",
+    "name": "Bosch Sensortec BME680 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME680",
+      "function": "imu",
+      "interface": "SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1851,
+    "price_usd": 3.96,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME688-I2CSPI-LGA-14-15",
+    "name": "Bosch Sensortec BME688 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME688",
+      "function": "gas_environmental_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1988,
+    "price_usd": 4.18,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI160-I2C-LGA-16-16",
+    "name": "Bosch Sensortec BMI160 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI160",
+      "function": "accelerometer",
+      "interface": "I2C",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2125,
+    "price_usd": 4.4,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI270-SPI-LGA-10-17",
+    "name": "Bosch Sensortec BMI270 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI270",
+      "function": "environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2262,
+    "price_usd": 4.62,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP280-I2CSPI-LGA-12-18",
+    "name": "Bosch Sensortec BMP280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP280",
+      "function": "pressure_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2399,
+    "price_usd": 1.1,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP388-I2C-LGA-14-19",
+    "name": "Bosch Sensortec BMP388 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP388",
+      "function": "imu",
+      "interface": "I2C",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2536,
+    "price_usd": 1.32,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP390-SPI-LGA-16-20",
+    "name": "Bosch Sensortec BMP390 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP390",
+      "function": "gas_environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2673,
+    "price_usd": 1.54,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA400-I2CSPI-LGA-10-21",
+    "name": "Bosch Sensortec BMA400 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA400",
+      "function": "accelerometer",
+      "interface": "I2C/SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2810,
+    "price_usd": 1.76,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA456-I2C-LGA-12-22",
+    "name": "Bosch Sensortec BMA456 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA456",
+      "function": "environmental_sensor",
+      "interface": "I2C",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 2947,
+    "price_usd": 1.98,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME280-SPI-LGA-14-23",
+    "name": "Bosch Sensortec BME280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME280",
+      "function": "pressure_sensor",
+      "interface": "SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3084,
+    "price_usd": 2.2,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME680-I2CSPI-LGA-16-24",
+    "name": "Bosch Sensortec BME680 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME680",
+      "function": "imu",
+      "interface": "I2C/SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3221,
+    "price_usd": 2.42,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME688-I2C-LGA-10-25",
+    "name": "Bosch Sensortec BME688 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME688",
+      "function": "gas_environmental_sensor",
+      "interface": "I2C",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3358,
+    "price_usd": 2.64,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI160-SPI-LGA-12-26",
+    "name": "Bosch Sensortec BMI160 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI160",
+      "function": "accelerometer",
+      "interface": "SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3495,
+    "price_usd": 2.86,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI270-I2CSPI-LGA-14-27",
+    "name": "Bosch Sensortec BMI270 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI270",
+      "function": "environmental_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3632,
+    "price_usd": 3.08,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP280-I2C-LGA-16-28",
+    "name": "Bosch Sensortec BMP280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP280",
+      "function": "pressure_sensor",
+      "interface": "I2C",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3769,
+    "price_usd": 3.3,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP388-SPI-LGA-10-29",
+    "name": "Bosch Sensortec BMP388 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP388",
+      "function": "imu",
+      "interface": "SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 3906,
+    "price_usd": 3.52,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP390-I2CSPI-LGA-12-30",
+    "name": "Bosch Sensortec BMP390 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP390",
+      "function": "gas_environmental_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4043,
+    "price_usd": 3.74,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA400-I2C-LGA-14-31",
+    "name": "Bosch Sensortec BMA400 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA400",
+      "function": "accelerometer",
+      "interface": "I2C",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4180,
+    "price_usd": 3.96,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA456-SPI-LGA-16-32",
+    "name": "Bosch Sensortec BMA456 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA456",
+      "function": "environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4317,
+    "price_usd": 4.18,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME280-I2CSPI-LGA-10-33",
+    "name": "Bosch Sensortec BME280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME280",
+      "function": "pressure_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4454,
+    "price_usd": 4.4,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME680-I2C-LGA-12-34",
+    "name": "Bosch Sensortec BME680 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME680",
+      "function": "imu",
+      "interface": "I2C",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4591,
+    "price_usd": 4.62,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME688-SPI-LGA-14-35",
+    "name": "Bosch Sensortec BME688 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME688",
+      "function": "gas_environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4728,
+    "price_usd": 1.1,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI160-I2CSPI-LGA-16-36",
+    "name": "Bosch Sensortec BMI160 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI160",
+      "function": "accelerometer",
+      "interface": "I2C/SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 4865,
+    "price_usd": 1.32,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI270-I2C-LGA-10-37",
+    "name": "Bosch Sensortec BMI270 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI270",
+      "function": "environmental_sensor",
+      "interface": "I2C",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 202,
+    "price_usd": 1.54,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP280-SPI-LGA-12-38",
+    "name": "Bosch Sensortec BMP280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP280",
+      "function": "pressure_sensor",
+      "interface": "SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 339,
+    "price_usd": 1.76,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP388-I2CSPI-LGA-14-39",
+    "name": "Bosch Sensortec BMP388 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP388",
+      "function": "imu",
+      "interface": "I2C/SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 476,
+    "price_usd": 1.98,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP390-I2C-LGA-16-40",
+    "name": "Bosch Sensortec BMP390 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP390",
+      "function": "gas_environmental_sensor",
+      "interface": "I2C",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 613,
+    "price_usd": 2.2,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA400-SPI-LGA-10-41",
+    "name": "Bosch Sensortec BMA400 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA400",
+      "function": "accelerometer",
+      "interface": "SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 750,
+    "price_usd": 2.42,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMA456-I2CSPI-LGA-12-42",
+    "name": "Bosch Sensortec BMA456 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMA456",
+      "function": "environmental_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 887,
+    "price_usd": 2.64,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME280-I2C-LGA-14-43",
+    "name": "Bosch Sensortec BME280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME280",
+      "function": "pressure_sensor",
+      "interface": "I2C",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1024,
+    "price_usd": 2.86,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME680-SPI-LGA-16-44",
+    "name": "Bosch Sensortec BME680 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME680",
+      "function": "imu",
+      "interface": "SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1161,
+    "price_usd": 3.08,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BME688-I2CSPI-LGA-10-45",
+    "name": "Bosch Sensortec BME688 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BME688",
+      "function": "gas_environmental_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1298,
+    "price_usd": 3.3,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI160-I2C-LGA-12-46",
+    "name": "Bosch Sensortec BMI160 accelerometer",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI160",
+      "function": "accelerometer",
+      "interface": "I2C",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1435,
+    "price_usd": 3.52,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMI270-SPI-LGA-14-47",
+    "name": "Bosch Sensortec BMI270 environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMI270",
+      "function": "environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-14",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1572,
+    "price_usd": 3.74,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP280-I2CSPI-LGA-16-48",
+    "name": "Bosch Sensortec BMP280 pressure sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP280",
+      "function": "pressure_sensor",
+      "interface": "I2C/SPI",
+      "package": "LGA-16",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1709,
+    "price_usd": 3.96,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP388-I2C-LGA-10-49",
+    "name": "Bosch Sensortec BMP388 imu",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP388",
+      "function": "imu",
+      "interface": "I2C",
+      "package": "LGA-10",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1846,
+    "price_usd": 4.18,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  },
+  {
+    "sku": "BOSCH-BMP390-SPI-LGA-12-50",
+    "name": "Bosch Sensortec BMP390 gas environmental sensor",
+    "category": "sensor",
+    "description": "Sensor Bosch de la linea BM/BMP/BME para movimiento, presion, ambiente o gas en equipos embebidos.",
+    "specs": {
+      "manufacturer": "Bosch Sensortec",
+      "part_family": "BMP390",
+      "function": "gas_environmental_sensor",
+      "interface": "SPI",
+      "package": "LGA-12",
+      "supply_v": "1.71-3.6"
+    },
+    "stock": 1983,
+    "price_usd": 4.4,
+    "recommended_use": "Wearables, estaciones ambientales, navegacion inercial, monitoreo de presion y sensores IoT."
+  }
+]

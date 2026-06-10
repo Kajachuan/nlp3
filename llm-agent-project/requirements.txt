@@ -8,4 +8,5 @@ langchain-groq>=0.1
 langgraph>=0.2
 langfuse>=2.0
 rank-bm25>=0.2
+deepeval>=3.0
 web-search-tool @ git+https://github.com/lsaraco/web-search-tool.git@cc6a21d51d5c0b3de623dc2a91d5d8b8ed1c8629

@@ -1,0 +1,802 @@
+[
+  {
+    "sku": "CE-TH-1uF-6D3V-P2D0-01",
+    "name": "Capacitor electrolitico through hole 1 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 300,
+    "price_usd": 0.04,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-2.2uF-10V-P2D5-02",
+    "name": "Capacitor electrolitico through hole 2.2 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 437,
+    "price_usd": 0.058,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-4.7uF-16V-P3D5-03",
+    "name": "Capacitor electrolitico through hole 4.7 uF 16 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 16,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 574,
+    "price_usd": 0.076,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-10uF-25V-P5D0-04",
+    "name": "Capacitor electrolitico through hole 10 uF 25 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 25,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 711,
+    "price_usd": 0.094,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-22uF-35V-P7D5-05",
+    "name": "Capacitor electrolitico through hole 22 uF 35 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 35,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 848,
+    "price_usd": 0.112,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-47uF-50V-P2D0-06",
+    "name": "Capacitor electrolitico through hole 47 uF 50 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 50,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 985,
+    "price_usd": 0.13,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-100uF-63V-P2D5-07",
+    "name": "Capacitor electrolitico through hole 100 uF 63 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 63,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1122,
+    "price_usd": 0.148,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-220uF-100V-P3D5-08",
+    "name": "Capacitor electrolitico through hole 220 uF 100 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00022,
+      "voltage_v": 100,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1259,
+    "price_usd": 0.166,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-470uF-6D3V-P5D0-09",
+    "name": "Capacitor electrolitico through hole 470 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00047,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1396,
+    "price_usd": 0.184,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1000uF-10V-P7D5-10",
+    "name": "Capacitor electrolitico through hole 1000 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.001,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1533,
+    "price_usd": 0.202,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1uF-16V-P2D0-11",
+    "name": "Capacitor electrolitico through hole 1 uF 16 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 16,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1670,
+    "price_usd": 0.22,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-2.2uF-25V-P2D5-12",
+    "name": "Capacitor electrolitico through hole 2.2 uF 25 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 25,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1807,
+    "price_usd": 0.238,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-4.7uF-35V-P3D5-13",
+    "name": "Capacitor electrolitico through hole 4.7 uF 35 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 35,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1944,
+    "price_usd": 0.256,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-10uF-50V-P5D0-14",
+    "name": "Capacitor electrolitico through hole 10 uF 50 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 50,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2081,
+    "price_usd": 0.274,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-22uF-63V-P7D5-15",
+    "name": "Capacitor electrolitico through hole 22 uF 63 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 63,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2218,
+    "price_usd": 0.292,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-47uF-100V-P2D0-16",
+    "name": "Capacitor electrolitico through hole 47 uF 100 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 100,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2355,
+    "price_usd": 0.31,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-100uF-6D3V-P2D5-17",
+    "name": "Capacitor electrolitico through hole 100 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2492,
+    "price_usd": 0.328,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-220uF-10V-P3D5-18",
+    "name": "Capacitor electrolitico through hole 220 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00022,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2629,
+    "price_usd": 0.04,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-470uF-16V-P5D0-19",
+    "name": "Capacitor electrolitico through hole 470 uF 16 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00047,
+      "voltage_v": 16,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2766,
+    "price_usd": 0.058,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1000uF-25V-P7D5-20",
+    "name": "Capacitor electrolitico through hole 1000 uF 25 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.001,
+      "voltage_v": 25,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2903,
+    "price_usd": 0.076,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1uF-35V-P2D0-21",
+    "name": "Capacitor electrolitico through hole 1 uF 35 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 35,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3040,
+    "price_usd": 0.094,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-2.2uF-50V-P2D5-22",
+    "name": "Capacitor electrolitico through hole 2.2 uF 50 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 50,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3177,
+    "price_usd": 0.112,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-4.7uF-63V-P3D5-23",
+    "name": "Capacitor electrolitico through hole 4.7 uF 63 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 63,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3314,
+    "price_usd": 0.13,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-10uF-100V-P5D0-24",
+    "name": "Capacitor electrolitico through hole 10 uF 100 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 100,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3451,
+    "price_usd": 0.148,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-22uF-6D3V-P7D5-25",
+    "name": "Capacitor electrolitico through hole 22 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3588,
+    "price_usd": 0.166,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-47uF-10V-P2D0-26",
+    "name": "Capacitor electrolitico through hole 47 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3725,
+    "price_usd": 0.184,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-100uF-16V-P2D5-27",
+    "name": "Capacitor electrolitico through hole 100 uF 16 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 16,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3862,
+    "price_usd": 0.202,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-220uF-25V-P3D5-28",
+    "name": "Capacitor electrolitico through hole 220 uF 25 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00022,
+      "voltage_v": 25,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 3999,
+    "price_usd": 0.22,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-470uF-35V-P5D0-29",
+    "name": "Capacitor electrolitico through hole 470 uF 35 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00047,
+      "voltage_v": 35,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4136,
+    "price_usd": 0.238,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1000uF-50V-P7D5-30",
+    "name": "Capacitor electrolitico through hole 1000 uF 50 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.001,
+      "voltage_v": 50,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4273,
+    "price_usd": 0.256,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1uF-63V-P2D0-31",
+    "name": "Capacitor electrolitico through hole 1 uF 63 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 63,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4410,
+    "price_usd": 0.274,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-2.2uF-100V-P2D5-32",
+    "name": "Capacitor electrolitico through hole 2.2 uF 100 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 100,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4547,
+    "price_usd": 0.292,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-4.7uF-6D3V-P3D5-33",
+    "name": "Capacitor electrolitico through hole 4.7 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4684,
+    "price_usd": 0.31,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-10uF-10V-P5D0-34",
+    "name": "Capacitor electrolitico through hole 10 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4821,
+    "price_usd": 0.328,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-22uF-16V-P7D5-35",
+    "name": "Capacitor electrolitico through hole 22 uF 16 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 16,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 4958,
+    "price_usd": 0.04,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-47uF-25V-P2D0-36",
+    "name": "Capacitor electrolitico through hole 47 uF 25 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 25,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 5095,
+    "price_usd": 0.058,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-100uF-35V-P2D5-37",
+    "name": "Capacitor electrolitico through hole 100 uF 35 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 35,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 432,
+    "price_usd": 0.076,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-220uF-50V-P3D5-38",
+    "name": "Capacitor electrolitico through hole 220 uF 50 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00022,
+      "voltage_v": 50,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 569,
+    "price_usd": 0.094,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-470uF-63V-P5D0-39",
+    "name": "Capacitor electrolitico through hole 470 uF 63 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00047,
+      "voltage_v": 63,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 706,
+    "price_usd": 0.112,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1000uF-100V-P7D5-40",
+    "name": "Capacitor electrolitico through hole 1000 uF 100 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.001,
+      "voltage_v": 100,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 843,
+    "price_usd": 0.13,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1uF-6D3V-P2D0-41",
+    "name": "Capacitor electrolitico through hole 1 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-06,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 980,
+    "price_usd": 0.148,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-2.2uF-10V-P2D5-42",
+    "name": "Capacitor electrolitico through hole 2.2 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-06,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1117,
+    "price_usd": 0.166,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-4.7uF-16V-P3D5-43",
+    "name": "Capacitor electrolitico through hole 4.7 uF 16 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-06,
+      "voltage_v": 16,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1254,
+    "price_usd": 0.184,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-10uF-25V-P5D0-44",
+    "name": "Capacitor electrolitico through hole 10 uF 25 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 1e-05,
+      "voltage_v": 25,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1391,
+    "price_usd": 0.202,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-22uF-35V-P7D5-45",
+    "name": "Capacitor electrolitico through hole 22 uF 35 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 2.2e-05,
+      "voltage_v": 35,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1528,
+    "price_usd": 0.22,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-47uF-50V-P2D0-46",
+    "name": "Capacitor electrolitico through hole 47 uF 50 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 4.7e-05,
+      "voltage_v": 50,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1665,
+    "price_usd": 0.238,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-100uF-63V-P2D5-47",
+    "name": "Capacitor electrolitico through hole 100 uF 63 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.0001,
+      "voltage_v": 63,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 2.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1802,
+    "price_usd": 0.256,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-220uF-100V-P3D5-48",
+    "name": "Capacitor electrolitico through hole 220 uF 100 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00022,
+      "voltage_v": 100,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 3.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 1939,
+    "price_usd": 0.274,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-470uF-6D3V-P5D0-49",
+    "name": "Capacitor electrolitico through hole 470 uF 6.3 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.00047,
+      "voltage_v": 6.3,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 5.0,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2076,
+    "price_usd": 0.292,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  },
+  {
+    "sku": "CE-TH-1000uF-10V-P7D5-50",
+    "name": "Capacitor electrolitico through hole 1000 uF 10 V",
+    "category": "capacitor",
+    "description": "Capacitor electrolitico radial through hole para filtrado de fuente, reserva de energia y suavizado de ripple.",
+    "specs": {
+      "capacitance_f": 0.001,
+      "voltage_v": 10,
+      "mounting": "through_hole",
+      "lead_pitch_mm": 7.5,
+      "type": "aluminum_electrolytic"
+    },
+    "stock": 2213,
+    "price_usd": 0.31,
+    "recommended_use": "Filtrado de entrada/salida en reguladores, fuentes DC y etapas de potencia de baja frecuencia."
+  }
+]

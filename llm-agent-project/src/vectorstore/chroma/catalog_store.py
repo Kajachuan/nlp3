@@ -6,6 +6,7 @@ from typing import Any
 
 import chromadb
 
+from src.runtime.catalog_data import load_catalog_items
 from src.vectorstore.chroma.hash_embedding import HashEmbeddingFunction
 
 
@@ -26,7 +27,10 @@ class ChromaCatalogStore:
         )
 
     def ensure_catalog_indexed(self, catalog_path: Path) -> None:
-        items = self._load_catalog(catalog_path)
+        items = load_catalog_items(catalog_path)
+        self.ensure_items_indexed(items)
+
+    def ensure_items_indexed(self, items: list[dict[str, Any]]) -> None:
         existing = self.collection.count()
         if existing == len(items):
             return
@@ -90,9 +94,3 @@ class ChromaCatalogStore:
             "item_json": json.dumps(item, ensure_ascii=True),
         }
 
-    def _load_catalog(self, path: Path) -> list[dict[str, Any]]:
-        with path.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-        if not isinstance(data, list):
-            raise ValueError("El catalogo debe ser una lista JSON.")
-        return data

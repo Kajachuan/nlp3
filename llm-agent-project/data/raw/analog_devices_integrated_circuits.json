@@ -1,0 +1,852 @@
+[
+  {
+    "sku": "ADI-AD620-SOIC-8-1CH-01",
+    "name": "Analog Devices AD620 instrumentation amplifier SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD620",
+      "function": "instrumentation_amplifier",
+      "channels": 1,
+      "package": "SOIC-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 40,
+    "price_usd": 1.2,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8226-MSOP-8-2CH-02",
+    "name": "Analog Devices AD8226 precision op amp MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8226",
+      "function": "precision_op_amp",
+      "channels": 2,
+      "package": "MSOP-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 177,
+    "price_usd": 1.55,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8421-TSSOP-16-3CH-03",
+    "name": "Analog Devices AD8421 adc TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8421",
+      "function": "adc",
+      "channels": 3,
+      "package": "TSSOP-16",
+      "supply_v": "3.0-15"
+    },
+    "stock": 314,
+    "price_usd": 1.9,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8605-LFCSP-4CH-04",
+    "name": "Analog Devices AD8605 dac LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8605",
+      "function": "dac",
+      "channels": 4,
+      "package": "LFCSP",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 451,
+    "price_usd": 2.25,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8628-SOT-23-5-1CH-05",
+    "name": "Analog Devices AD8628 digital isolator SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8628",
+      "function": "digital_isolator",
+      "channels": 1,
+      "package": "SOT-23-5",
+      "supply_v": "3.0-15"
+    },
+    "stock": 588,
+    "price_usd": 2.6,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD5683R-SOIC-8-2CH-06",
+    "name": "Analog Devices AD5683R analog switch SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD5683R",
+      "function": "analog_switch",
+      "channels": 2,
+      "package": "SOIC-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 725,
+    "price_usd": 2.95,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD7190-MSOP-8-3CH-07",
+    "name": "Analog Devices AD7190 voltage reference MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD7190",
+      "function": "voltage_reference",
+      "channels": 3,
+      "package": "MSOP-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 862,
+    "price_usd": 3.3,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADuM1201-TSSOP-16-4CH-08",
+    "name": "Analog Devices ADuM1201 instrumentation amplifier TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADuM1201",
+      "function": "instrumentation_amplifier",
+      "channels": 4,
+      "package": "TSSOP-16",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 999,
+    "price_usd": 3.65,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADG704-LFCSP-1CH-09",
+    "name": "Analog Devices ADG704 precision op amp LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADG704",
+      "function": "precision_op_amp",
+      "channels": 1,
+      "package": "LFCSP",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1136,
+    "price_usd": 4.0,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-LTC6655-SOT-23-5-2CH-10",
+    "name": "Analog Devices LTC6655 adc SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "LTC6655",
+      "function": "adc",
+      "channels": 2,
+      "package": "SOT-23-5",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1273,
+    "price_usd": 4.35,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD620-SOIC-8-3CH-11",
+    "name": "Analog Devices AD620 dac SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD620",
+      "function": "dac",
+      "channels": 3,
+      "package": "SOIC-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1410,
+    "price_usd": 4.7,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8226-MSOP-8-4CH-12",
+    "name": "Analog Devices AD8226 digital isolator MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8226",
+      "function": "digital_isolator",
+      "channels": 4,
+      "package": "MSOP-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1547,
+    "price_usd": 5.05,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8421-TSSOP-16-1CH-13",
+    "name": "Analog Devices AD8421 analog switch TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8421",
+      "function": "analog_switch",
+      "channels": 1,
+      "package": "TSSOP-16",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1684,
+    "price_usd": 5.4,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8605-LFCSP-2CH-14",
+    "name": "Analog Devices AD8605 voltage reference LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8605",
+      "function": "voltage_reference",
+      "channels": 2,
+      "package": "LFCSP",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1821,
+    "price_usd": 5.75,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8628-SOT-23-5-3CH-15",
+    "name": "Analog Devices AD8628 instrumentation amplifier SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8628",
+      "function": "instrumentation_amplifier",
+      "channels": 3,
+      "package": "SOT-23-5",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1958,
+    "price_usd": 6.1,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD5683R-SOIC-8-4CH-16",
+    "name": "Analog Devices AD5683R precision op amp SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD5683R",
+      "function": "precision_op_amp",
+      "channels": 4,
+      "package": "SOIC-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 2095,
+    "price_usd": 6.45,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD7190-MSOP-8-1CH-17",
+    "name": "Analog Devices AD7190 adc MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD7190",
+      "function": "adc",
+      "channels": 1,
+      "package": "MSOP-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 2232,
+    "price_usd": 6.8,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADuM1201-TSSOP-16-2CH-18",
+    "name": "Analog Devices ADuM1201 dac TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADuM1201",
+      "function": "dac",
+      "channels": 2,
+      "package": "TSSOP-16",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 2369,
+    "price_usd": 1.2,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADG704-LFCSP-3CH-19",
+    "name": "Analog Devices ADG704 digital isolator LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADG704",
+      "function": "digital_isolator",
+      "channels": 3,
+      "package": "LFCSP",
+      "supply_v": "3.0-15"
+    },
+    "stock": 2506,
+    "price_usd": 1.55,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-LTC6655-SOT-23-5-4CH-20",
+    "name": "Analog Devices LTC6655 analog switch SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "LTC6655",
+      "function": "analog_switch",
+      "channels": 4,
+      "package": "SOT-23-5",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 2643,
+    "price_usd": 1.9,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD620-SOIC-8-1CH-21",
+    "name": "Analog Devices AD620 voltage reference SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD620",
+      "function": "voltage_reference",
+      "channels": 1,
+      "package": "SOIC-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 2780,
+    "price_usd": 2.25,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8226-MSOP-8-2CH-22",
+    "name": "Analog Devices AD8226 instrumentation amplifier MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8226",
+      "function": "instrumentation_amplifier",
+      "channels": 2,
+      "package": "MSOP-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 2917,
+    "price_usd": 2.6,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8421-TSSOP-16-3CH-23",
+    "name": "Analog Devices AD8421 precision op amp TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8421",
+      "function": "precision_op_amp",
+      "channels": 3,
+      "package": "TSSOP-16",
+      "supply_v": "3.0-15"
+    },
+    "stock": 3054,
+    "price_usd": 2.95,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8605-LFCSP-4CH-24",
+    "name": "Analog Devices AD8605 adc LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8605",
+      "function": "adc",
+      "channels": 4,
+      "package": "LFCSP",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 3191,
+    "price_usd": 3.3,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8628-SOT-23-5-1CH-25",
+    "name": "Analog Devices AD8628 dac SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8628",
+      "function": "dac",
+      "channels": 1,
+      "package": "SOT-23-5",
+      "supply_v": "3.0-15"
+    },
+    "stock": 3328,
+    "price_usd": 3.65,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD5683R-SOIC-8-2CH-26",
+    "name": "Analog Devices AD5683R digital isolator SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD5683R",
+      "function": "digital_isolator",
+      "channels": 2,
+      "package": "SOIC-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 3465,
+    "price_usd": 4.0,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD7190-MSOP-8-3CH-27",
+    "name": "Analog Devices AD7190 analog switch MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD7190",
+      "function": "analog_switch",
+      "channels": 3,
+      "package": "MSOP-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 3602,
+    "price_usd": 4.35,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADuM1201-TSSOP-16-4CH-28",
+    "name": "Analog Devices ADuM1201 voltage reference TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADuM1201",
+      "function": "voltage_reference",
+      "channels": 4,
+      "package": "TSSOP-16",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 3739,
+    "price_usd": 4.7,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADG704-LFCSP-1CH-29",
+    "name": "Analog Devices ADG704 instrumentation amplifier LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADG704",
+      "function": "instrumentation_amplifier",
+      "channels": 1,
+      "package": "LFCSP",
+      "supply_v": "3.0-15"
+    },
+    "stock": 3876,
+    "price_usd": 5.05,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-LTC6655-SOT-23-5-2CH-30",
+    "name": "Analog Devices LTC6655 precision op amp SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "LTC6655",
+      "function": "precision_op_amp",
+      "channels": 2,
+      "package": "SOT-23-5",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 4013,
+    "price_usd": 5.4,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD620-SOIC-8-3CH-31",
+    "name": "Analog Devices AD620 adc SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD620",
+      "function": "adc",
+      "channels": 3,
+      "package": "SOIC-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 4150,
+    "price_usd": 5.75,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8226-MSOP-8-4CH-32",
+    "name": "Analog Devices AD8226 dac MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8226",
+      "function": "dac",
+      "channels": 4,
+      "package": "MSOP-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 4287,
+    "price_usd": 6.1,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8421-TSSOP-16-1CH-33",
+    "name": "Analog Devices AD8421 digital isolator TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8421",
+      "function": "digital_isolator",
+      "channels": 1,
+      "package": "TSSOP-16",
+      "supply_v": "3.0-15"
+    },
+    "stock": 4424,
+    "price_usd": 6.45,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8605-LFCSP-2CH-34",
+    "name": "Analog Devices AD8605 analog switch LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8605",
+      "function": "analog_switch",
+      "channels": 2,
+      "package": "LFCSP",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 4561,
+    "price_usd": 6.8,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8628-SOT-23-5-3CH-35",
+    "name": "Analog Devices AD8628 voltage reference SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8628",
+      "function": "voltage_reference",
+      "channels": 3,
+      "package": "SOT-23-5",
+      "supply_v": "3.0-15"
+    },
+    "stock": 4698,
+    "price_usd": 1.2,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD5683R-SOIC-8-4CH-36",
+    "name": "Analog Devices AD5683R instrumentation amplifier SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD5683R",
+      "function": "instrumentation_amplifier",
+      "channels": 4,
+      "package": "SOIC-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 4835,
+    "price_usd": 1.55,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD7190-MSOP-8-1CH-37",
+    "name": "Analog Devices AD7190 precision op amp MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD7190",
+      "function": "precision_op_amp",
+      "channels": 1,
+      "package": "MSOP-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 172,
+    "price_usd": 1.9,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADuM1201-TSSOP-16-2CH-38",
+    "name": "Analog Devices ADuM1201 adc TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADuM1201",
+      "function": "adc",
+      "channels": 2,
+      "package": "TSSOP-16",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 309,
+    "price_usd": 2.25,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADG704-LFCSP-3CH-39",
+    "name": "Analog Devices ADG704 dac LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADG704",
+      "function": "dac",
+      "channels": 3,
+      "package": "LFCSP",
+      "supply_v": "3.0-15"
+    },
+    "stock": 446,
+    "price_usd": 2.6,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-LTC6655-SOT-23-5-4CH-40",
+    "name": "Analog Devices LTC6655 digital isolator SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "LTC6655",
+      "function": "digital_isolator",
+      "channels": 4,
+      "package": "SOT-23-5",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 583,
+    "price_usd": 2.95,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD620-SOIC-8-1CH-41",
+    "name": "Analog Devices AD620 analog switch SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD620",
+      "function": "analog_switch",
+      "channels": 1,
+      "package": "SOIC-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 720,
+    "price_usd": 3.3,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8226-MSOP-8-2CH-42",
+    "name": "Analog Devices AD8226 voltage reference MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8226",
+      "function": "voltage_reference",
+      "channels": 2,
+      "package": "MSOP-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 857,
+    "price_usd": 3.65,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8421-TSSOP-16-3CH-43",
+    "name": "Analog Devices AD8421 instrumentation amplifier TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8421",
+      "function": "instrumentation_amplifier",
+      "channels": 3,
+      "package": "TSSOP-16",
+      "supply_v": "3.0-15"
+    },
+    "stock": 994,
+    "price_usd": 4.0,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8605-LFCSP-4CH-44",
+    "name": "Analog Devices AD8605 precision op amp LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8605",
+      "function": "precision_op_amp",
+      "channels": 4,
+      "package": "LFCSP",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1131,
+    "price_usd": 4.35,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD8628-SOT-23-5-1CH-45",
+    "name": "Analog Devices AD8628 adc SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD8628",
+      "function": "adc",
+      "channels": 1,
+      "package": "SOT-23-5",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1268,
+    "price_usd": 4.7,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD5683R-SOIC-8-2CH-46",
+    "name": "Analog Devices AD5683R dac SOIC-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD5683R",
+      "function": "dac",
+      "channels": 2,
+      "package": "SOIC-8",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1405,
+    "price_usd": 5.05,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-AD7190-MSOP-8-3CH-47",
+    "name": "Analog Devices AD7190 digital isolator MSOP-8",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "AD7190",
+      "function": "digital_isolator",
+      "channels": 3,
+      "package": "MSOP-8",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1542,
+    "price_usd": 5.4,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADuM1201-TSSOP-16-4CH-48",
+    "name": "Analog Devices ADuM1201 analog switch TSSOP-16",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADuM1201",
+      "function": "analog_switch",
+      "channels": 4,
+      "package": "TSSOP-16",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1679,
+    "price_usd": 5.75,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-ADG704-LFCSP-1CH-49",
+    "name": "Analog Devices ADG704 voltage reference LFCSP",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "ADG704",
+      "function": "voltage_reference",
+      "channels": 1,
+      "package": "LFCSP",
+      "supply_v": "3.0-15"
+    },
+    "stock": 1816,
+    "price_usd": 6.1,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  },
+  {
+    "sku": "ADI-LTC6655-SOT-23-5-2CH-50",
+    "name": "Analog Devices LTC6655 instrumentation amplifier SOT-23-5",
+    "category": "integrated_circuit",
+    "description": "Integrado Analog Devices para medicion analogica, precision, conversion de datos o aislacion de senales.",
+    "specs": {
+      "manufacturer": "Analog Devices",
+      "part_family": "LTC6655",
+      "function": "instrumentation_amplifier",
+      "channels": 2,
+      "package": "SOT-23-5",
+      "supply_v": "2.7-5.5"
+    },
+    "stock": 1953,
+    "price_usd": 6.45,
+    "recommended_use": "Front-end analogico, adquisicion de datos, instrumentacion, aislacion o referencias de precision."
+  }
+]

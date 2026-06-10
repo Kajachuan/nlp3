@@ -124,7 +124,6 @@ def test_real_api_web_fallback_uses_serpapi_when_local_catalog_is_insufficient()
         top_k=1,
         web_limit=3,
         web_method="google_shopping",
-        include_delivery_details=True,
         model_selection=_real_models(),
     )
 

@@ -1,0 +1,852 @@
+[
+  {
+    "sku": "MCU-ARDUINO-UNO-R3-01",
+    "name": "Placa MCU UNO R3",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "UNO R3",
+      "gpio": 14,
+      "flash_mb": 0.032,
+      "wireless": "none",
+      "supply_v": "5"
+    },
+    "stock": 35,
+    "price_usd": 3.5,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-NANO-02",
+    "name": "Placa MCU Nano",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "Nano",
+      "gpio": 20,
+      "flash_mb": 0.256,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 172,
+    "price_usd": 4.15,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-MEGA-2560-03",
+    "name": "Placa MCU Mega 2560",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "Mega 2560",
+      "gpio": 34,
+      "flash_mb": 1,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 309,
+    "price_usd": 4.8,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-STM32F103-BLUE-PILL-04",
+    "name": "Placa MCU STM32F103 Blue Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "STM32F103 Blue Pill",
+      "gpio": 48,
+      "flash_mb": 2,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 446,
+    "price_usd": 5.45,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-STM32F401-BLACK-PILL-05",
+    "name": "Placa MCU STM32F401 Black Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "STM32F401 Black Pill",
+      "gpio": 54,
+      "flash_mb": 4,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 583,
+    "price_usd": 6.1,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-ESP32-DEVKITC-06",
+    "name": "Placa MCU ESP32 DevKitC",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "ESP32 DevKitC",
+      "gpio": 14,
+      "flash_mb": 8,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "5"
+    },
+    "stock": 720,
+    "price_usd": 6.75,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-ESP32-S3-DEVKIT-07",
+    "name": "Placa MCU ESP32-S3 DevKit",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "ESP32-S3 DevKit",
+      "gpio": 20,
+      "flash_mb": 16,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "3.3"
+    },
+    "stock": 857,
+    "price_usd": 7.4,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-ESP8266-NODEMCU-08",
+    "name": "Placa MCU ESP8266 NodeMCU",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "ESP8266 NodeMCU",
+      "gpio": 34,
+      "flash_mb": 0.032,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 994,
+    "price_usd": 8.05,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-RP2040-PICO-09",
+    "name": "Placa MCU RP2040 Pico",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "RP2040 Pico",
+      "gpio": 48,
+      "flash_mb": 0.256,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1131,
+    "price_usd": 8.7,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-ARDUINO-MKR-WIFI-1010-10",
+    "name": "Placa MCU Arduino MKR WiFi 1010",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "Arduino MKR WiFi 1010",
+      "gpio": 54,
+      "flash_mb": 1,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 1268,
+    "price_usd": 9.35,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-UNO-R3-11",
+    "name": "Placa MCU UNO R3",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "UNO R3",
+      "gpio": 14,
+      "flash_mb": 2,
+      "wireless": "none",
+      "supply_v": "5"
+    },
+    "stock": 1405,
+    "price_usd": 10.0,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-NANO-12",
+    "name": "Placa MCU Nano",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "Nano",
+      "gpio": 20,
+      "flash_mb": 4,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1542,
+    "price_usd": 10.65,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-MEGA-2560-13",
+    "name": "Placa MCU Mega 2560",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "Mega 2560",
+      "gpio": 34,
+      "flash_mb": 8,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1679,
+    "price_usd": 11.3,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-STM32F103-BLUE-PILL-14",
+    "name": "Placa MCU STM32F103 Blue Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "STM32F103 Blue Pill",
+      "gpio": 48,
+      "flash_mb": 16,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1816,
+    "price_usd": 11.95,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-STM32F401-BLACK-PILL-15",
+    "name": "Placa MCU STM32F401 Black Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "STM32F401 Black Pill",
+      "gpio": 54,
+      "flash_mb": 0.032,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1953,
+    "price_usd": 12.6,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-ESP32-DEVKITC-16",
+    "name": "Placa MCU ESP32 DevKitC",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "ESP32 DevKitC",
+      "gpio": 14,
+      "flash_mb": 0.256,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "5"
+    },
+    "stock": 2090,
+    "price_usd": 13.25,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-ESP32-S3-DEVKIT-17",
+    "name": "Placa MCU ESP32-S3 DevKit",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "ESP32-S3 DevKit",
+      "gpio": 20,
+      "flash_mb": 1,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "3.3"
+    },
+    "stock": 2227,
+    "price_usd": 13.9,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-ESP8266-NODEMCU-18",
+    "name": "Placa MCU ESP8266 NodeMCU",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "ESP8266 NodeMCU",
+      "gpio": 34,
+      "flash_mb": 2,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 2364,
+    "price_usd": 3.5,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-RP2040-PICO-19",
+    "name": "Placa MCU RP2040 Pico",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "RP2040 Pico",
+      "gpio": 48,
+      "flash_mb": 4,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 2501,
+    "price_usd": 4.15,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-ARDUINO-MKR-WIFI-1010-20",
+    "name": "Placa MCU Arduino MKR WiFi 1010",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "Arduino MKR WiFi 1010",
+      "gpio": 54,
+      "flash_mb": 8,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 2638,
+    "price_usd": 4.8,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-UNO-R3-21",
+    "name": "Placa MCU UNO R3",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "UNO R3",
+      "gpio": 14,
+      "flash_mb": 16,
+      "wireless": "none",
+      "supply_v": "5"
+    },
+    "stock": 2775,
+    "price_usd": 5.45,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-NANO-22",
+    "name": "Placa MCU Nano",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "Nano",
+      "gpio": 20,
+      "flash_mb": 0.032,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 2912,
+    "price_usd": 6.1,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-MEGA-2560-23",
+    "name": "Placa MCU Mega 2560",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "Mega 2560",
+      "gpio": 34,
+      "flash_mb": 0.256,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 3049,
+    "price_usd": 6.75,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-STM32F103-BLUE-PILL-24",
+    "name": "Placa MCU STM32F103 Blue Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "STM32F103 Blue Pill",
+      "gpio": 48,
+      "flash_mb": 1,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 3186,
+    "price_usd": 7.4,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-STM32F401-BLACK-PILL-25",
+    "name": "Placa MCU STM32F401 Black Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "STM32F401 Black Pill",
+      "gpio": 54,
+      "flash_mb": 2,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 3323,
+    "price_usd": 8.05,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-ESP32-DEVKITC-26",
+    "name": "Placa MCU ESP32 DevKitC",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "ESP32 DevKitC",
+      "gpio": 14,
+      "flash_mb": 4,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "5"
+    },
+    "stock": 3460,
+    "price_usd": 8.7,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-ESP32-S3-DEVKIT-27",
+    "name": "Placa MCU ESP32-S3 DevKit",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "ESP32-S3 DevKit",
+      "gpio": 20,
+      "flash_mb": 8,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "3.3"
+    },
+    "stock": 3597,
+    "price_usd": 9.35,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-ESP8266-NODEMCU-28",
+    "name": "Placa MCU ESP8266 NodeMCU",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "ESP8266 NodeMCU",
+      "gpio": 34,
+      "flash_mb": 16,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 3734,
+    "price_usd": 10.0,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-RP2040-PICO-29",
+    "name": "Placa MCU RP2040 Pico",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "RP2040 Pico",
+      "gpio": 48,
+      "flash_mb": 0.032,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 3871,
+    "price_usd": 10.65,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-ARDUINO-MKR-WIFI-1010-30",
+    "name": "Placa MCU Arduino MKR WiFi 1010",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "Arduino MKR WiFi 1010",
+      "gpio": 54,
+      "flash_mb": 0.256,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 4008,
+    "price_usd": 11.3,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-UNO-R3-31",
+    "name": "Placa MCU UNO R3",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "UNO R3",
+      "gpio": 14,
+      "flash_mb": 1,
+      "wireless": "none",
+      "supply_v": "5"
+    },
+    "stock": 4145,
+    "price_usd": 11.95,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-NANO-32",
+    "name": "Placa MCU Nano",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "Nano",
+      "gpio": 20,
+      "flash_mb": 2,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 4282,
+    "price_usd": 12.6,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-MEGA-2560-33",
+    "name": "Placa MCU Mega 2560",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "Mega 2560",
+      "gpio": 34,
+      "flash_mb": 4,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 4419,
+    "price_usd": 13.25,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-STM32F103-BLUE-PILL-34",
+    "name": "Placa MCU STM32F103 Blue Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "STM32F103 Blue Pill",
+      "gpio": 48,
+      "flash_mb": 8,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 4556,
+    "price_usd": 13.9,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-STM32F401-BLACK-PILL-35",
+    "name": "Placa MCU STM32F401 Black Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "STM32F401 Black Pill",
+      "gpio": 54,
+      "flash_mb": 16,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 4693,
+    "price_usd": 3.5,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-ESP32-DEVKITC-36",
+    "name": "Placa MCU ESP32 DevKitC",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "ESP32 DevKitC",
+      "gpio": 14,
+      "flash_mb": 0.032,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "5"
+    },
+    "stock": 4830,
+    "price_usd": 4.15,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-ESP32-S3-DEVKIT-37",
+    "name": "Placa MCU ESP32-S3 DevKit",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "ESP32-S3 DevKit",
+      "gpio": 20,
+      "flash_mb": 0.256,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "3.3"
+    },
+    "stock": 167,
+    "price_usd": 4.8,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-ESP8266-NODEMCU-38",
+    "name": "Placa MCU ESP8266 NodeMCU",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "ESP8266 NodeMCU",
+      "gpio": 34,
+      "flash_mb": 1,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 304,
+    "price_usd": 5.45,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-RP2040-PICO-39",
+    "name": "Placa MCU RP2040 Pico",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "RP2040 Pico",
+      "gpio": 48,
+      "flash_mb": 2,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 441,
+    "price_usd": 6.1,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-ARDUINO-MKR-WIFI-1010-40",
+    "name": "Placa MCU Arduino MKR WiFi 1010",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "Arduino MKR WiFi 1010",
+      "gpio": 54,
+      "flash_mb": 4,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 578,
+    "price_usd": 6.75,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-UNO-R3-41",
+    "name": "Placa MCU UNO R3",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "UNO R3",
+      "gpio": 14,
+      "flash_mb": 8,
+      "wireless": "none",
+      "supply_v": "5"
+    },
+    "stock": 715,
+    "price_usd": 7.4,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-NANO-42",
+    "name": "Placa MCU Nano",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "Nano",
+      "gpio": 20,
+      "flash_mb": 16,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 852,
+    "price_usd": 8.05,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-MEGA-2560-43",
+    "name": "Placa MCU Mega 2560",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "Mega 2560",
+      "gpio": 34,
+      "flash_mb": 0.032,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 989,
+    "price_usd": 8.7,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-STM32F103-BLUE-PILL-44",
+    "name": "Placa MCU STM32F103 Blue Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "STM32F103 Blue Pill",
+      "gpio": 48,
+      "flash_mb": 0.256,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1126,
+    "price_usd": 9.35,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-STM32F401-BLACK-PILL-45",
+    "name": "Placa MCU STM32F401 Black Pill",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "STM32F401 Black Pill",
+      "gpio": 54,
+      "flash_mb": 1,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1263,
+    "price_usd": 10.0,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ARDUINO-ESP32-DEVKITC-46",
+    "name": "Placa MCU ESP32 DevKitC",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "Arduino",
+      "board": "ESP32 DevKitC",
+      "gpio": 14,
+      "flash_mb": 2,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "5"
+    },
+    "stock": 1400,
+    "price_usd": 10.65,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-STM32-ESP32-S3-DEVKIT-47",
+    "name": "Placa MCU ESP32-S3 DevKit",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "STM32",
+      "board": "ESP32-S3 DevKit",
+      "gpio": 20,
+      "flash_mb": 4,
+      "wireless": "WiFi/Bluetooth",
+      "supply_v": "3.3"
+    },
+    "stock": 1537,
+    "price_usd": 11.3,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP32-ESP8266-NODEMCU-48",
+    "name": "Placa MCU ESP8266 NodeMCU",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP32",
+      "board": "ESP8266 NodeMCU",
+      "gpio": 34,
+      "flash_mb": 8,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 1674,
+    "price_usd": 11.95,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-ESP8266-RP2040-PICO-49",
+    "name": "Placa MCU RP2040 Pico",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "ESP8266",
+      "board": "RP2040 Pico",
+      "gpio": 48,
+      "flash_mb": 16,
+      "wireless": "none",
+      "supply_v": "3.3"
+    },
+    "stock": 1811,
+    "price_usd": 12.6,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  },
+  {
+    "sku": "MCU-RP2040-ARDUINO-MKR-WIFI-1010-50",
+    "name": "Placa MCU Arduino MKR WiFi 1010",
+    "category": "microcontroller",
+    "description": "Placa de desarrollo MCU para prototipado, control embebido, IoT, sensores y educacion tecnica.",
+    "specs": {
+      "line": "RP2040",
+      "board": "Arduino MKR WiFi 1010",
+      "gpio": 54,
+      "flash_mb": 0.032,
+      "wireless": "WiFi",
+      "supply_v": "3.3"
+    },
+    "stock": 1948,
+    "price_usd": 13.25,
+    "recommended_use": "Prototipos rapidos, adquisicion de datos, control de actuadores, conectividad IoT y pruebas de firmware."
+  }
+]

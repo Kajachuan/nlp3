@@ -56,7 +56,7 @@ class LLMModelSelection:
 
 def default_model_selection() -> LLMModelSelection:
     options = parse_model_options()
-    planner = os.getenv("PLANNER_MODEL", "groq/compound-mini")
+    planner = os.getenv("PLANNER_MODEL", "openai/gpt-oss-120b")
     direct = os.getenv("DIRECT_RESPONSE_MODEL", planner)
     verifier = os.getenv("VERIFIER_MODEL", "groq/compound")
     valid = set(options)

@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 from src.rag.retrievers.catalog_retriever import tokenize
+from src.runtime.catalog_data import load_catalog_items
 from src.vectorstore.chroma.catalog_store import ChromaCatalogStore
 
 
@@ -18,9 +18,9 @@ class KeywordHit:
 
 
 class KeywordCatalogRetriever:
-    def __init__(self, catalog_path: Path) -> None:
-        self.catalog_path = catalog_path
-        self.items = self._load_catalog(catalog_path)
+    def __init__(self, catalog_source: Path | Sequence[dict[str, Any]]) -> None:
+        self.catalog_path = catalog_source if isinstance(catalog_source, Path) else None
+        self.items = load_catalog_items(catalog_source) if isinstance(catalog_source, Path) else list(catalog_source)
         self.documents = [ChromaCatalogStore.item_to_document_static(item) for item in self.items]
         self.doc_tokens = [tokenize(document) for document in self.documents]
 
@@ -75,10 +75,3 @@ class KeywordCatalogRetriever:
         if name and name in lowered:
             bonus += 0.7
         return bonus
-
-    def _load_catalog(self, path: Path) -> list[dict[str, Any]]:
-        with path.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-        if not isinstance(data, list):
-            raise ValueError("Catalog must be a JSON list.")
-        return data

@@ -31,7 +31,6 @@ class LocalEvidenceGate:
         self,
         local: HybridSearchResponse,
         needs_price: bool = True,
-        needs_shipping: bool = True,
         required_terms: list[str] | None = None,
     ) -> EvidenceGateDecision:
         best_score = local.results[0].score if local.results else 0.0
@@ -49,19 +48,12 @@ class LocalEvidenceGate:
         best = local.results[0].item
         if needs_price and best.get("price_usd") in {None, ""}:
             return EvidenceGateDecision(True, "local result is missing price", best_score)
-        if needs_shipping:
-            # The local demo catalog has stock but no shipping ETA; stock is enough local evidence for v1.
-            if best.get("stock") in {None, ""}:
-                return EvidenceGateDecision(True, "local result is missing stock/shipping evidence", best_score)
         return EvidenceGateDecision(False, "local evidence is sufficient", best_score)
 
     def _specific_product_terms(self, terms: list[str]) -> list[str]:
         generic = {
             "precio",
             "price",
-            "envio",
-            "envío",
-            "shipping",
             "sensor",
             "component",
             "componente",
