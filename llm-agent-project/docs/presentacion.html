@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentación - Asistente de compra de componentes</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101418;
+      --panel: #171d23;
+      --panel-soft: #202832;
+      --text: #f4f7fb;
+      --muted: #aab6c5;
+      --line: #33404d;
+      --green: #44c27a;
+      --cyan: #55c7e8;
+      --amber: #f0b84f;
+      --red: #ef6f6c;
+      --ink: #0b1117;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+    }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(85, 199, 232, 0.14), transparent 26%),
+        linear-gradient(135deg, #101418 0%, #141b20 48%, #0f1519 100%);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: clamp(30px, 5vw, 78px);
+    }
+
+    .slide.active {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 28px;
+    }
+
+    .slide.center {
+      place-items: center;
+      text-align: center;
+      grid-template-rows: 1fr;
+    }
+
+    .kicker {
+      color: var(--cyan);
+      font-size: clamp(15px, 1.4vw, 19px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(52px, 7vw, 92px);
+      line-height: 0.98;
+      max-width: 1020px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 1.02;
+      max-width: 1120px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: clamp(21px, 2vw, 30px);
+      line-height: 1.16;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(21px, 2.4vw, 34px);
+      line-height: 1.34;
+      max-width: 1120px;
+      margin-top: 24px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: clamp(17px, 1.8vw, 24px);
+      line-height: 1.4;
+      max-width: 980px;
+      margin-top: 18px;
+    }
+
+    .authors {
+      color: var(--text);
+      font-size: clamp(18px, 1.8vw, 25px);
+      font-weight: 700;
+      margin-top: 34px;
+    }
+
+    .authors span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .content {
+      display: grid;
+      align-items: center;
+      gap: 30px;
+      min-height: 0;
+    }
+
+    .two-col {
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
+    }
+
+    .image-col {
+      grid-template-columns: minmax(360px, 0.95fr) minmax(0, 1fr);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(23, 29, 35, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(18px, 2vw, 28px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .card strong { color: var(--text); }
+
+    .card p, li {
+      color: var(--muted);
+      font-size: clamp(18px, 1.8vw, 25px);
+      line-height: 1.34;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.15em;
+    }
+
+    li + li { margin-top: 12px; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-height: 150px;
+    }
+
+    .metric .value {
+      color: var(--green);
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 800;
+      line-height: 1;
+      margin: 14px 0 8px;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: clamp(15px, 1.35vw, 19px);
+      line-height: 1.3;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      background: #eef6fb;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: clamp(14px, 1.25vw, 18px);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 160px;
+      position: relative;
+    }
+
+    .step::after {
+      content: ">";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      color: var(--cyan);
+      font-size: 24px;
+      transform: translateY(-50%);
+      font-weight: 900;
+    }
+
+    .step:last-child::after { display: none; }
+
+    .step .num {
+      color: var(--amber);
+      font-weight: 900;
+      margin-bottom: 9px;
+      font-size: 18px;
+    }
+
+    .step .name {
+      font-weight: 800;
+      font-size: clamp(17px, 1.4vw, 22px);
+      margin-bottom: 9px;
+    }
+
+    .step .desc {
+      color: var(--muted);
+      font-size: clamp(14px, 1.2vw, 17px);
+      line-height: 1.32;
+    }
+
+    .screenshot {
+      width: 100%;
+      max-height: 64vh;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .quote {
+      border-left: 5px solid var(--cyan);
+      padding-left: 22px;
+      color: var(--text);
+      font-size: clamp(24px, 2.5vw, 38px);
+      line-height: 1.25;
+      max-width: 980px;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: clamp(14px, 1.3vw, 18px);
+      line-height: 1.45;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      display: inline-block;
+    }
+
+    .controls {
+      position: fixed;
+      left: 22px;
+      right: 22px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      color: var(--muted);
+      font-size: 14px;
+      z-index: 10;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+      pointer-events: auto;
+    }
+
+    button {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      background: rgba(23, 29, 35, 0.82);
+      color: var(--text);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    button:hover { border-color: var(--cyan); }
+
+    .progress {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: rgba(255,255,255,0.08);
+      z-index: 11;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--green), var(--cyan), var(--amber));
+      transition: width 160ms ease;
+    }
+
+    code {
+      background: #25303a;
+      color: #e7f2ff;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 26px; overflow-y: auto; }
+      .slide.active { display: block; }
+      .content, .two-col, .image-col, .grid-2, .grid-3, .metrics, .diagram {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .step::after { display: none; }
+      .controls { display: none; }
+      body { overflow: auto; }
+    }
+
+    @media print {
+      html, body { height: auto; overflow: visible; }
+      .deck { height: auto; background: #101418; }
+      .slide, .slide.active {
+        position: static;
+        display: grid;
+        min-height: 100vh;
+        page-break-after: always;
+      }
+      .controls, .progress { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide active center">
+      <div>
+        <div class="kicker">Procesamiento de Lenguaje Natural 3 - Trabajo práctico</div>
+        <h1>Asistente de compra de componentes electrónicos</h1>
+        <p class="lead">POC multiagente para responder consultas naturales con componente, precio y link de compra verificable.</p>
+        <p class="authors"><span>Integrantes:</span> Leandro Saraco y Kevin Cajachu&aacute;n</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">1. Problema</div>
+        <h2>Buscar componentes no es solo buscar texto</h2>
+      </header>
+      <div class="content two-col">
+        <div class="quote">El usuario pregunta en lenguaje natural, pero espera una respuesta accionable: componente, precio y link de compra.</div>
+        <div class="card">
+          <h3>Desafíos</h3>
+          <ul>
+            <li>Consultas con SKU exacto, descripción técnica o errores de tipeo.</li>
+            <li>Necesidad de priorizar un catálogo propio antes de salir a la web.</li>
+            <li>Evitar respuestas sin evidencia o fuera del dominio del asistente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">2. Arquitectura general</div>
+        <h2>Un flujo modular orquestado con LangGraph</h2>
+      </header>
+      <div class="content image-col">
+        <img class="screenshot" src="img/diagrama_bloques.png" alt="Diagrama de bloques del asistente">
+        <div class="card">
+          <h3>Componentes principales</h3>
+          <ul>
+            <li>UI conversacional en Streamlit.</li>
+            <li>Planner LLM para intención y ruta.</li>
+            <li>Búsqueda local híbrida: Chroma + Keyword/BM25.</li>
+            <li>Fallback web con SerpAPI, Google Shopping o Tavily.</li>
+            <li>Agregador/verificador para respuesta final.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">3. Pipeline</div>
+        <h2>La consulta atraviesa seis decisiones</h2>
+      </header>
+      <div class="content">
+        <div class="diagram">
+          <div class="step"><div class="num">01</div><div class="name">Validación</div><div class="desc">Sanitiza longitud, secretos, scripts e inyecciones básicas.</div></div>
+          <div class="step"><div class="num">02</div><div class="name">Planner</div><div class="desc">Clasifica dominio, normaliza y prepara términos de producto.</div></div>
+          <div class="step"><div class="num">03</div><div class="name">Local hybrid</div><div class="desc">Busca por embeddings y por coincidencias léxicas.</div></div>
+          <div class="step"><div class="num">04</div><div class="name">Evidence gate</div><div class="desc">Evalúa score, precio y términos específicos.</div></div>
+          <div class="step"><div class="num">05</div><div class="name">Web fallback</div><div class="desc">Consulta proveedores externos si la evidencia local no alcanza.</div></div>
+          <div class="step"><div class="num">06</div><div class="name">Verifier</div><div class="desc">Agrega evidencia, responde y registra auditoría.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">4. Catálogo</div>
+        <h2>Base local preparada para retrieval</h2>
+      </header>
+      <div class="content two-col">
+        <div class="grid-2">
+          <div class="metric"><div class="label">Catálogo principal usado en la evaluación</div><div class="value">8</div><div class="label">componentes representativos</div></div>
+          <div class="metric"><div class="label">Catálogos extendidos generados</div><div class="value">408</div><div class="label">items en archivos raw</div></div>
+          <div class="metric"><div class="label">Familias cubiertas</div><div class="value">9</div><div class="label">resistores, capacitores, sensores, MCU, conectores e ICs</div></div>
+          <div class="metric"><div class="label">Campos útiles</div><div class="value">SKU</div><div class="label">nombre, categoría, precio, stock y uso recomendado</div></div>
+        </div>
+        <div class="card">
+          <h3>Preparación del RAG</h3>
+          <ul>
+            <li>Los JSON se transforman en documentos de catálogo.</li>
+            <li>La ingesta persiste una colección local en ChromaDB.</li>
+            <li>El sistema también puede autoindexar al iniciar la app si falta la colección.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">5. Retrieval local</div>
+        <h2>Búsqueda semántica + búsqueda léxica</h2>
+      </header>
+      <div class="content grid-3">
+        <article class="card">
+          <h3>ChromaDB</h3>
+          <p>Recupera candidatos semánticamente cercanos y calcula un score vectorial normalizado.</p>
+        </article>
+        <article class="card">
+          <h3>Keyword/BM25</h3>
+          <p>Refuerza SKU, part numbers, nombres exactos y términos técnicos que no conviene diluir.</p>
+        </article>
+        <article class="card">
+          <h3>Merge híbrido</h3>
+          <p>Combina 65% semántico, 35% keyword y agrega bonus si un item aparece por ambas vías.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">6. Compuerta de evidencia</div>
+        <h2>No siempre conviene responder con lo local</h2>
+      </header>
+      <div class="content two-col">
+        <div class="card">
+          <h3>Condiciones para usar fallback web</h3>
+          <ul>
+            <li>No hay suficientes resultados locales.</li>
+            <li>El mejor score queda debajo del umbral.</li>
+            <li>Faltan términos específicos como SKU o part number.</li>
+            <li>El usuario necesita precio y el item local no lo tiene.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Por qué importa</h3>
+          <p>La compuerta evita que un resultado parecido pero incorrecto contamine la respuesta final. Es el puente entre retrieval y decisión de compra.</p>
+          <div class="pill-row">
+            <span class="pill">LOCAL_SEARCH_MIN_SCORE</span>
+            <span class="pill">WEB_FALLBACK_ENABLED</span>
+            <span class="pill">top_k 1 a 5</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">7. Web y proveedores</div>
+        <h2>La web entra como respaldo, no como primera opción</h2>
+      </header>
+      <div class="content grid-3">
+        <article class="card">
+          <h3>WebSearchAgent</h3>
+          <p>Consulta el adapter externo, normaliza resultados y conserva vendor, precio, score, snippet y URL.</p>
+        </article>
+        <article class="card">
+          <h3>Backends</h3>
+          <p>Tavily, Google Shopping y Google Search mediante credenciales configurables.</p>
+        </article>
+        <article class="card">
+          <h3>Modo demo</h3>
+          <p>Si faltan credenciales, el flujo sigue funcionando con fallback offline para validar la app.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">8. Planner y verificador</div>
+        <h2>Dos usos distintos del LLM</h2>
+      </header>
+      <div class="content two-col">
+        <div class="card">
+          <h3>Planner</h3>
+          <ul>
+            <li>Define ruta: catálogo local, fuera de dominio o info del agente.</li>
+            <li>Extrae términos de producto y prepara query web.</li>
+            <li>Evita llamar herramientas cuando no corresponde.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Agregador/verificador</h3>
+          <ul>
+            <li>Recibe evidencia local y externa estructurada.</li>
+            <li>Elige fuente confiable, precio y link.</li>
+            <li>Puede abstenerse si no hay soporte suficiente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">9. Interfaz</div>
+        <h2>Una app preparada para demo y diagnóstico</h2>
+      </header>
+      <div class="content image-col">
+        <img class="screenshot" src="img/app_streamlit.png" alt="Captura de la app Streamlit">
+        <div class="card">
+          <h3>Lo que expone la UI</h3>
+          <ul>
+            <li>Chat principal con respuesta final.</li>
+            <li>Configuración de top-k, límite web y método web.</li>
+            <li>Selección de modelos para planner y verificador.</li>
+            <li>Tablas de resultados RAG, keyword y web.</li>
+            <li>Barra de tiempos por etapa.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">10. Seguridad y auditoría</div>
+        <h2>Controles simples pero importantes</h2>
+      </header>
+      <div class="content grid-3">
+        <article class="card">
+          <h3>Validación</h3>
+          <p>Bloquea consultas vacías, demasiado largas, secretos, scripts y payloads peligrosos.</p>
+        </article>
+        <article class="card">
+          <h3>Límites</h3>
+          <p>Clampea parámetros como <code>top_k</code> y <code>web_limit</code> para controlar costo y latencia.</p>
+        </article>
+        <article class="card">
+          <h3>Audit log</h3>
+          <p>Registra ruta elegida, fallback usado y métricas de cada respuesta en JSONL.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">11. Observabilidad</div>
+        <h2>Se instrumentaron tiempos, tokens y trazas</h2>
+      </header>
+      <div class="content image-col">
+        <img class="screenshot" src="img/langfuse_tracing_dashboard.png" alt="Dashboard de trazas Langfuse">
+        <div class="card">
+          <h3>Qué se puede inspeccionar</h3>
+          <ul>
+            <li>Span por planner, búsqueda local, fallback web y verificador.</li>
+            <li>Tokens de entrada y salida por nodo LLM.</li>
+            <li>Costo estimado por ejecución.</li>
+            <li>Errores de tracing sin romper la respuesta final.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">12. Evaluación</div>
+        <h2>Dataset de 40 consultas con variantes realistas</h2>
+      </header>
+      <div class="content two-col">
+        <div class="metrics">
+          <div class="metric"><div class="label">Muestras</div><div class="value">40</div><div class="label">consultas evaluadas</div></div>
+          <div class="metric"><div class="label">Productos</div><div class="value">8</div><div class="label">grupos de componentes</div></div>
+          <div class="metric"><div class="label">Abstención</div><div class="value">8</div><div class="label">consultas fuera de dominio</div></div>
+          <div class="metric"><div class="label">Tokens</div><div class="value">34k</div><div class="label">en el reporte actual</div></div>
+        </div>
+        <div class="card">
+          <h3>Variantes probadas</h3>
+          <ul>
+            <li>SKU exacto: <code>R-10K-0603-1</code>.</li>
+            <li>Nombre o descripción técnica.</li>
+            <li>Uso esperado: desacople, regulación, medición.</li>
+            <li>Ruido y errores: <code>resistensia</code>, <code>stok</code>, <code>capasitor</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">13. Resultados</div>
+        <h2>Las métricas superaron los umbrales definidos</h2>
+      </header>
+      <div class="content">
+        <div class="metrics">
+          <div class="metric"><div class="label">Recall@K</div><div class="value">0.938</div><div class="label">umbral 0.850</div></div>
+          <div class="metric"><div class="label">Context Recall</div><div class="value">0.875</div><div class="label">umbral 0.850</div></div>
+          <div class="metric"><div class="label">Abstención correcta</div><div class="value">1.000</div><div class="label">umbral 0.900</div></div>
+          <div class="metric"><div class="label">Robustez</div><div class="value">0.917</div><div class="label">umbral 0.900</div></div>
+        </div>
+        <p class="subtitle"><span class="status"><span class="dot"></span>Todas pasan.</span> El reporte HTML registra además respuestas, top SKUs, ruta elegida, tokens y casos fallidos para analizar mejoras.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <header>
+        <div class="kicker">14. Cierre</div>
+        <h2>Qué se logró y qué queda abierto</h2>
+      </header>
+      <div class="content two-col">
+        <div class="card">
+          <h3>Logros</h3>
+          <ul>
+            <li>POC funcional con UI, agentes, RAG, fallback web y respuestas verificadas.</li>
+            <li>Arquitectura modular testeable con LangGraph y adapters desacoplados.</li>
+            <li>Métricas reproducibles y trazabilidad con Langfuse y audit logs.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Próximos pasos</h3>
+          <ul>
+            <li>Ampliar la colección indexada con los catálogos extendidos.</li>
+            <li>Agregar reranking o reglas técnicas por familia de componente.</li>
+            <li>Medir precisión de enlaces externos y disponibilidad real de stock.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="controls" aria-hidden="false">
+    <div id="counter">1 / 15</div>
+    <div class="buttons">
+      <button id="prev" title="Anterior" aria-label="Diapositiva anterior">&#8592;</button>
+      <button id="next" title="Siguiente" aria-label="Diapositiva siguiente">&#8594;</button>
+      <button id="full" title="Pantalla completa" aria-label="Pantalla completa">&#9974;</button>
+    </div>
+  </div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const counter = document.getElementById("counter");
+    const bar = document.getElementById("bar");
+    let index = 0;
+
+    function show(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      counter.textContent = `${index + 1} / ${slides.length}`;
+      bar.style.width = `${((index + 1) / slides.length) * 100}%`;
+      const hash = `#${index + 1}`;
+      if (window.location.hash !== hash) history.replaceState(null, "", hash);
+    }
+
+    function fromHash() {
+      const raw = Number(window.location.hash.replace("#", ""));
+      if (Number.isFinite(raw) && raw >= 1 && raw <= slides.length) show(raw - 1);
+    }
+
+    document.getElementById("prev").addEventListener("click", () => show(index - 1));
+    document.getElementById("next").addEventListener("click", () => show(index + 1));
+    document.getElementById("full").addEventListener("click", async () => {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      const forward = ["ArrowRight", "PageDown", " ", "Enter"];
+      const back = ["ArrowLeft", "PageUp", "Backspace"];
+      if (forward.includes(event.key)) {
+        event.preventDefault();
+        show(index + 1);
+      }
+      if (back.includes(event.key)) {
+        event.preventDefault();
+        show(index - 1);
+      }
+      if (event.key.toLowerCase() === "f") {
+        document.getElementById("full").click();
+      }
+      if (event.key === "Home") show(0);
+      if (event.key === "End") show(slides.length - 1);
+    });
+
+    window.addEventListener("hashchange", fromHash);
+    fromHash();
+    show(index);
+  </script>
+</body>
+</html>
