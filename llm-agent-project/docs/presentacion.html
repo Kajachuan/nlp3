@@ -225,6 +225,123 @@
       align-items: stretch;
     }
 
+    .planner-layout {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .agent-flow {
+      grid-column: 1 / -1;
+      align-self: start;
+      justify-self: center;
+      width: 100%;
+      max-width: 980px;
+      min-height: 330px;
+      position: relative;
+    }
+
+    .agent-flow svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .flow-node rect {
+      fill: var(--panel);
+      stroke: var(--line);
+      stroke-width: 2;
+      rx: 8;
+    }
+
+    .flow-node text {
+      fill: var(--text);
+      font-size: 18px;
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .flow-node .sub {
+      fill: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .flow-node.llm rect {
+      fill: #1c2a31;
+      stroke: var(--cyan);
+      stroke-width: 3;
+      filter: drop-shadow(0 0 10px rgba(85, 199, 232, 0.34));
+    }
+
+    .flow-node .tag {
+      fill: var(--cyan);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .flow-arrow {
+      fill: none;
+      stroke: var(--cyan);
+      stroke-width: 3;
+      marker-end: url(#flowArrowHead);
+      cursor: pointer;
+    }
+
+    .flow-arrow.fallback,
+    .flow-arrow.feedback {
+      stroke: var(--amber);
+      stroke-dasharray: 8 7;
+      marker-end: url(#feedbackArrowHead);
+    }
+
+    .flow-arrow.direct {
+      stroke: var(--green);
+      marker-end: url(#directArrowHead);
+    }
+
+    .flow-hotspot {
+      fill: none;
+      stroke: transparent;
+      stroke-width: 22;
+      cursor: pointer;
+    }
+
+    .flow-label {
+      fill: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-anchor: middle;
+      pointer-events: none;
+      paint-order: stroke;
+      stroke: var(--bg);
+      stroke-linejoin: round;
+      stroke-width: 5px;
+    }
+
+    .flow-popover {
+      position: absolute;
+      z-index: 8;
+      max-width: min(440px, calc(100vw - 48px));
+      margin: 0;
+      padding: 14px 16px;
+      border: 1px solid var(--cyan);
+      border-radius: 8px;
+      background: #0b1117;
+      color: #e7f2ff;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.46);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      text-align: left;
+      pointer-events: auto;
+    }
+
+    .flow-popover[hidden] { display: none; }
+
     .step {
       background: var(--panel);
       border: 1px solid var(--line);
@@ -374,6 +491,8 @@
         display: grid;
         grid-template-columns: 1fr;
       }
+      .planner-layout { grid-template-columns: 1fr; }
+      .agent-flow { min-height: 0; }
       .step::after { display: none; }
       .controls { display: none; }
       body { overflow: auto; }
@@ -461,7 +580,7 @@
     <section class="slide">
       <header>
         <div class="kicker">4. Catálogo</div>
-        <h2>Base local preparada para retrieval</h2>
+        <h2>RAG local con ChromaDB</h2>
       </header>
       <div class="content two-col">
         <div class="grid-2">
@@ -534,7 +653,7 @@
         <div class="kicker">7. Web y proveedores</div>
         <h2>La web entra como respaldo, no como primera opción</h2>
       </header>
-      <div class="content grid-3">
+      <div class="content grid-2">
         <article class="card">
           <h3>WebSearchAgent</h3>
           <p>Consulta el adapter externo, normaliza resultados y conserva vendor, precio, score, snippet y URL.</p>
@@ -543,19 +662,16 @@
           <h3>Backends</h3>
           <p>Tavily, Google Shopping y Google Search mediante credenciales configurables.</p>
         </article>
-        <article class="card">
-          <h3>Modo demo</h3>
-          <p>Si faltan credenciales, el flujo sigue funcionando con fallback offline para validar la app.</p>
-        </article>
       </div>
     </section>
 
     <section class="slide">
       <header>
         <div class="kicker">8. Planner y verificador</div>
-        <h2>Dos usos distintos del LLM</h2>
+        <h2>Dos agentes que</h2>
+        <h2>interactuan entre si</h2>
       </header>
-      <div class="content two-col">
+      <div class="content planner-layout">
         <div class="card">
           <h3>Planner</h3>
           <ul>
@@ -571,6 +687,119 @@
             <li>Elige fuente confiable, precio y link.</li>
             <li>Puede abstenerse si no hay soporte suficiente.</li>
           </ul>
+        </div>
+        <div class="agent-flow" aria-label="Flujo de datos entre planner y agregador verificador">
+          <svg viewBox="0 0 980 335" role="img">
+            <defs>
+              <marker id="flowArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#55c7e8"></path>
+              </marker>
+              <marker id="feedbackArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#f0b84f"></path>
+              </marker>
+              <marker id="directArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#44c27a"></path>
+              </marker>
+            </defs>
+            <g class="flow-node">
+              <rect x="25" y="137" width="135" height="70" rx="8"></rect>
+              <text x="92.5" y="166">Usuario</text>
+              <text class="sub" x="92.5" y="189">consulta</text>
+            </g>
+            <g class="flow-node llm">
+              <rect x="210" y="127" width="145" height="90" rx="8"></rect>
+              <text class="tag" x="282.5" y="145">LLM</text>
+              <text x="282.5" y="163">Planner</text>
+              <text class="sub" x="282.5" y="188">dominio + ruta</text>
+            </g>
+            <g class="flow-node">
+              <rect x="410" y="61" width="145" height="70" rx="8"></rect>
+              <text x="482.5" y="90">RAG local</text>
+              <text class="sub" x="482.5" y="113">semantico</text>
+            </g>
+            <g class="flow-node">
+              <rect x="410" y="213" width="145" height="70" rx="8"></rect>
+              <text x="482.5" y="242">Keyword</text>
+              <text class="sub" x="482.5" y="265">BM25/SKU</text>
+            </g>
+            <g class="flow-node">
+              <rect x="620" y="127" width="145" height="90" rx="8"></rect>
+              <text x="692.5" y="161">Evaluacion</text>
+              <text class="sub" x="692.5" y="186">score + umbral</text>
+            </g>
+            <g class="flow-node">
+              <rect x="815" y="51" width="145" height="72" rx="8"></rect>
+              <text x="887.5" y="81">Corte</text>
+              <text class="sub" x="887.5" y="104">sin tools</text>
+            </g>
+            <g class="flow-node">
+              <rect x="620" y="253" width="145" height="70" rx="8"></rect>
+              <text x="692.5" y="282">Web search</text>
+              <text class="sub" x="692.5" y="305">fallback</text>
+            </g>
+            <g class="flow-node llm">
+              <rect x="815" y="163" width="145" height="90" rx="8"></rect>
+              <text class="tag" x="887.5" y="182">LLM</text>
+              <text x="887.5" y="196">Agregador</text>
+              <text x="887.5" y="220">/verificador</text>
+              <text class="sub" x="887.5" y="244">respuesta final</text>
+            </g>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"input":"Necesito un capacitor 100nF 50V SMD","session_id":"demo-042","constraints":{"top_k":5,"web_limit":3}}'>
+              <path class="flow-arrow" d="M 160 172 L 200 172"></path>
+              <path class="flow-hotspot" d="M 160 172 L 200 172"></path>
+            </g>
+            <text class="flow-label" x="180" y="154">consulta</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"direct_answer","reason":"out_of_domain","skip":["rag_local","keyword_search","web_search"],"response_type":"abstention"}'>
+              <path class="flow-arrow direct" d="M 305 127 C 430 6, 660 2, 805 68"></path>
+              <path class="flow-hotspot" d="M 305 127 C 430 6, 660 2, 805 68"></path>
+            </g>
+            <text class="flow-label" x="594" y="22">fuera de dominio</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"local_catalog","product_terms":["capacitor","100nF","50V","SMD"],"retrievers":["rag_local","keyword_search"],"parallel":true}'>
+              <path class="flow-arrow" d="M 355 154 C 372 130, 385 111, 400 100"></path>
+              <path class="flow-hotspot" d="M 355 154 C 372 130, 385 111, 400 100"></path>
+            </g>
+            <text class="flow-label" x="380" y="91">RAG</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"local_catalog","query_terms":["CAP","100nF","50V","SMD"],"retriever":"keyword_search","parallel":true}'>
+              <path class="flow-arrow" d="M 355 191 C 373 215, 386 234, 400 244"></path>
+              <path class="flow-hotspot" d="M 355 191 C 373 215, 386 234, 400 244"></path>
+            </g>
+            <text class="flow-label" x="379" y="262">keyword</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"rag_results":[{"sku":"CAP-100N-50V-X7R","score":0.91,"source":"chroma"}],"candidate_count":5}'>
+              <path class="flow-arrow" d="M 555 90 C 586 96, 604 123, 613 149"></path>
+              <path class="flow-hotspot" d="M 555 90 C 586 96, 604 123, 613 149"></path>
+            </g>
+            <text class="flow-label" x="590" y="88">evidencia</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"keyword_results":[{"sku":"CAP-100N-50V-X7R","match":"100nF 50V SMD","score":0.86}],"candidate_count":5}'>
+              <path class="flow-arrow" d="M 555 248 C 588 246, 605 219, 614 197"></path>
+              <path class="flow-hotspot" d="M 555 248 C 588 246, 605 219, 614 197"></path>
+            </g>
+            <text class="flow-label" x="589" y="271">evidencia</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"gate":"pass","best_score":0.91,"min_score":0.72,"selected_source":"local_catalog","web_search_executed":false}'>
+              <path class="flow-arrow" d="M 765 172 C 780 174, 790 183, 805 196"></path>
+              <path class="flow-hotspot" d="M 765 172 C 780 174, 790 183, 805 196"></path>
+            </g>
+            <text class="flow-label" x="786" y="165">pasa</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"gate":"fail","best_score":0.41,"min_score":0.72,"action":"web_fallback","web_query":"capacitor 100nF 50V SMD buy"}'>
+              <path class="flow-arrow fallback" d="M 692 217 L 692 244"></path>
+              <path class="flow-hotspot" d="M 692 217 L 692 244"></path>
+            </g>
+            <text class="flow-label" x="728" y="235">falla</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"web_results":[{"vendor":"Proveedor externo","price":138.0,"url":"https://example.com/cap-100n"}],"used_when":"local_gate_failed"}'>
+              <path class="flow-arrow fallback" d="M 765 288 C 800 283, 824 262, 842 252"></path>
+              <path class="flow-hotspot" d="M 765 288 C 800 283, 824 262, 842 252"></path>
+            </g>
+            <text class="flow-label" x="842" y="294">resultados web</text>
+          </svg>
+          <pre class="flow-popover" hidden></pre>
         </div>
       </div>
     </section>
@@ -638,7 +867,7 @@
     <section class="slide">
       <header>
         <div class="kicker">12. Evaluación</div>
-        <h2>Dataset de 40 consultas con variantes realistas</h2>
+        <h2>Evaluación del sistema</h2>
       </header>
       <div class="content two-col">
         <div class="metrics">
@@ -662,7 +891,7 @@
     <section class="slide">
       <header>
         <div class="kicker">13. Resultados</div>
-        <h2>Las métricas superaron los umbrales definidos</h2>
+        <h2>Evaluación / Resultados</h2>
       </header>
       <div class="content">
         <div class="metrics">
@@ -671,7 +900,7 @@
           <div class="metric"><div class="label">Abstención correcta</div><div class="value">1.000</div><div class="label">umbral 0.900</div></div>
           <div class="metric"><div class="label">Robustez</div><div class="value">0.917</div><div class="label">umbral 0.900</div></div>
         </div>
-        <p class="subtitle"><span class="status"><span class="dot"></span>Todas pasan.</span> El reporte HTML registra además respuestas, top SKUs, ruta elegida, tokens y casos fallidos para analizar mejoras.</p>
+        <p class="subtitle">Ademas se genera un reporte en HTML para analizar facilmente la evaluación realizada.</p>
       </div>
     </section>
 
@@ -692,9 +921,9 @@
         <div class="card">
           <h3>Próximos pasos</h3>
           <ul>
-            <li>Ampliar la colección indexada con los catálogos extendidos.</li>
-            <li>Agregar reranking o reglas técnicas por familia de componente.</li>
-            <li>Medir precisión de enlaces externos y disponibilidad real de stock.</li>
+            <li>Ampliar la base de datos de componentes usando catálogos extendidos.</li>
+            <li>Agregar reranking luego de la etapa de RAG.</li>
+            <li>Confirmar disponibilidad real de stock.</li>
           </ul>
         </div>
       </div>
@@ -717,7 +946,66 @@
     const bar = document.getElementById("bar");
     let index = 0;
 
+    function closeFlowPopover() {
+      document.querySelectorAll(".flow-popover").forEach((popover) => {
+        popover.hidden = true;
+      });
+    }
+
+    function openFlowPopover(event, link) {
+      const flow = link.closest(".agent-flow");
+      const popover = flow.querySelector(".flow-popover");
+      const flowRect = flow.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const raw = link.dataset.flow;
+      const data = JSON.parse(raw);
+      const anchorX = event.clientX || (linkRect.left + linkRect.width / 2);
+      const anchorY = event.clientY || (linkRect.top + linkRect.height / 2);
+
+      closeFlowPopover();
+      popover.textContent = JSON.stringify(data, null, 2);
+      popover.hidden = false;
+
+      const width = popover.offsetWidth;
+      const height = popover.offsetHeight;
+      const margin = 12;
+      const maxLeft = Math.max(margin, flowRect.width - width - margin);
+      const maxTop = Math.max(margin, flowRect.height - height - margin);
+      const left = Math.min(
+        Math.max(anchorX - flowRect.left + margin, margin),
+        maxLeft
+      );
+      const top = Math.min(
+        Math.max(anchorY - flowRect.top + margin, margin),
+        maxTop
+      );
+
+      popover.style.left = `${left}px`;
+      popover.style.top = `${top}px`;
+    }
+
+    function setupFlowPopovers() {
+      document.querySelectorAll(".flow-link").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.stopPropagation();
+          openFlowPopover(event, link);
+        });
+        link.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            event.stopPropagation();
+            openFlowPopover(event, link);
+          }
+        });
+      });
+      document.querySelectorAll(".flow-popover").forEach((popover) => {
+        popover.addEventListener("click", (event) => event.stopPropagation());
+      });
+      document.addEventListener("click", closeFlowPopover);
+    }
+
     function show(nextIndex) {
+      closeFlowPopover();
       index = Math.max(0, Math.min(slides.length - 1, nextIndex));
       slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
       counter.textContent = `${index + 1} / ${slides.length}`;
@@ -742,6 +1030,10 @@
     });
 
     document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeFlowPopover();
+        return;
+      }
       const forward = ["ArrowRight", "PageDown", " ", "Enter"];
       const back = ["ArrowLeft", "PageUp", "Backspace"];
       if (forward.includes(event.key)) {
@@ -760,6 +1052,7 @@
     });
 
     window.addEventListener("hashchange", fromHash);
+    setupFlowPopovers();
     fromHash();
     show(index);
   </script>

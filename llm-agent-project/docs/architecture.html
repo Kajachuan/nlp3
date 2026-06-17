@@ -2316,7 +2316,7 @@
       <div class="box span-6">
         <span class="tag">Inferencia preentrenada</span>
         <h3>Clasificador auxiliar</h3>
-        <p><code>PretrainedIntentModel</code> encapsula <code>facebook/bart-large-mnli</code> como modelo preexistente para intencion tecnica. Actualmente esta disponible como modulo, pero debe conectarse al grafo para quedar demostrado en el flujo ejecutable.</p>
+        <p><code>PretrainedIntentModel</code> encapsula <code>facebook/bart-large-mnli</code> como modelo preexistente para intencion tecnica. Si esta activado desde la UI, el pipeline lo ejecuta antes del planner, registra etiqueta/confianza/proveedor en metricas y auditoria, y pasa la senal al planner como contexto auxiliar.</p>
       </div>
       <div class="box span-6">
         <span class="tag">Tool final</span>
