@@ -201,6 +201,46 @@
       line-height: 1.3;
     }
 
+    .compact-results {
+      gap: 14px;
+    }
+
+    .compact-results h3 {
+      margin-bottom: 0;
+      font-size: clamp(19px, 1.6vw, 25px);
+    }
+
+    .compact-results .subtitle {
+      margin-top: 0;
+      font-size: clamp(16px, 1.4vw, 20px);
+    }
+
+    .compact-results .metrics {
+      gap: 10px;
+    }
+
+    .compact-results .metric {
+      min-height: 112px;
+      padding: 14px;
+    }
+
+    .compact-results .metric .value {
+      font-size: clamp(28px, 3vw, 42px);
+      margin: 8px 0 6px;
+    }
+
+    .compact-results .metric .label {
+      font-size: clamp(13px, 1.1vw, 16px);
+    }
+
+    .compact-results .card {
+      padding: 16px 20px;
+    }
+
+    .compact-results .card p {
+      font-size: clamp(15px, 1.35vw, 19px);
+    }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -551,7 +591,7 @@
           <h3>Componentes principales</h3>
           <ul>
             <li>UI conversacional en Streamlit.</li>
-            <li>Planner LLM para intención y ruta.</li>
+            <li>Planner LLM para alcance y ruta.</li>
             <li>Búsqueda local híbrida: Chroma + Keyword/BM25.</li>
             <li>Fallback web con SerpAPI, Google Shopping o Tavily.</li>
             <li>Agregador/verificador para respuesta final.</li>
@@ -568,7 +608,7 @@
       <div class="content">
         <div class="diagram">
           <div class="step"><div class="num">01</div><div class="name">Validación</div><div class="desc">Sanitiza longitud, secretos, scripts e inyecciones básicas.</div></div>
-          <div class="step"><div class="num">02</div><div class="name">Planner</div><div class="desc">Clasifica dominio, normaliza y prepara términos de producto.</div></div>
+          <div class="step"><div class="num">02</div><div class="name">Planner</div><div class="desc">Evalua dominio, normaliza y prepara términos de producto.</div></div>
           <div class="step"><div class="num">03</div><div class="name">Local hybrid</div><div class="desc">Busca por embeddings y por coincidencias léxicas.</div></div>
           <div class="step"><div class="num">04</div><div class="name">Evidence gate</div><div class="desc">Evalúa score, precio y términos específicos.</div></div>
           <div class="step"><div class="num">05</div><div class="name">Web fallback</div><div class="desc">Consulta proveedores externos si la evidencia local no alcanza.</div></div>
@@ -668,8 +708,7 @@
     <section class="slide">
       <header>
         <div class="kicker">8. Planner y verificador</div>
-        <h2>Dos agentes que</h2>
-        <h2>interactuan entre si</h2>
+        <h2>Arquitectura del sistema</h2>
       </header>
       <div class="content planner-layout">
         <div class="card">
@@ -677,27 +716,27 @@
           <ul>
             <li>Define ruta: catálogo local, fuera de dominio o info del agente.</li>
             <li>Extrae términos de producto y prepara query web.</li>
-            <li>Evita llamar herramientas cuando no corresponde.</li>
+            <li>Itera internamente sobre hasta N productos configurados en Streamlit.</li>
           </ul>
         </div>
         <div class="card">
           <h3>Agregador/verificador</h3>
           <ul>
             <li>Recibe evidencia local y externa estructurada.</li>
-            <li>Elige fuente confiable, precio y link.</li>
+            <li>Valida que cada bundle tenga precio y link en la respuesta.</li>
             <li>Puede abstenerse si no hay soporte suficiente.</li>
           </ul>
         </div>
         <div class="agent-flow" aria-label="Flujo de datos entre planner y agregador verificador">
           <svg viewBox="0 0 980 335" role="img">
             <defs>
-              <marker id="flowArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <marker id="flowArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
                 <path d="M 0 0 L 10 5 L 0 10 z" fill="#55c7e8"></path>
               </marker>
-              <marker id="feedbackArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <marker id="feedbackArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
                 <path d="M 0 0 L 10 5 L 0 10 z" fill="#f0b84f"></path>
               </marker>
-              <marker id="directArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+              <marker id="directArrowHead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
                 <path d="M 0 0 L 10 5 L 0 10 z" fill="#44c27a"></path>
               </marker>
             </defs>
@@ -708,9 +747,9 @@
             </g>
             <g class="flow-node llm">
               <rect x="210" y="127" width="145" height="90" rx="8"></rect>
-              <text class="tag" x="282.5" y="145">LLM</text>
+              <text class="tag" x="282.5" y="145">LLM x1</text>
               <text x="282.5" y="163">Planner</text>
-              <text class="sub" x="282.5" y="188">dominio + ruta</text>
+              <text class="sub" x="282.5" y="188">product_queries</text>
             </g>
             <g class="flow-node">
               <rect x="410" y="61" width="145" height="70" rx="8"></rect>
@@ -725,7 +764,7 @@
             <g class="flow-node">
               <rect x="620" y="127" width="145" height="90" rx="8"></rect>
               <text x="692.5" y="161">Evaluacion</text>
-              <text class="sub" x="692.5" y="186">score + umbral</text>
+              <text class="sub" x="692.5" y="186">por producto</text>
             </g>
             <g class="flow-node">
               <rect x="815" y="51" width="145" height="72" rx="8"></rect>
@@ -739,13 +778,13 @@
             </g>
             <g class="flow-node llm">
               <rect x="815" y="163" width="145" height="90" rx="8"></rect>
-              <text class="tag" x="887.5" y="182">LLM</text>
+              <text class="tag" x="887.5" y="182">LLM x1</text>
               <text x="887.5" y="196">Agregador</text>
               <text x="887.5" y="220">/verificador</text>
               <text class="sub" x="887.5" y="244">respuesta final</text>
             </g>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"input":"Necesito un capacitor 100nF 50V SMD","session_id":"demo-042","constraints":{"top_k":5,"web_limit":3}}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"input":"Dame precio del BME280 y ACS71240","constraints":{"top_k":1,"web_limit":3,"max_products":3}}'>
               <path class="flow-arrow" d="M 160 172 L 200 172"></path>
               <path class="flow-hotspot" d="M 160 172 L 200 172"></path>
             </g>
@@ -757,43 +796,49 @@
             </g>
             <text class="flow-label" x="594" y="22">fuera de dominio</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"local_catalog","product_terms":["capacitor","100nF","50V","SMD"],"retrievers":["rag_local","keyword_search"],"parallel":true}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"local_catalog","product_queries":["BME280","ACS71240"],"max_products":3,"retrievers":["rag_local","keyword_search"],"loop":"each product in product_queries[:N]"}'>
               <path class="flow-arrow" d="M 355 154 C 372 130, 385 111, 400 100"></path>
               <path class="flow-hotspot" d="M 355 154 C 372 130, 385 111, 400 100"></path>
             </g>
             <text class="flow-label" x="380" y="91">RAG</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"local_catalog","query_terms":["CAP","100nF","50V","SMD"],"retriever":"keyword_search","parallel":true}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"route":"local_catalog","query_terms":["BME280","ACS71240"],"retriever":"keyword_search","loop":"same product list"}'>
               <path class="flow-arrow" d="M 355 191 C 373 215, 386 234, 400 244"></path>
               <path class="flow-hotspot" d="M 355 191 C 373 215, 386 234, 400 244"></path>
             </g>
             <text class="flow-label" x="379" y="262">keyword</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"rag_results":[{"sku":"CAP-100N-50V-X7R","score":0.91,"source":"chroma"}],"candidate_count":5}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"loop":"for each product in product_queries[:N]","N":"1..3 desde sidebar","steps":["rag_search","keyword_bm25_search","evidence_gate","web_fallback_if_needed"]}'>
+              <path class="flow-arrow feedback" d="M 748 127 C 752 86, 630 86, 635 127"></path>
+              <path class="flow-hotspot" d="M 748 127 C 752 86, 630 86, 635 127"></path>
+            </g>
+            <text class="flow-label" x="692" y="96">N &lt;= 3</text>
+
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"rag_results_by_product":{"BME280":[{"sku":"S-BME280-I2C","score":0.91}],"ACS71240":[]}}'>
               <path class="flow-arrow" d="M 555 90 C 586 96, 604 123, 613 149"></path>
               <path class="flow-hotspot" d="M 555 90 C 586 96, 604 123, 613 149"></path>
             </g>
             <text class="flow-label" x="590" y="88">evidencia</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"keyword_results":[{"sku":"CAP-100N-50V-X7R","match":"100nF 50V SMD","score":0.86}],"candidate_count":5}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"keyword_results_by_product":{"BME280":[{"match":"BME280","score":0.86}],"ACS71240":[]}}'>
               <path class="flow-arrow" d="M 555 248 C 588 246, 605 219, 614 197"></path>
               <path class="flow-hotspot" d="M 555 248 C 588 246, 605 219, 614 197"></path>
             </g>
             <text class="flow-label" x="589" y="271">evidencia</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"gate":"pass","best_score":0.91,"min_score":0.72,"selected_source":"local_catalog","web_search_executed":false}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"gate_by_product":{"BME280":"pass_local","ACS71240":"web_fallback"},"product_evidence":"bundles for final verifier"}'>
               <path class="flow-arrow" d="M 765 172 C 780 174, 790 183, 805 196"></path>
               <path class="flow-hotspot" d="M 765 172 C 780 174, 790 183, 805 196"></path>
             </g>
             <text class="flow-label" x="786" y="165">pasa</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"gate":"fail","best_score":0.41,"min_score":0.72,"action":"web_fallback","web_query":"capacitor 100nF 50V SMD buy"}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"gate":"fail_for_product","product":"ACS71240","action":"web_fallback","web_query":"ACS71240 Allegro current sensor"}'>
               <path class="flow-arrow fallback" d="M 692 217 L 692 244"></path>
               <path class="flow-hotspot" d="M 692 217 L 692 244"></path>
             </g>
             <text class="flow-label" x="728" y="235">falla</text>
 
-            <g class="flow-link" role="button" tabindex="0" data-flow='{"web_results":[{"vendor":"Proveedor externo","price":138.0,"url":"https://example.com/cap-100n"}],"used_when":"local_gate_failed"}'>
+            <g class="flow-link" role="button" tabindex="0" data-flow='{"web_results_by_product":{"ACS71240":[{"price":"USD 2.83","url":"external"}]},"used_when":"local_gate_failed"}'>
               <path class="flow-arrow fallback" d="M 765 288 C 800 283, 824 262, 842 252"></path>
               <path class="flow-hotspot" d="M 765 288 C 800 283, 824 262, 842 252"></path>
             </g>
@@ -866,48 +911,34 @@
 
     <section class="slide">
       <header>
-        <div class="kicker">12. Evaluación</div>
-        <h2>Evaluación del sistema</h2>
+        <div class="kicker">12. Evaluacion y resultados</div>
+        <h2>Metricas online y offline</h2>
       </header>
-      <div class="content two-col">
+      <div class="content compact-results">
+        <p class="subtitle">Online: diagnostico por consulta. Offline: calidad medida sobre dataset.</p>
+        <h3>Metricas online por consulta</h3>
         <div class="metrics">
-          <div class="metric"><div class="label">Muestras</div><div class="value">40</div><div class="label">consultas evaluadas</div></div>
-          <div class="metric"><div class="label">Productos</div><div class="value">8</div><div class="label">grupos de componentes</div></div>
-          <div class="metric"><div class="label">Abstención</div><div class="value">8</div><div class="label">consultas fuera de dominio</div></div>
-          <div class="metric"><div class="label">Tokens</div><div class="value">34k</div><div class="label">en el reporte actual</div></div>
+          <div class="metric"><div class="label">Timing</div><div class="value">Latencia</div><div class="label">tiempo por etapa del pipeline</div></div>
+          <div class="metric"><div class="label">Costo</div><div class="value">Costo</div><div class="label">estimado por consumo LLM</div></div>
+        </div>
+        <h3>Metricas offline sobre dataset</h3>
+        <div class="metrics">
+          <div class="metric"><div class="label">Recall@K</div><div class="value">0.938</div><div class="label">SKU esperado en top-k</div></div>
+          <div class="metric"><div class="label">Context Recall</div><div class="value">0.875</div><div class="label">producto, precio, link y fuente</div></div>
+          <div class="metric"><div class="label">Abstencion correcta</div><div class="value">1.000</div><div class="label">fuera de dominio</div></div>
+          <div class="metric"><div class="label">Robustez</div><div class="value">0.917</div><div class="label">parafrasis y ruido</div></div>
         </div>
         <div class="card">
-          <h3>Variantes probadas</h3>
-          <ul>
-            <li>SKU exacto: <code>R-10K-0603-1</code>.</li>
-            <li>Nombre o descripción técnica.</li>
-            <li>Uso esperado: desacople, regulación, medición.</li>
-            <li>Ruido y errores: <code>resistensia</code>, <code>stok</code>, <code>capasitor</code>.</li>
-          </ul>
+          <h3>Dataset de evaluacion</h3>
+          <p>40 consultas sobre 8 grupos de componentes: SKU exacto, nombre, descripcion tecnica, uso esperado, ruido/errores y consultas fuera de dominio.</p>
         </div>
       </div>
     </section>
 
     <section class="slide">
       <header>
-        <div class="kicker">13. Resultados</div>
-        <h2>Evaluación / Resultados</h2>
-      </header>
-      <div class="content">
-        <div class="metrics">
-          <div class="metric"><div class="label">Recall@K</div><div class="value">0.938</div><div class="label">umbral 0.850</div></div>
-          <div class="metric"><div class="label">Context Recall</div><div class="value">0.875</div><div class="label">umbral 0.850</div></div>
-          <div class="metric"><div class="label">Abstención correcta</div><div class="value">1.000</div><div class="label">umbral 0.900</div></div>
-          <div class="metric"><div class="label">Robustez</div><div class="value">0.917</div><div class="label">umbral 0.900</div></div>
-        </div>
-        <p class="subtitle">Ademas se genera un reporte en HTML para analizar facilmente la evaluación realizada.</p>
-      </div>
-    </section>
-
-    <section class="slide">
-      <header>
-        <div class="kicker">14. Cierre</div>
-        <h2>Qué se logró y qué queda abierto</h2>
+        <div class="kicker">13. Cierre</div>
+        <h2>Conclusiones y trabajo futuro</h2>
       </header>
       <div class="content two-col">
         <div class="card">
@@ -931,7 +962,7 @@
   </main>
 
   <div class="controls" aria-hidden="false">
-    <div id="counter">1 / 15</div>
+    <div id="counter">1 / 14</div>
     <div class="buttons">
       <button id="prev" title="Anterior" aria-label="Diapositiva anterior">&#8592;</button>
       <button id="next" title="Siguiente" aria-label="Diapositiva siguiente">&#8594;</button>

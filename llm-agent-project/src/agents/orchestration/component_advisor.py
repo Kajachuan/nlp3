@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import re
 import os
-from dataclasses import dataclass
+import time
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable
 from urllib.parse import quote
@@ -25,6 +26,15 @@ from src.tools.external.telegram_tool import send_telegram_message
 
 
 @dataclass(frozen=True)
+class PlannedProductQuery:
+    label: str
+    normalized_query: str
+    product_terms: list[str]
+    web_search_query: str
+    needs_price: bool
+
+
+@dataclass(frozen=True)
 class PlannerDecision:
     route: str
     normalized_query: str
@@ -36,6 +46,7 @@ class PlannerDecision:
     model: str
     provider: str
     direct_answer: str = ""
+    product_queries: list[PlannedProductQuery] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -55,6 +66,14 @@ class AggregatorDecision:
 
 
 @dataclass(frozen=True)
+class ProductEvidenceBundle:
+    product: PlannedProductQuery
+    local: LocalHybridAgentResult
+    evidence_gate: EvidenceGateDecision
+    web: WebResearchResult | None = None
+
+
+@dataclass(frozen=True)
 class AdvisorResponse:
     ok: bool
     final_answer: str
@@ -68,6 +87,11 @@ class AdvisorResponse:
     evidence_gate: EvidenceGateDecision | None = None
     aggregator_decision: AggregatorDecision | None = None
     stream_messages: list[str] | None = None
+    multi_product: bool = False
+    product_evidence: list[ProductEvidenceBundle] = field(default_factory=list)
+    requested_product_count: int = 0
+    processed_product_count: int = 0
+    truncated_product_count: int = 0
 
 
 class ComponentAdvisorOrchestrator:
@@ -99,6 +123,7 @@ class ComponentAdvisorOrchestrator:
         enable_telegram_notification: bool = False,
         model_selection: LLMModelSelection | None = None,
         progress_callback: Callable[[str], None] | None = None,
+        max_products: int = 1,
     ) -> AdvisorResponse:
         models = model_selection or default_model_selection()
         metrics = Metrics()
@@ -122,10 +147,12 @@ class ComponentAdvisorOrchestrator:
 
         top_k = clamp_int(top_k, 1, 5)
         web_limit = clamp_int(web_limit, 1, 5)
+        max_products = clamp_int(max_products, 1, 3)
         metrics.set_label("planner_model", models.planner_model)
         metrics.set_label("verifier_model", models.verifier_model)
         metrics.set_label("estimated_cost_usd", 0.0)
         metrics.set_label("langfuse_enabled", self.tracer.enabled)
+        metrics.set_label("max_products", max_products)
 
         with self.tracer.trace("component_purchase_advisor", {"query": validation.sanitized}) as trace:
             graph = self._build_graph(
@@ -138,6 +165,7 @@ class ComponentAdvisorOrchestrator:
                 preferred_sites=preferred_sites,
                 preferred_only=preferred_only,
                 enable_telegram_notification=enable_telegram_notification,
+                max_products=max_products,
                 progress_callback=progress_callback,
             )
             state = graph.invoke(
@@ -148,17 +176,20 @@ class ComponentAdvisorOrchestrator:
                     "web": None,
                     "local": None,
                     "gate": None,
+                    "product_evidence": [],
                     "aggregator": None,
                     "final_answer": "",
                     "enable_telegram_notification": enable_telegram_notification,
                 }
             )
+            self._record_langfuse_trace(metrics, trace)
 
         planner = state.get("planner")
         local = state.get("local")
         web = state.get("web")
         gate = state.get("gate")
         aggregator = state.get("aggregator")
+        product_evidence = state.get("product_evidence", [])
         final_answer = self._clean_markdown_fences(state.get("final_answer") or "")
         catalog = self._catalog_result_from_local(local) if local else None
         response = AdvisorResponse(
@@ -174,6 +205,11 @@ class ComponentAdvisorOrchestrator:
             evidence_gate=gate,
             aggregator_decision=aggregator,
             stream_messages=state.get("stream_messages", []),
+            multi_product=bool(state.get("multi_product", False)),
+            product_evidence=product_evidence,
+            requested_product_count=int(state.get("requested_product_count", 0) or 0),
+            processed_product_count=int(state.get("processed_product_count", 0) or 0),
+            truncated_product_count=int(state.get("truncated_product_count", 0) or 0),
         )
         if self.tracer.last_error:
             metrics.set_label("langfuse_error", self.tracer.last_error)
@@ -190,6 +226,11 @@ class ComponentAdvisorOrchestrator:
                 evidence_gate=response.evidence_gate,
                 aggregator_decision=response.aggregator_decision,
                 stream_messages=response.stream_messages,
+                multi_product=response.multi_product,
+                product_evidence=response.product_evidence,
+                requested_product_count=response.requested_product_count,
+                processed_product_count=response.processed_product_count,
+                truncated_product_count=response.truncated_product_count,
             )
         self._audit(validation.sanitized, response)
         return response
@@ -205,6 +246,7 @@ class ComponentAdvisorOrchestrator:
         preferred_sites: list[str] | None,
         preferred_only: bool,
         enable_telegram_notification: bool,
+        max_products: int,
         progress_callback: Callable[[str], None] | None = None,
     ):
         graph = StateGraph(dict)
@@ -238,80 +280,121 @@ class ComponentAdvisorOrchestrator:
                 next_state["final_answer"] = final_answer
             return next_state
 
-        def local_hybrid_search_node(state: dict[str, Any]) -> dict[str, Any]:
+        def product_evidence_loop_node(state: dict[str, Any]) -> dict[str, Any]:
             planner = state["planner"]
             messages = list(state.get("stream_messages", []))
-            messages.append("Searching the local catalog with semantic and keyword retrieval.")
-            with trace.span("local_hybrid_search"):
-                with metrics.timer("local_hybrid_search"):
-                    emit("Llamando RAG semantico sobre el catalogo local...")
-                    emit("Haciendo keyword/BM25 search sobre SKU, nombre y descripcion...")
-                    local = self.local_hybrid_agent.run(planner.normalized_query or state["query"], top_k=top_k)
-            emit(
-                "Busqueda local terminada: "
-                f"RAG={len(local.response.rag_hits)}, "
-                f"Keyword/BM25={len(local.response.keyword_hits)}, "
-                f"Hybrid={len(local.response.results)}."
-            )
-            metrics.increment("rag_result_count", len(local.response.rag_hits))
-            metrics.increment("keyword_result_count", len(local.response.keyword_hits))
-            metrics.increment("local_result_count", len(local.response.results))
-            metrics.timings_ms.update(local.response.timings_ms)
-            if local.response.results:
-                metrics.set_score("best_local_score", local.response.results[0].score)
-            return {**state, "local": local, "stream_messages": messages}
+            products = self._products_from_planner(planner, state["query"])
+            requested_count = len(products)
+            products_to_process = products[:max_products]
+            truncated_count = max(0, requested_count - len(products_to_process))
+            metrics.set_label("multi_product_enabled", requested_count > 1)
+            metrics.set_label("requested_product_count", requested_count)
+            metrics.set_label("processed_product_count", len(products_to_process))
+            metrics.set_label("truncated_product_count", truncated_count)
 
-        def evidence_gate_node(state: dict[str, Any]) -> dict[str, Any]:
-            emit("Evaluando si la evidencia local alcanza o si hace falta fallback web...")
-            planner = state["planner"]
-            local = state["local"]
-            with trace.span("local_evidence_gate"):
-                gate = self.evidence_gate.decide(
-                    local.response,
-                    planner.needs_price,
-                    required_terms=planner.product_terms,
-                )
-            metrics.set_label("web_fallback_used", gate.use_web_fallback)
-            metrics.set_label("evidence_gate_reason", gate.reason)
-            emit(f"Decision de evidencia: {gate.reason}. Fallback web={'si' if gate.use_web_fallback else 'no'}.")
-            return {**state, "gate": gate}
+            bundles: list[ProductEvidenceBundle] = []
+            any_web_fallback = False
+            best_local_score = 0.0
+            messages.append("Searching each requested product with local hybrid retrieval and web fallback when needed.")
+            with trace.span("product_evidence_loop", {"product_count": len(products_to_process)}):
+                with metrics.timer("product_evidence_loop"):
+                    for index, product in enumerate(products_to_process, start=1):
+                        emit(f"Producto {index}/{len(products_to_process)}: buscando {product.label} en catalogo local...")
+                        local_started = time.perf_counter()
+                        with trace.span(f"product_{index}_local_hybrid_search"):
+                            local = self.local_hybrid_agent.run(product.normalized_query, top_k=top_k)
+                        self._add_metric_timing(
+                            metrics,
+                            "local_hybrid_search",
+                            round((time.perf_counter() - local_started) * 1000, 2),
+                        )
+                        for name, value in local.response.timings_ms.items():
+                            self._add_metric_timing(metrics, name, value)
+                        metrics.increment("rag_result_count", len(local.response.rag_hits))
+                        metrics.increment("keyword_result_count", len(local.response.keyword_hits))
+                        metrics.increment("local_result_count", len(local.response.results))
+                        if local.response.results:
+                            best_local_score = max(best_local_score, local.response.results[0].score)
 
-        def web_fallback_node(state: dict[str, Any]) -> dict[str, Any]:
-            planner = state["planner"]
-            messages = list(state.get("stream_messages", []))
-            messages.append("Local evidence is insufficient. Searching external suppliers with Google Shopping.")
-            emit(f"Llamando web search / Google Shopping con query: {planner.web_search_query}")
-            with trace.span("web_fallback", {"query": planner.web_search_query}):
-                with metrics.timer("web_fallback"):
-                    web = self.web_agent.run(
-                        planner.web_search_query or planner.normalized_query,
-                        limit=web_limit,
-                        method=web_method,
-                        preferred_sites=preferred_sites,
-                        preferred_only=preferred_only,
-                    )
-            emit(f"Web search terminado: {len(web.results)} resultados.")
-            metrics.increment("web_result_count", len(web.results))
-            metrics.set_label("web_tool_mode", web.tool_mode)
-            return {**state, "web": web, "stream_messages": messages}
+                        emit(f"Producto {index}: evaluando evidencia local...")
+                        with trace.span(f"product_{index}_local_evidence_gate"):
+                            gate = self.evidence_gate.decide(
+                                local.response,
+                                product.needs_price,
+                                required_terms=product.product_terms,
+                            )
+                        metrics.set_label(f"product_{index}_web_fallback_used", gate.use_web_fallback)
+                        metrics.set_label(f"product_{index}_evidence_gate_reason", gate.reason)
+
+                        web = None
+                        if gate.use_web_fallback:
+                            any_web_fallback = True
+                            messages.append(
+                                f"Local evidence is insufficient for {product.label}. Searching external suppliers."
+                            )
+                            emit(f"Producto {index}: llamando web search con query: {product.web_search_query}")
+                            web_started = time.perf_counter()
+                            with trace.span(f"product_{index}_web_fallback", {"query": product.web_search_query}):
+                                web = self.web_agent.run(
+                                    product.web_search_query or product.normalized_query,
+                                    limit=web_limit,
+                                    method=web_method,
+                                    preferred_sites=preferred_sites,
+                                    preferred_only=preferred_only,
+                                )
+                            self._add_metric_timing(
+                                metrics,
+                                "web_fallback",
+                                round((time.perf_counter() - web_started) * 1000, 2),
+                            )
+                            metrics.increment("web_result_count", len(web.results))
+                            metrics.set_label(f"product_{index}_web_tool_mode", web.tool_mode)
+                            emit(f"Producto {index}: web search termino con {len(web.results)} resultados.")
+                        else:
+                            metrics.increment("web_result_count", 0)
+                            emit(f"Producto {index}: evidencia local suficiente.")
+
+                        bundles.append(
+                            ProductEvidenceBundle(
+                                product=product,
+                                local=local,
+                                evidence_gate=gate,
+                                web=web,
+                            )
+                        )
+
+            if best_local_score > 0:
+                metrics.set_score("best_local_score", best_local_score)
+            metrics.set_label("web_fallback_used", any_web_fallback)
+            if truncated_count:
+                messages.append(f"Se procesaron {len(products_to_process)} productos y se omitieron {truncated_count}.")
+            first = bundles[0] if bundles else None
+            return {
+                **state,
+                "product_evidence": bundles,
+                "local": first.local if first else None,
+                "gate": first.evidence_gate if first else None,
+                "web": first.web if first else None,
+                "multi_product": requested_count > 1,
+                "requested_product_count": requested_count,
+                "processed_product_count": len(products_to_process),
+                "truncated_product_count": truncated_count,
+                "stream_messages": messages,
+            }
 
         def aggregator_verifier_node(state: dict[str, Any]) -> dict[str, Any]:
             emit("Agregando resultados y verificando respuesta final con el LLM...")
-            web = state.get("web")
-            if web is None:
-                metrics.increment("web_result_count", 0)
             with trace.span("aggregator_verifier", {"model": models.verifier_model}):
                 with metrics.timer("aggregator_verifier"):
                     aggregator = self._run_aggregator(
                         state["query"],
                         state["planner"],
-                        state["local"],
-                        web,
-                        state.get("gate"),
+                        state.get("product_evidence", []),
                         models.verifier_model,
                         trace,
                         metrics,
                         state.get("chat_history", []),
+                        state.get("truncated_product_count", 0),
                     )
             emit("Respuesta final verificada.")
             final_answer = aggregator.answer
@@ -327,6 +410,10 @@ class ComponentAdvisorOrchestrator:
             if not state.get("enable_telegram_notification", False):
                 metrics.set_label("telegram_message_sent", False)
                 metrics.set_label("telegram_message_skipped_reason", "disabled by user")
+                return {**state, "telegram_result": None}
+            if state.get("multi_product", False):
+                metrics.set_label("telegram_message_sent", False)
+                metrics.set_label("telegram_message_skipped_reason", "multi_product_not_supported")
                 return {**state, "telegram_result": None}
             if not self._should_send_telegram_message(aggregator):
                 metrics.set_label("telegram_message_sent", False)
@@ -354,35 +441,22 @@ class ComponentAdvisorOrchestrator:
             return {**state, "telegram_result": telegram_result}
 
         graph.add_node("planner", planner_node)
-        graph.add_node("local_hybrid_search", local_hybrid_search_node)
-        graph.add_node("local_evidence_gate", evidence_gate_node)
-        graph.add_node("web_fallback", web_fallback_node)
+        graph.add_node("product_evidence_loop", product_evidence_loop_node)
         graph.add_node("aggregator_verifier", aggregator_verifier_node)
         graph.add_node("telegram_notification", telegram_notification_node)
         graph.set_entry_point("planner")
         graph.add_conditional_edges(
             "planner",
-            lambda state: "end" if state["planner"].route in {"out_of_domain", "agent_info"} else "local_hybrid_search",
+            lambda state: "end" if state["planner"].route in {"out_of_domain", "agent_info"} else "product_evidence_loop",
             {
                 "end": END,
-                "local_hybrid_search": "local_hybrid_search",
+                "product_evidence_loop": "product_evidence_loop",
             },
         )
-        graph.add_edge("local_hybrid_search", "local_evidence_gate")
-        graph.add_conditional_edges(
-            "local_evidence_gate",
-            lambda state: "web_fallback" if state["gate"].use_web_fallback else "aggregator_verifier",
-            {
-                "web_fallback": "web_fallback",
-                "aggregator_verifier": "aggregator_verifier",
-            },
-        )
-        graph.add_edge("web_fallback", "aggregator_verifier")
+        graph.add_edge("product_evidence_loop", "aggregator_verifier")
         graph.add_conditional_edges(
             "aggregator_verifier",
-            lambda state: "telegram_notification"
-            if enable_telegram_notification and self._should_send_telegram_message(state.get("aggregator"))
-            else "end",
+            lambda state: "telegram_notification" if enable_telegram_notification else "end",
             {
                 "telegram_notification": "telegram_notification",
                 "end": END,
@@ -407,17 +481,20 @@ class ComponentAdvisorOrchestrator:
         parsed = parse_json_object(llm_result.content)
         if not parsed or "error" in parsed:
             parsed = self._fallback_planner(query, model, llm_result.provider)
+        product_queries = self._parse_product_queries(parsed, query)
         return PlannerDecision(
             route=str(parsed.get("route") or "local_search"),
-            normalized_query=str(parsed.get("normalized_query") or query),
-            product_terms=[str(term) for term in parsed.get("product_terms", []) if str(term).strip()],
-            web_search_query=str(parsed.get("web_search_query") or self._english_web_query(query)),
+            normalized_query=str(parsed.get("normalized_query") or product_queries[0].normalized_query or query),
+            product_terms=[str(term) for term in parsed.get("product_terms", []) if str(term).strip()]
+            or product_queries[0].product_terms,
+            web_search_query=str(parsed.get("web_search_query") or product_queries[0].web_search_query),
             needs_price=bool(parsed.get("needs_price", True)),
             stream_message=str(parsed.get("stream_message") or "I am planning the best way to answer your request."),
             reason=str(parsed.get("reason") or ""),
             model=model,
             provider=llm_result.provider,
             direct_answer=self._clean_markdown_fences(str(parsed.get("direct_answer") or "")),
+            product_queries=product_queries,
         )
 
     def _fallback_direct_answer(self, planner: PlannerDecision) -> str:
@@ -432,37 +509,117 @@ class ComponentAdvisorOrchestrator:
             "your request to search for a specific electronic product."
         )
 
+    def _parse_product_queries(self, parsed: dict[str, Any], query: str) -> list[PlannedProductQuery]:
+        """Parse planner product queries while keeping the legacy single-product contract."""
+        raw_products = parsed.get("product_queries")
+        products = []
+        if isinstance(raw_products, list):
+            for item in raw_products:
+                if not isinstance(item, dict):
+                    continue
+                normalized_query = str(item.get("normalized_query") or item.get("label") or "").strip()
+                if not normalized_query:
+                    continue
+                web_search_query = str(item.get("web_search_query") or self._english_web_query(normalized_query))
+                products.append(
+                    PlannedProductQuery(
+                        label=str(item.get("label") or normalized_query),
+                        normalized_query=normalized_query,
+                        product_terms=[
+                            str(term) for term in item.get("product_terms", []) if str(term).strip()
+                        ]
+                        or self._product_terms(normalized_query),
+                        web_search_query=web_search_query,
+                        needs_price=bool(item.get("needs_price", parsed.get("needs_price", True))),
+                    )
+                )
+        if products:
+            return products
+        normalized_query = str(parsed.get("normalized_query") or query)
+        return [
+            PlannedProductQuery(
+                label=normalized_query,
+                normalized_query=normalized_query,
+                product_terms=[str(term) for term in parsed.get("product_terms", []) if str(term).strip()]
+                or self._product_terms(normalized_query),
+                web_search_query=str(parsed.get("web_search_query") or self._english_web_query(normalized_query)),
+                needs_price=bool(parsed.get("needs_price", True)),
+            )
+        ]
+
+    def _products_from_planner(self, planner: PlannerDecision, query: str) -> list[PlannedProductQuery]:
+        """Return at least one product query for local-search routes."""
+        if planner.product_queries:
+            return planner.product_queries
+        return [
+            PlannedProductQuery(
+                label=planner.normalized_query or query,
+                normalized_query=planner.normalized_query or query,
+                product_terms=planner.product_terms or self._product_terms(planner.normalized_query or query),
+                web_search_query=planner.web_search_query or self._english_web_query(planner.normalized_query or query),
+                needs_price=planner.needs_price,
+            )
+        ]
+
+    def _planner_for_product(self, planner: PlannerDecision, product: PlannedProductQuery) -> PlannerDecision:
+        """Build a single-product planner view for legacy scoring helpers."""
+        return PlannerDecision(
+            route=planner.route,
+            normalized_query=product.normalized_query,
+            product_terms=product.product_terms,
+            web_search_query=product.web_search_query,
+            needs_price=product.needs_price,
+            stream_message=planner.stream_message,
+            reason=planner.reason,
+            model=planner.model,
+            provider=planner.provider,
+            direct_answer=planner.direct_answer,
+            product_queries=[product],
+        )
+
     def _run_aggregator(
         self,
         query: str,
         planner: PlannerDecision,
-        local: LocalHybridAgentResult,
-        web: WebResearchResult | None,
-        gate: EvidenceGateDecision | None,
+        product_evidence: list[ProductEvidenceBundle],
         model: str,
         trace,
         metrics: Metrics,
         chat_history: list[dict[str, str]] | None = None,
+        truncated_product_count: int = 0,
     ) -> AggregatorDecision:
         prompt = load_prompt("aggregator_verifier")
-        local_results_for_aggregation = local.response.results
-        if web and web.results and not self._local_supports_specific_terms(local, planner):
-            local_results_for_aggregation = []
-            metrics.set_label("local_results_suppressed_for_aggregation", True)
-        else:
-            metrics.set_label("local_results_suppressed_for_aggregation", False)
+        product_payloads = []
+        suppressed_any = False
+        for index, bundle in enumerate(product_evidence, start=1):
+            local_results_for_aggregation = bundle.local.response.results
+            if bundle.web and bundle.web.results and not self._local_supports_product_terms(bundle.local, bundle.product):
+                local_results_for_aggregation = []
+                suppressed_any = True
+                metrics.set_label(f"product_{index}_local_results_suppressed_for_aggregation", True)
+            else:
+                metrics.set_label(f"product_{index}_local_results_suppressed_for_aggregation", False)
+            product_payloads.append(
+                {
+                    "index": index,
+                    "product": bundle.product.__dict__,
+                    "evidence_gate": bundle.evidence_gate.__dict__,
+                    "local_results": [self._hybrid_to_dict(result) for result in local_results_for_aggregation],
+                    "web_results": [result.__dict__ for result in bundle.web.results] if bundle.web else [],
+                }
+            )
+        metrics.set_label("local_results_suppressed_for_aggregation", suppressed_any)
 
         payload = {
             "query": query,
             "chat_history": chat_history or [],
-            "planner": planner.__dict__,
-            "evidence_gate": gate.__dict__ if gate else None,
+            "planner": self._planner_to_dict(planner),
+            "truncated_product_count": truncated_product_count,
             "aggregation_rule": (
-                "If local_results is empty and web_results is not empty, answer from web_results. "
-                "Do not use omitted local candidates."
+                "Produce one final answer for all product evidence. For each product, if local_results is empty "
+                "and web_results is not empty, answer from web_results. Do not use omitted local candidates."
             ),
-            "local_results": [self._hybrid_to_dict(result) for result in local_results_for_aggregation],
-            "web_results": [result.__dict__ for result in web.results] if web else [],
+            "products": product_payloads,
         }
         payload_text = str(payload)
         llm_result = self.llm_provider.invoke(model, prompt, payload_text)
@@ -471,9 +628,10 @@ class ComponentAdvisorOrchestrator:
         parsed = parse_json_object(llm_result.content)
         if parsed and "error" not in parsed and parsed.get("answer"):
             parsed_purchase_url = self._optional_str(parsed.get("purchase_url") or parsed.get("source"))
-            if not parsed_purchase_url and local_results_for_aggregation:
-                parsed_purchase_url = self._local_purchase_url(local_results_for_aggregation[0].item)
-            return AggregatorDecision(
+            first_local_results = product_payloads[0]["local_results"] if product_payloads else []
+            if not parsed_purchase_url and first_local_results:
+                parsed_purchase_url = str(first_local_results[0].get("purchase_url") or "")
+            decision = AggregatorDecision(
                 should_answer=bool(parsed.get("should_answer", True)),
                 product_name=self._optional_str(parsed.get("product_name")),
                 price=self._optional_str(parsed.get("price")),
@@ -487,7 +645,142 @@ class ComponentAdvisorOrchestrator:
                 model=model,
                 provider=llm_result.provider,
             )
-        return self._fallback_aggregator(local, web, planner, model, llm_result.provider)
+            if len(product_evidence) > 1 and not self._aggregator_covers_products(decision, product_evidence):
+                metrics.set_label("aggregator_response_repaired", True)
+                return self._fallback_aggregator_from_bundles(
+                    product_evidence,
+                    planner,
+                    model,
+                    llm_result.provider,
+                    truncated_product_count=truncated_product_count,
+                )
+            metrics.set_label("aggregator_response_repaired", False)
+            return decision
+        return self._fallback_aggregator_from_bundles(
+            product_evidence,
+            planner,
+            model,
+            llm_result.provider,
+            truncated_product_count=truncated_product_count,
+        )
+
+    def _fallback_aggregator_from_bundles(
+        self,
+        product_evidence: list[ProductEvidenceBundle],
+        planner: PlannerDecision,
+        model: str,
+        provider: str,
+        truncated_product_count: int = 0,
+    ) -> AggregatorDecision:
+        """Build a consolidated answer without extra LLM calls."""
+        if not product_evidence:
+            return AggregatorDecision(
+                should_answer=False,
+                product_name=None,
+                price=None,
+                purchase_url=None,
+                vendor=None,
+                source="none",
+                confidence=0.0,
+                answer="No encontre evidencia suficiente para recomendar componentes con precio y URL de compra confiables.",
+                limitations=["No local or external evidence available."],
+                citations=[],
+                model=model,
+                provider=provider,
+            )
+
+        decisions = [
+            self._fallback_aggregator(
+                bundle.local,
+                bundle.web,
+                self._planner_for_product(planner, bundle.product),
+                model,
+                provider,
+            )
+            for bundle in product_evidence
+        ]
+        if len(decisions) == 1 and not truncated_product_count:
+            return decisions[0]
+
+        answer_sections = []
+        product_names = []
+        citations = []
+        limitations = []
+        confidences = []
+        for bundle, decision in zip(product_evidence, decisions):
+            product_names.append(decision.product_name or bundle.product.label)
+            citations.extend(decision.citations)
+            limitations.extend(decision.limitations)
+            confidences.append(decision.confidence)
+            if decision.should_answer:
+                answer_sections.append(f"### {bundle.product.label}\n{decision.answer}")
+            else:
+                answer_sections.append(
+                    f"### {bundle.product.label}\n"
+                    "No encontre evidencia suficiente para recomendar este componente con precio y URL confiables."
+                )
+        if truncated_product_count:
+            answer_sections.append(
+                f"No procese {truncated_product_count} producto(s) porque el limite configurado es 3."
+            )
+            limitations.append("Some requested products were not processed due to max_products.")
+
+        should_answer = any(decision.should_answer for decision in decisions)
+        return AggregatorDecision(
+            should_answer=should_answer,
+            product_name=", ".join(product_names) if product_names else None,
+            price=None,
+            purchase_url=None,
+            vendor=None,
+            source="multiple",
+            confidence=round(sum(confidences) / max(len(confidences), 1), 4),
+            answer="\n\n".join(answer_sections),
+            limitations=sorted(set(limitations)),
+            citations=sorted(set(citations)),
+            model=model,
+            provider=provider,
+        )
+
+    def _aggregator_covers_products(
+        self,
+        decision: AggregatorDecision,
+        product_evidence: list[ProductEvidenceBundle],
+    ) -> bool:
+        """Return whether the LLM answer mentions each processed product with evidence."""
+        answer = decision.answer.lower()
+        if not answer:
+            return False
+        products_with_evidence = 0
+        for bundle in product_evidence:
+            if not self._bundle_has_purchase_evidence(bundle):
+                continue
+            products_with_evidence += 1
+            identifiers = self._product_identifiers(bundle.product)
+            if identifiers and not any(identifier in answer for identifier in identifiers):
+                return False
+        price_sections = re.findall(r"\bprecio\s*:", decision.answer, flags=re.IGNORECASE)
+        if products_with_evidence and len(price_sections) < products_with_evidence:
+            return False
+        return True
+
+    def _bundle_has_purchase_evidence(self, bundle: ProductEvidenceBundle) -> bool:
+        if bundle.local.response.results and self._local_supports_product_terms(bundle.local, bundle.product):
+            best = bundle.local.response.results[0].item
+            return bool(best.get("price_usd") not in {None, ""})
+        return bool(bundle.web and any(result.price for result in bundle.web.results))
+
+    def _product_identifiers(self, product: PlannedProductQuery) -> list[str]:
+        terms = [
+            product.label,
+            product.normalized_query,
+            product.web_search_query,
+            *product.product_terms,
+        ]
+        return [
+            term.strip().lower()
+            for term in self._specific_product_terms(terms) or terms
+            if term and len(term.strip()) > 2
+        ]
 
     def _fallback_planner(self, query: str, model: str, provider: str) -> dict[str, Any]:
         lowered = query.lower()
@@ -631,15 +924,40 @@ class ComponentAdvisorOrchestrator:
             "document": result.document,
         }
 
+    def _planner_to_dict(self, planner: PlannerDecision) -> dict[str, Any]:
+        return {
+            "route": planner.route,
+            "normalized_query": planner.normalized_query,
+            "product_terms": planner.product_terms,
+            "web_search_query": planner.web_search_query,
+            "needs_price": planner.needs_price,
+            "stream_message": planner.stream_message,
+            "reason": planner.reason,
+            "model": planner.model,
+            "provider": planner.provider,
+            "direct_answer": planner.direct_answer,
+            "product_queries": [product.__dict__ for product in planner.product_queries],
+        }
+
     def _product_terms(self, query: str) -> list[str]:
         return [term for term in re.findall(r"[A-Za-z0-9.-]+", query) if len(term) > 2]
 
     def _local_supports_specific_terms(self, local: LocalHybridAgentResult, planner: PlannerDecision) -> bool:
+        product = PlannedProductQuery(
+            label=planner.normalized_query,
+            normalized_query=planner.normalized_query,
+            product_terms=planner.product_terms,
+            web_search_query=planner.web_search_query,
+            needs_price=planner.needs_price,
+        )
+        return self._local_supports_product_terms(local, product)
+
+    def _local_supports_product_terms(self, local: LocalHybridAgentResult, product: PlannedProductQuery) -> bool:
         specific_terms = self._specific_product_terms(
             [
-                *planner.product_terms,
-                *self._product_terms(planner.normalized_query),
-                *self._product_terms(planner.web_search_query),
+                *product.product_terms,
+                *self._product_terms(product.normalized_query),
+                *self._product_terms(product.web_search_query),
             ]
         )
         if not specific_terms:
@@ -659,6 +977,10 @@ class ComponentAdvisorOrchestrator:
             if any(term in haystack for term in specific_terms):
                 return True
         return False
+
+    def _add_metric_timing(self, metrics: Metrics, name: str, value: float) -> None:
+        current = float(metrics.timings_ms.get(name, 0.0) or 0.0)
+        metrics.timings_ms[name] = round(current + float(value), 2)
 
     def _specific_product_terms(self, terms: list[str]) -> list[str]:
         generic = {
@@ -762,6 +1084,14 @@ class ComponentAdvisorOrchestrator:
         metrics.increment(f"{node_name}_total_tokens", total_tokens)
         current_cost = float(metrics.labels.get("estimated_cost_usd", 0.0) or 0.0)
         metrics.set_label("estimated_cost_usd", round(current_cost + float(llm_result.estimated_cost or 0.0), 6))
+
+    def _record_langfuse_trace(self, metrics: Metrics, trace) -> None:
+        trace_id = getattr(trace, "trace_id", None)
+        if trace_id:
+            metrics.set_label("langfuse_trace_id", trace_id)
+        trace_url = getattr(trace, "trace_url", None)
+        if trace_url:
+            metrics.set_label("langfuse_trace_url", trace_url)
 
     def _conversation_payload(self, query: str, chat_history: list[dict[str, str]] | None = None) -> str:
         history = chat_history or []

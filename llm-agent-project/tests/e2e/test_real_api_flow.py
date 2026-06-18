@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import os
+import re
+import time
 from pathlib import Path
 
 import pytest
@@ -29,6 +31,12 @@ def _require_serpapi() -> None:
         pytest.skip("SERPAPI_API_KEY is required for real web fallback e2e tests.")
 
 
+def _require_langfuse() -> None:
+    _load_real_env()
+    if not (os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY")):
+        pytest.skip("LANGFUSE_PUBLIC_KEY and LANGFUSE_SECRET_KEY are required for Langfuse e2e tests.")
+
+
 def _real_models() -> LLMModelSelection:
     model = os.getenv("E2E_GROQ_MODEL") or os.getenv("PLANNER_MODEL") or "llama-3.3-70b-versatile"
     return LLMModelSelection(
@@ -36,6 +44,22 @@ def _real_models() -> LLMModelSelection:
         direct_response_model=os.getenv("DIRECT_RESPONSE_MODEL") or model,
         verifier_model=os.getenv("VERIFIER_MODEL") or model,
     )
+
+
+def _fetch_langfuse_trace(trace_id: str):
+    from langfuse import Langfuse
+
+    host = os.getenv("LANGFUSE_BASE_URL") or os.getenv("LANGFUSE_HOST")
+    client = Langfuse(host=host)
+    for _ in range(8):
+        try:
+            trace = client.fetch_trace(trace_id)
+        except Exception:
+            trace = None
+        if trace:
+            return trace
+        time.sleep(5)
+    return None
 
 
 @pytest.mark.e2e
@@ -136,3 +160,56 @@ def test_real_api_web_fallback_uses_serpapi_when_local_catalog_is_insufficient()
     assert response.web is not None
     assert response.web.tool_mode == "web_search_tool"
     assert response.metrics["counters"]["web_result_count"] > 0
+
+
+@pytest.mark.e2e
+def test_real_api_multi_product_uses_local_rag_and_web_fallback_with_two_prices() -> None:
+    _require_groq()
+    _require_serpapi()
+    _require_langfuse()
+    build_component_advisor.cache_clear()
+    advisor = build_component_advisor()
+
+    response = advisor.answer(
+        "Dame el precio del sensor BME280 y del sensor de corriente ACS71240 de Allegro",
+        top_k=1,
+        web_limit=3,
+        web_method="google_shopping",
+        model_selection=_real_models(),
+        max_products=3,
+    )
+
+    assert response.ok
+    assert response.planner_decision is not None
+    assert response.planner_decision.provider == "groq"
+    assert response.planner_decision.route == "local_search"
+    assert response.multi_product
+    assert response.processed_product_count == 2
+    assert len(response.product_evidence) == 2
+
+    bme_bundle = next(
+        bundle for bundle in response.product_evidence if "bme280" in bundle.product.normalized_query.lower()
+    )
+    acs_bundle = next(
+        bundle for bundle in response.product_evidence if "acs71240" in bundle.product.normalized_query.lower()
+    )
+
+    assert bme_bundle.local.response.results
+    assert bme_bundle.evidence_gate.use_web_fallback is False
+    assert bme_bundle.local.response.results[0].item.get("price_usd") not in {None, ""}
+
+    assert acs_bundle.evidence_gate.use_web_fallback is True
+    assert acs_bundle.web is not None
+    assert acs_bundle.web.tool_mode == "web_search_tool"
+    assert any(result.price for result in acs_bundle.web.results)
+
+    answer = response.final_answer.lower()
+    assert "bme280" in answer
+    assert "acs71240" in answer
+    assert str(bme_bundle.local.response.results[0].item["price_usd"]) in response.final_answer
+    assert len(re.findall(r"(?i)\bprecio\s*:", response.final_answer)) >= 2
+
+    trace_id = response.metrics["labels"].get("langfuse_trace_id")
+    assert trace_id
+    trace = _fetch_langfuse_trace(str(trace_id))
+    assert trace is not None

@@ -1660,7 +1660,7 @@
 
     <div class="box span-12">
       <h3>Contrato entre agentes</h3>
-      <p>Los nodos intercambian estado estructurado: decision del planner, resultados RAG, resultados Keyword/BM25, decision del evidence gate, resultados web, respuesta verificada y metricas.</p>
+      <p>Los nodos intercambian estado estructurado: decision unica del planner, lista de productos detectados, evidencias RAG/Keyword por producto, decision del evidence gate, resultados web selectivos, respuesta verificada unica y metricas.</p>
     </div>
   </section>
 
@@ -1702,7 +1702,7 @@
       <div class="timeline-step">
         <div>
           <strong>Clasificacion rapida</strong>
-          <span>El planner decide si la consulta esta fuera de dominio, es sobre el agente/compania o requiere busqueda de compra. Tambien produce <code>normalized_query</code>, <code>product_terms</code> y <code>web_search_query</code> en ingles.</span>
+          <span>El planner se ejecuta una sola vez. Decide si la consulta esta fuera de dominio, es sobre el agente/compania o requiere busqueda de compra. Para compras, tambien produce <code>product_queries</code>: hasta 3 subconsultas atomicas, limitadas por el slider de Streamlit.</span>
         </div>
       </div>
       <div class="timeline-step">
@@ -1713,28 +1713,28 @@
       </div>
       <div class="timeline-step">
         <div>
-          <strong>Busqueda local hibrida</strong>
-          <span>Para productos, corre RAG semantico y keyword/BM25 sobre nuestro catalogo, luego fusiona candidatos en <code>hybrid_merge</code>. Esta es la ruta preferida.</span>
+          <strong>Loop interno de evidencia</strong>
+          <span>Para cada producto planificado, corre RAG semantico y keyword/BM25 sobre nuestro catalogo, luego fusiona candidatos en <code>hybrid_merge</code>. No se vuelve a llamar al planner.</span>
           <div class="stream-list">
-            <div class="stream-line">Llamando RAG semantico sobre el catalogo local...</div>
-            <div class="stream-line">Haciendo keyword/BM25 search sobre SKU, nombre y descripcion...</div>
+            <div class="stream-line">Producto 1/2: buscando BME280 en catalogo local...</div>
+            <div class="stream-line">Producto 2/2: buscando LM741 en catalogo local...</div>
           </div>
         </div>
       </div>
       <div class="timeline-step">
         <div>
           <strong>Evidence gate y fallback web</strong>
-          <span>El evidence gate decide con reglas deterministicas. Si falla la evidencia local, se consulta Google Shopping con SerpAPI usando el query web en ingles.</span>
+          <span>El evidence gate decide con reglas deterministicas por producto. Solo los productos sin evidencia local suficiente disparan Google Shopping/SerpAPI con su query web en ingles.</span>
           <div class="stream-list">
-            <div class="stream-line">Evaluando si la evidencia local alcanza o si hace falta fallback web...</div>
-            <div class="stream-line">Local evidence is insufficient. Searching external suppliers with Google Shopping.</div>
+            <div class="stream-line">Producto 1: evidencia local suficiente.</div>
+            <div class="stream-line">Producto 2: llamando web search con query: LM741</div>
           </div>
         </div>
       </div>
       <div class="timeline-step">
         <div>
           <strong>Agregacion + verificacion</strong>
-          <span>El verificador compara candidatos, valida fuente, precio, URL de compra y confianza. La UI muestra un expander por respuesta con metricas y resultados por tool.</span>
+          <span>El verificador se ejecuta una sola vez al final. Recibe todos los bundles por producto, compara candidatos, valida fuente, precio, URL de compra y arma una respuesta consolidada.</span>
         </div>
       </div>
     </div>
@@ -2035,6 +2035,11 @@
         <span class="tag">Telegram</span>
         <h3>Toggle de notificacion</h3>
         <p>La sidebar incluye el checkbox <code>Enviar Telegram si se encontro precio</code>. Si esta activo y el verificador devuelve producto, precio y URL, Streamlit pasa <code>enable_telegram_notification=True</code> al backend.</p>
+      </div>
+      <div class="box span-12 obs">
+        <span class="tag">Multiproducto</span>
+        <h3>Limite configurable</h3>
+        <p>La sidebar incluye <code>Productos maximos por consulta</code>, con rango 1 a 3. El backend clampa ese valor y procesa como maximo 3 productos en el loop interno de evidencia.</p>
       </div>
     </div>
     <div class="timing-example" aria-label="Ejemplo de barra de tiempos por etapa en Streamlit">

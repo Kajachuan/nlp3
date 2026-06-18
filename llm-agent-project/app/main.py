@@ -33,6 +33,7 @@ with st.sidebar:
     st.header("Configuracion")
     top_k = st.slider("Resultados RAG", min_value=1, max_value=5, value=3)
     web_limit = st.slider("Resultados web", min_value=1, max_value=5, value=3)
+    max_products = st.slider("Productos maximos por consulta", min_value=1, max_value=3, value=3)
     web_method = st.selectbox("Metodo web", web_methods, index=web_methods.index(default_web_method))
     preferred_sites_text = st.text_input("Sitios preferidos", value="digikey.com,mouser.com")
     preferred_only = st.checkbox("Solo sitios preferidos", value=False)
@@ -312,6 +313,7 @@ if prompt:
                 verifier_model=verifier_model,
             ),
             progress_callback=update_status,
+            max_products=max_products,
         )
         status.empty()
         st.markdown(response.final_answer)

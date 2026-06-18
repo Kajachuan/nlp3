@@ -46,6 +46,24 @@ class TraceContext:
         self.trace = trace
         self.owner = owner
 
+    @property
+    def trace_id(self) -> str | None:
+        if not self.trace:
+            return None
+        value = getattr(self.trace, "id", None) or getattr(self.trace, "trace_id", None)
+        return str(value) if value else None
+
+    @property
+    def trace_url(self) -> str | None:
+        if not self.trace:
+            return None
+        try:
+            value = self.trace.get_trace_url()
+        except Exception as exc:
+            self.owner.last_error = f"{type(exc).__name__}: {exc}"
+            return None
+        return str(value) if value else None
+
     @contextmanager
     def span(self, name: str, metadata: dict[str, Any] | None = None) -> Iterator[None]:
         span = None
